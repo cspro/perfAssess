@@ -1,0 +1,58 @@
+@import "boilerplate";
+@import "normalize";
+@import "colors";
+@import "variables";
+@import "../bourbon/bourbon";
+@import "../neat/neat";
+
+@include font-face("Open Sans", "/fonts/OpenSans-Regular.ttf");
+@include font-face("Open Sans", "/fonts/OpenSans-Bold.ttf", bold);
+@include font-face("Open Sans", "/fonts/OpenSans-Italic.ttf", normal, italic);
+ 
+* {
+  font-family: "Open Sans";
+}
+
+.wrapper {
+  @include outer-container;
+  overflow: hidden;
+  
+  header {
+    background-color: $barBgColor;
+    @include background-image(url("../images/pearson-logo-transparent.png"), url("../images/alwayslearning-logo-transparent.png"));
+    height: 40px;
+    background-position: left center, right center;
+    background-repeat: no-repeat, no-repeat;
+  }
+  
+  section {
+    // @include row();
+    max-height: 500px;
+    overflow-x: none;
+    overflow-y: scroll;
+  }
+  
+  article {
+    @include span-columns(8);
+    background-color: #aaa;
+  }
+  
+  aside {
+    @include span-columns(4);
+    background-color: #ccc;
+  }
+  
+  footer {
+    @include row();
+    padding-left: 8px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 0.6em;
+    letter-spacing: 0.15em;
+    color: $barTextColor;
+    background-color: $barBgColor;
+  }
+  
+}
+
+
