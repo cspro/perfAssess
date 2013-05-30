@@ -14,10 +14,14 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        
+        <!-- Google WebFonts -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <!-- <script src="js/vendor/modernizr-2.6.2.min.js"></script> -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -26,7 +30,22 @@
 
         <!-- Add your site or application content here -->
 			<div class="wrapper">
-				<header><span class="rightSide">&nbsp;</span></header>
+				<header role="banner"></header>
+				<nav>
+					<div id="menuWrapper">
+						<a id="menuButton" href="#" onclick="$('#menuList').toggleClass('hide');">Menu</a>
+						<ul id="menuList" class="hide">
+							<li class="menuSubhead">Subhead 1</li>
+							<li><a href="/?page=1">Menu item 1</a></li>
+							<li><a href="/?page=2">Menu item 2</a></li>
+							<li><a href="/?page=3">Menu item 3</a></li>
+							<li class="menuSubhead">Subhead 2</li>
+							<li><a href="/?page=1">Menu item 4</a></li>
+							<li><a href="/?page=2">Menu item 5</a></li>
+							<li><a href="/?page=3">Menu item 6</a></li>
+						</ul>
+					</div>
+				</nav>				
 				<section class="mainSection">
 					<article>
 						<h1>Test H1 Headline</h1>
@@ -44,10 +63,18 @@
 						<p>Test paragraph text</p>
 					</article>
 					<aside>
-						Here is the text of an aside.
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						<p>Test paragraph text</p>
+						<p>Test paragraph text</p>
+						<p>Test paragraph text</p>
+						<p>Test paragraph text</p>
+						<p>Test paragraph text</p>
+						<p>Test paragraph text</p>
+						<p>Test paragraph text</p>
+
 					</aside>
 				</section>
-				<footer>&copy;2013 Pearson Learning</footer>
+				<footer role="contentinfo">Copyright &copy;2013 Pearson, Inc.</footer>
 			</div>
 
     </body>

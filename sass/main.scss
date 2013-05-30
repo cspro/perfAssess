@@ -1,56 +1,140 @@
 @import "boilerplate";
-@import "normalize";
-@import "colors";
-@import "variables";
 @import "../bourbon/bourbon";
+@import "normalize";
+@import "variables";
+@import "colors";
 @import "../neat/neat";
 
-@include font-face("Open Sans", "/fonts/OpenSans-Regular.ttf");
-@include font-face("Open Sans", "/fonts/OpenSans-Bold.ttf", bold);
-@include font-face("Open Sans", "/fonts/OpenSans-Italic.ttf", normal, italic);
- 
 * {
-  font-family: "Open Sans";
+  // Imported in main doc via Google webfonts
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: $primaryLinkColor;
+  &:hover {
+    color: lighten($primaryLinkColor, 10%);
+  }
 }
 
 .wrapper {
   @include outer-container;
   overflow: hidden;
+  font-size: 13px;
   
   header {
-    background-color: $barBgColor;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    height: $topBarHeight;
+    background-color: $topBarBgColor;
     @include background-image(url("../images/pearson-logo-transparent.png"), url("../images/alwayslearning-logo-transparent.png"));
-    height: 40px;
     background-position: left center, right center;
     background-repeat: no-repeat, no-repeat;
+  }
+
+  nav {
+    position: fixed;
+    top: $topBarHeight;
+    width: $max-width;
+    z-index: 90;
+    display: block;
+    
+    #menuWrapper {
+      position: relative;
+      float: right;
+      width: $menuWidth;
+      * {
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+      }
+      #menuButton {
+        display: block;
+        position: fixed;
+        top: $topBarHeight;
+        right: $menuRightPos;
+        z-index: 80;
+        width: $menuWidth;
+        height: $menuButtonHeight;
+        line-height: 30px;
+        text-align: center;
+        font-weight: bold;
+        background-color: $menuButtonBgColor;
+        @include border-bottom-radius(8px);
+      }
+      ul {
+        display: block;
+        position: fixed;
+        top: $topBarHeight;
+        right: $menuRightPos;
+        z-index: 70;
+        width: $menuWidth;
+        background-color: $menuBgColor;
+        @include border-bottom-radius(8px);
+        font-size: 0.9em;
+        padding: $menuButtonHeight 0 8px 0;
+        -webkit-transition: -webkit-transform 0.2s ease-in-out;
+        transition-property: -webkit-transform;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in-out;
+        -webkit-transform: translate(0px, 0px);
+   
+        &.hide {
+          // transform: translate(0px, 100px);
+          // -ms-transform: translate(0px, 100px); /* IE 9 */
+          -webkit-transform: translate(0px, -320px);
+        }
+        // display: none;
+        li {
+          list-style: none;
+          a {
+            padding: 1px 6px 1px 6px;
+            display: block;
+            &:hover {
+              background-color: $menuRolloverBgColor;
+            }
+          }
+        }
+      }
+    }
   }
   
   section {
     // @include row();
-    max-height: 500px;
+    position: fixed;
+    top: $topBarHeight;
+    bottom: $bottomBarHeight;
     overflow-x: none;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
   
   article {
+    margin-top: $topBarHeight;
     @include span-columns(8);
-    background-color: #aaa;
+    background-color: #eee;
   }
   
   aside {
+    margin-top: $topBarHeight;
     @include span-columns(4);
-    background-color: #ccc;
+    background-color: #eee;
   }
   
   footer {
     @include row();
-    padding-left: 8px;
-    height: 26px;
-    line-height: 26px;
-    font-size: 0.6em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: $bottomBarBgColor;
+    color: $bottomBarTextColor;
+    padding-left: 14px;
+    height: $bottomBarHeight;
+    line-height:  $bottomBarHeight;
+    font-size: 0.8em;
     letter-spacing: 0.15em;
-    color: $barTextColor;
-    background-color: $barBgColor;
   }
   
 }
