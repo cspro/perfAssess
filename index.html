@@ -29,17 +29,25 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
+        
+        	<script>
+        		function onMenuClick(e) {
+        			$('#menuList').toggleClass('hide');
+        			$('#menuButton').toggleClass('open');
+        		}
+        	</script>
+        
 			<div class="wrapper">
 				<header role="banner"></header>
 				<nav>
 					<div id="menuWrapper">
-						<a id="menuButton" href="#" onclick="$('#menuList').toggleClass('hide');">Menu</a>
+						<a id="menuButton" href="#" onclick="onMenuClick()">Menu</a>
 						<ul id="menuList" class="hide">
-							<li class="menuSubhead">Subhead 1</li>
+							<li><a href="/?page=3" class="subhead">Subhead 1</a></li>
 							<li><a href="/?page=1">Menu item 1</a></li>
 							<li><a href="/?page=2">Menu item 2</a></li>
 							<li><a href="/?page=3">Menu item 3</a></li>
-							<li class="menuSubhead">Subhead 2</li>
+							<li><a href="/?page=3" class="subhead">Subhead 2</a></li>
 							<li><a href="/?page=1">Menu item 4</a></li>
 							<li><a href="/?page=2">Menu item 5</a></li>
 							<li><a href="/?page=3">Menu item 6</a></li>
@@ -74,7 +82,15 @@
 
 					</aside>
 				</section>
-				<footer role="contentinfo">Copyright &copy;2013 Pearson, Inc.</footer>
+				<footer role="contentinfo">
+					<span id="copyright">Copyright &copy;2013 Pearson, Inc.</span>
+					<div id="pageNav" class="bottomNav">
+						<a href="#" aria-hidden="true" class="icon-caret-left"></a><a href="#" aria-hidden="true" class="icon-house"></a><a href="#" aria-hidden="true" class="icon-caret-right"></a>
+					</div>
+					<div id="socialNav" class="bottomNav">
+						<a href="#" aria-hidden="true" class="icon-twitter"></a><a href="#" aria-hidden="true" class="icon-facebook"></a><a href="#" aria-hidden="true" class="icon-google-plus"></a>
+					</div>
+				</footer>
 			</div>
 
     </body>

@@ -3,7 +3,8 @@
 @import "normalize";
 @import "variables";
 @import "colors";
-@import "../neat/neat";
+@import "iconfont"
+;@import "../neat/neat";
 
 * {
   // Imported in main doc via Google webfonts
@@ -55,15 +56,25 @@ a {
         display: block;
         position: fixed;
         top: $topBarHeight;
-        right: $menuRightPos;
+        right: $edgePadding - 2;
         z-index: 80;
         width: $menuWidth;
         height: $menuButtonHeight;
         line-height: 30px;
-        text-align: center;
-        font-weight: bold;
+        padding-left: $edgePadding;
+        color: $menuButtonTextColor;
+        // font-weight: bold;
         background-color: $menuButtonBgColor;
         @include border-bottom-radius(8px);
+        &:hover {
+          background-color: $menuButtonBgHoverColor;
+          color: $menuButtonTextHoverColor;
+        }
+        &.open {
+          @include border-bottom-radius(0px);
+          @include transition (all 0.25s ease-in-out);
+        }
+        @include transition (all 0.25s ease-in-out);
       }
       ul {
         display: block;
@@ -76,25 +87,32 @@ a {
         @include border-bottom-radius(8px);
         font-size: 0.9em;
         padding: $menuButtonHeight 0 8px 0;
-        -webkit-transition: -webkit-transform 0.2s ease-in-out;
-        transition-property: -webkit-transform;
-        transition-duration: 0.2s;
-        transition-timing-function: ease-in-out;
-        -webkit-transform: translate(0px, 0px);
-   
+        border: 1px solid $menuBorderColor;
+        @include transform(translateY(0));
         &.hide {
-          // transform: translate(0px, 100px);
-          // -ms-transform: translate(0px, 100px); /* IE 9 */
-          -webkit-transform: translate(0px, -320px);
+          @include transform(translateY(-320px));
         }
+        @include transition (all 0.25s ease-in-out);
         // display: none;
         li {
           list-style: none;
           a {
-            padding: 1px 6px 1px 6px;
+            @include transition (all 0.15s ease-in-out);
             display: block;
+            color: $menuItemTextColor;
+            padding: 4px 6px;
             &:hover {
-              background-color: $menuRolloverBgColor;
+              color: $menuItemTextHoverColor;
+              @include transition (all 0.25s ease-in-out);
+              background-color: $menuItemBgHoverColor;
+            }
+            &.subhead {
+              color: $menuSubheadTextColor;
+              background-color: $menuSubheadBgColor;
+              &:hover {
+                color: $menuSubheadTextHoverColor;
+                background-color: $menuSubheadBgHoverColor;
+              }
             }
           }
         }
@@ -129,12 +147,60 @@ a {
     bottom: 0;
     width: 100%;
     background-color: $bottomBarBgColor;
-    color: $bottomBarTextColor;
-    padding-left: 14px;
+    padding-left: $edgePadding;
     height: $bottomBarHeight;
     line-height:  $bottomBarHeight;
-    font-size: 0.8em;
-    letter-spacing: 0.15em;
+    .bottomNav {
+      display: block;
+      position: fixed;
+      z-index: 100;
+      font-size: 30px;
+      a {
+        display: inline-block;
+        width: 30px;
+        border-radius: 6px;
+        text-align: center;
+        color: $bottomNavColor;
+        margin: 0;
+        @include transition (all 0.15s ease-in-out);
+        &:hover {
+          color: $bottomNavHoverColor;
+          text-shadow: 1px 3px #222;
+          @include transform(translateY(-1px));
+        }
+        &:active {
+          color: darken($bottomNavHoverColor, 10%);
+          text-shadow: 1px 1px #222;
+          @include transform(translateY(0px));
+        }
+        span {
+        }
+      }
+    }
+    #pageNav {
+      width: 90px;
+      margin-left: -45px;
+      bottom: 0;
+      left: 50%;
+    }
+    #socialNav {
+      font-size: 20px;
+      bottom: 0;
+      right: $edgePadding;
+      a {
+        color: $bottomBarTextColor;
+        width: 20px;
+        margin-left: 4px;
+        &:hover {
+          color: $bottomNavColor;
+        }
+      }
+    }
+    #copyright {
+      color: $bottomBarTextColor;
+      font-size: 0.8em;
+      letter-spacing: 0.15em;
+    }
   }
   
 }
