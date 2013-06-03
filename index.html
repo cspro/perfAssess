@@ -11,15 +11,16 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
+
+        <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script> -->
+        <!-- <script src="js/vendor/modernizr-2.6.2.min.js"></script> -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- <script src="js/plugins.js"></script> -->
         <script src="js/main.js"></script>
         
         <!-- Google WebFonts -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
 
-        <!-- <script src="js/vendor/modernizr-2.6.2.min.js"></script> -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         
         <link rel="stylesheet" href="css/main.css">
     </head>
@@ -30,58 +31,26 @@
 
         <!-- Add your site or application content here -->
         
-        	<script>
-        		function onMenuClick(e) {
-        			$('#menuList').toggleClass('hide');
-        			$('#menuButton').toggleClass('open');
-        		}
-        	</script>
-        
 			<div class="wrapper">
 				<header role="banner"></header>
 				<nav>
 					<div id="menuWrapper">
-						<a id="menuButton" href="#" onclick="onMenuClick()">Menu</a>
-						<ul id="menuList" class="hide">
-							<li><a href="/?page=3" class="subhead">Subhead 1</a></li>
-							<li><a href="/?page=1">Menu item 1</a></li>
-							<li><a href="/?page=2">Menu item 2</a></li>
-							<li><a href="/?page=3">Menu item 3</a></li>
-							<li><a href="/?page=3" class="subhead">Subhead 2</a></li>
-							<li><a href="/?page=1">Menu item 4</a></li>
-							<li><a href="/?page=2">Menu item 5</a></li>
-							<li><a href="/?page=3">Menu item 6</a></li>
+						<a id="menuButton" href="#" onclick="onMenuButtonClick()">Menu</a>
+						<ul id="menuList" class="closed">
+							<li><a href="#" datasrc="00intro" class="menulink subhead">Subhead 1</a></li>
+							<li><a href="#" datasrc="01home" class="menulink">Menu item 1</a></li>
+							<li><a href="#" datasrc="02intro" class="menulink">Menu item 2</a></li>
+							<li><a href="#" datasrc="03intro" class="menulink">Menu item 3</a></li>
+							<li><a href="#" datasrc="04intro" class="menulink subhead">Subhead 2</a></li>
+							<li><a href="#" datasrc="05intro" class="menulink">Menu item 4</a></li>
+							<li><a href="#" datasrc="06intro" class="menulink">Menu item 5</a></li>
+							<li><a href="#" datasrc="07intro" class="menulink">Menu item 6</a></li>
 						</ul>
 					</div>
-				</nav>				
-				<section class="mainSection">
-					<article>
-						<h1>Test H1 Headline</h1>
-						<h2>Test H2 Headline</h2>
-						<h3>Test H3 Headline</h3>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-					</article>
-					<aside>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-						<p>Test paragraph text</p>
-
-					</aside>
-				</section>
+				</nav>
+				
+				<div id="contentContainer"></div>
+								
 				<footer role="contentinfo">
 					<span id="copyright">Copyright &copy;2013 Pearson, Inc.</span>
 					<div id="pageNav" class="bottomNav">

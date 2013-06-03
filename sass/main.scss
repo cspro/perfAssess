@@ -3,8 +3,8 @@
 @import "normalize";
 @import "variables";
 @import "colors";
-@import "iconfont"
-;@import "../neat/neat";
+@import "iconfont";
+@import "../neat/neat";
 
 * {
   // Imported in main doc via Google webfonts
@@ -16,6 +16,9 @@ a {
   color: $primaryLinkColor;
   &:hover {
     color: lighten($primaryLinkColor, 10%);
+  }
+  &:active {
+    outline: none;
   }
 }
 
@@ -81,15 +84,18 @@ a {
         position: fixed;
         top: $topBarHeight;
         right: $menuRightPos;
+        max-height: 300px;
         z-index: 70;
         width: $menuWidth;
+        overflow-y: auto;
+        overflow-x: hidden;
         background-color: $menuBgColor;
         @include border-bottom-radius(8px);
         font-size: 0.9em;
         padding: $menuButtonHeight 0 8px 0;
         border: 1px solid $menuBorderColor;
         @include transform(translateY(0));
-        &.hide {
+        &.closed {
           @include transform(translateY(-320px));
         }
         @include transition (all 0.25s ease-in-out);
@@ -114,19 +120,36 @@ a {
                 background-color: $menuSubheadBgHoverColor;
               }
             }
+            &.currentPage {
+              padding-left: 1em;
+              &:before {
+                  content: ">";
+              }
+            }
           }
         }
       }
     }
   }
   
-  section {
-    // @include row();
+  
+  
+  // ================================
+  // == Content =====================
+  // ================================
+  
+  #contentContainer {
     position: fixed;
     top: $topBarHeight;
     bottom: $bottomBarHeight;
+    left: $edgePadding;
+    right: 0;
     overflow-x: none;
     overflow-y: auto;
+  }
+  
+  section {
+    // @include row();
   }
   
   article {
