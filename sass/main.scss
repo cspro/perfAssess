@@ -4,11 +4,16 @@
 @import "variables";
 @import "colors";
 @import "iconfont";
-@import "../neat/neat";
+// @import "../neat/neat";
 
 * {
   // Imported in main doc via Google webfonts
   font-family: 'Open Sans', sans-serif;
+  // taken from Neat ------------
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  // ----------------------------
 }
 
 a {
@@ -23,7 +28,7 @@ a {
 }
 
 .wrapper {
-  @include outer-container;
+  // @include outer-container;
   overflow: hidden;
   font-size: 13px;
   
@@ -53,7 +58,6 @@ a {
       * {
         padding: 0;
         margin: 0;
-        text-transform: uppercase;
       }
       #menuButton {
         display: block;
@@ -66,18 +70,22 @@ a {
         line-height: 30px;
         padding-left: $edgePadding;
         color: $menuButtonTextColor;
+        text-transform: uppercase;
         // font-weight: bold;
         background-color: $menuButtonBgColor;
+        box-shadow: 0 0 8px #ccc;
         @include border-bottom-radius(8px);
+        @include transition (all 0.25s ease-in-out);
+        -webkit-backface-visibility: hidden; // fix for mysterious flicker on transitions
         &:hover {
           background-color: $menuButtonBgHoverColor;
           color: $menuButtonTextHoverColor;
         }
         &.open {
+          box-shadow: none;
           @include border-bottom-radius(0px);
           @include transition (all 0.25s ease-in-out);
         }
-        @include transition (all 0.25s ease-in-out);
       }
       ul {
         display: block;
@@ -94,11 +102,14 @@ a {
         font-size: 0.9em;
         padding: $menuButtonHeight 0 8px 0;
         border: 1px solid $menuBorderColor;
+        box-shadow: 0 0 8px rgba(0,0,0,0.3);
+        line-height: 1.1em;
         @include transform(translateY(0));
-        &.closed {
-          @include transform(translateY(-320px));
-        }
         @include transition (all 0.25s ease-in-out);
+        -webkit-backface-visibility: hidden; // fix for mysterious flicker on transitions
+        &.closed {
+          @include transform(translateY(-300px)); // must be a bit taller than menu height
+        }
         // display: none;
         li {
           list-style: none;
@@ -106,25 +117,39 @@ a {
             @include transition (all 0.15s ease-in-out);
             display: block;
             color: $menuItemTextColor;
-            padding: 4px 6px;
+            padding: 4px 4px 4px $edgePadding;
             &:hover {
+              cursor: pointer;
               color: $menuItemTextHoverColor;
               @include transition (all 0.25s ease-in-out);
               background-color: $menuItemBgHoverColor;
             }
+            &.currentPage {
+              // font-style: italic;
+              // background-color: desaturate(lighten($menuItemBgHoverColor, 50%), 50%);
+              // border-top: 1px solid lighten($menuBorderColor, 20%);
+              // border-bottom: 1px solid lighten($menuBorderColor, 5%);
+              box-shadow: 0 0 6px rgba(0,0,0,0.2);
+              padding: 2px 6px 2px $edgePadding - 6px;
+              margin: 2px 0;
+              &:before {
+                content: "\203A \00a0";
+              }
+            }
             &.subhead {
               color: $menuSubheadTextColor;
+              text-transform: uppercase;
               background-color: $menuSubheadBgColor;
+              margin: 4px 0;
               &:hover {
                 color: $menuSubheadTextHoverColor;
                 background-color: $menuSubheadBgHoverColor;
               }
             }
-            &.currentPage {
-              padding-left: 1em;
-              &:before {
-                  content: ">";
-              }
+            &.currentPage.subhead {
+              box-shadow: 0 0 6px rgba(0,0,0,0.7);
+              // border-top: 1px solid $menuBorderColor;
+              // border-bottom: 1px solid darken($menuBorderColor, 20%);
             }
           }
         }
@@ -154,18 +179,18 @@ a {
   
   article {
     margin-top: $topBarHeight;
-    @include span-columns(8);
+    // @include span-columns(8);
     background-color: #eee;
   }
   
   aside {
     margin-top: $topBarHeight;
-    @include span-columns(4);
+    // @include span-columns(4);
     background-color: #eee;
   }
   
   footer {
-    @include row();
+    // @include row();
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -186,17 +211,19 @@ a {
         color: $bottomNavColor;
         margin: 0;
         @include transition (all 0.15s ease-in-out);
-        &:hover {
+        &:not([class*="disabled"]):hover {
           color: $bottomNavHoverColor;
-          text-shadow: 1px 3px #222;
+          cursor: pointer;
+          text-shadow: 1px 3px rgba(0,0,0,0.5);
           @include transform(translateY(-1px));
         }
-        &:active {
+        &:not([class*="disabled"]):active {
           color: darken($bottomNavHoverColor, 10%);
-          text-shadow: 1px 1px #222;
+          text-shadow: 1px 1px rgba(0,0,0,0.5);
           @include transform(translateY(0px));
         }
-        span {
+        &.disabled {
+          color: darken($bottomNavColor, 50%);
         }
       }
     }
@@ -215,6 +242,7 @@ a {
         width: 20px;
         margin-left: 4px;
         &:hover {
+          cursor: pointer;
           color: $bottomNavColor;
         }
       }
@@ -222,8 +250,14 @@ a {
     #copyright {
       color: $bottomBarTextColor;
       font-size: 0.8em;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.05em;
     }
+  }
+  
+  .disabled {
+    cursor: default !important;
+    // pointer-events doesn't work in IE or Opera, but works for everything else to prevent mouse behaviors
+    pointer-events: none;
   }
   
 }

@@ -29,22 +29,24 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        
 			<div class="wrapper">
 				<header role="banner"></header>
 				<nav>
 					<div id="menuWrapper">
-						<a id="menuButton" href="#" onclick="onMenuButtonClick()">Menu</a>
+						<a id="menuButton" href="#">Menu</a>
 						<ul id="menuList" class="closed">
-							<li><a href="#" datasrc="00intro" class="menulink subhead">Subhead 1</a></li>
-							<li><a href="#" datasrc="01home" class="menulink">Menu item 1</a></li>
-							<li><a href="#" datasrc="02intro" class="menulink">Menu item 2</a></li>
-							<li><a href="#" datasrc="03intro" class="menulink">Menu item 3</a></li>
-							<li><a href="#" datasrc="04intro" class="menulink subhead">Subhead 2</a></li>
-							<li><a href="#" datasrc="05intro" class="menulink">Menu item 4</a></li>
-							<li><a href="#" datasrc="06intro" class="menulink">Menu item 5</a></li>
-							<li><a href="#" datasrc="07intro" class="menulink">Menu item 6</a></li>
+							<li><a role="button" tabindex="01" datasrc="00intro" class="menulink subhead">About</a></li>
+							<li><a role="button" tabindex="02" datasrc="01home" class="menulink">Performance Assessment</a></li>
+							<li><a role="button" tabindex="03" datasrc="02intro" class="menulink">Center for NGLA</a></li>
+							<li><a role="button" tabindex="04" datasrc="03intro" class="menulink">Resources</a></li>
+							<li><a role="button" tabindex="05" datasrc="04intro" class="menulink subhead">Our Approaches</a></li>
+							<li><a role="button" tabindex="06" datasrc="05intro" class="menulink">Constructed Response &amp; TEI</a></li>
+							<li><a role="button" tabindex="07" datasrc="06intro" class="menulink">Essays</a></li>
+							<li><a role="button" tabindex="08" datasrc="07intro" class="menulink">Performance Tasks</a></li>
+							<li><a role="button" tabindex="09" datasrc="08intro" class="menulink">Demonstrations</a></li>
+							<li><a role="button" tabindex="10" datasrc="09intro" class="menulink">Projects</a></li>
+							<li><a role="button" tabindex="11" datasrc="10intro" class="menulink">Portfolios</a></li>
+							<li><a role="button" tabindex="12" datasrc="11intro" class="menulink">Online Games &amp; Simulations</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -52,12 +54,12 @@
 				<div id="contentContainer"></div>
 								
 				<footer role="contentinfo">
-					<span id="copyright">Copyright &copy;2013 Pearson, Inc.</span>
+					<span id="copyright">Copyright &copy; 2013 Pearson, Inc.</span>
 					<div id="pageNav" class="bottomNav">
-						<a href="#" aria-hidden="true" class="icon-caret-left"></a><a href="#" aria-hidden="true" class="icon-house"></a><a href="#" aria-hidden="true" class="icon-caret-right"></a>
+						<a id="prevPageButton" role="button" aria-hidden="true" class="icon-caret-left disabled"></a><a id="homePageButton" role="button" aria-hidden="true" class="icon-house disabled"></a><a id="nextPageButton" role="button" aria-hidden="true" class="icon-caret-right"></a>
 					</div>
 					<div id="socialNav" class="bottomNav">
-						<a href="#" aria-hidden="true" class="icon-twitter"></a><a href="#" aria-hidden="true" class="icon-facebook"></a><a href="#" aria-hidden="true" class="icon-google-plus"></a>
+						<a id="twitterButton" role="button" class="icon-twitter"></a><a id="facebookButton" role="button" class="icon-facebook"></a><a id="googlePlusButton" role="button" class="icon-google-plus"></a>
 					</div>
 				</footer>
 			</div>
