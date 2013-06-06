@@ -65,59 +65,7 @@ function setMenuState(currPageId) {
 	});
 }
 
-function showContent(pageId) {
-	// Add .content-current class to "current" nav link(s), only if url isn't empty.
-	pageId && $( 'a[href="#' + pageId + '"]' ).addClass( 'content-current' );
-	
-	if ( cache[ pageId ] ) {
-		// Since the element is already in the cache, it doesn't need to be
-		// created, so instead of creating it again, let's just show it!
-		cache[ pageId ].fadeIn(250);
-		
-	} else {
-		// Show "loading" content while AJAX content loads.
-		$( '#contentLoading' ).fadeIn(250);
-		
-		// Create container for this url's content and store a reference to it in
-		// the cache.
-		cache[ pageId ] = $( '<div class="content-item"/>' )
-			
-			// Append the content container to the parent container.
-			.appendTo( '#contentContainer' )
-			
-			// Load external content via AJAX. Note that in order to keep this
-			// example streamlined, only the content in .infobox is shown. You'll
-			// want to change this based on your needs.
-			.load( 'content/' + pageId + '.html', function(){
-				// Content loaded, hide "loading" content.
-				$( '#contentLoading' ).fadeOut(100);
-				$(this).fadeIn(250);
-			})
-			.hide();
-	}
 
-}
-
-function loadContent(pageId) {
-
-	closeMenu();
-	
-	var cont = $("#contentContainer");
-	var contWidth = cont.width();
-	var visChildren = cont.children( ':visible' );
-	if (visChildren.length == 0) {
-		// first page loaded
-		showContent(pageId);
-	} else {
-		visChildren.fadeOut(250, function() {
-			showContent(pageId);
-		});
-	}
-	
-	currPageNum = pageIds.indexOf(pageId);
-	setMenuState(pageId);
-	setPageNavState(currPageNum);
-}
 
 /*=================================================*/
 /*== Footer Page Nav ==============================*/
@@ -176,6 +124,59 @@ function setPageNavState(pageNum) {
 /*== Document =====================================*/
 /*=================================================*/
 
+/*
+ * Primary page load method; other methods should call this
+ */
+function loadContent(pageId) {
+
+	closeMenu();
+	
+	var cont = $("#contentContainer");
+	var contWidth = cont.width();
+	var visChildren = cont.children(':visible');
+	if (visChildren.length == 0) {
+		// first page loaded
+		showContent(pageId);
+	} else {
+		visChildren.fadeOut(250, function() {
+			showContent(pageId);
+		});
+	}
+	
+	currPageNum = pageIds.indexOf(pageId);
+	setMenuState(pageId);
+	setPageNavState(currPageNum);
+}
+
+function showContent(pageId) {
+	// Add .content-current class to "current" nav link(s), only if url isn't empty.
+	pageId && $('a[href="#' + pageId + '"]').addClass('content-current');
+	
+	if ( cache[pageId] ) {
+		// Since the element is already in the cache, it doesn't need to be
+		// created, so instead of creating it again, let's just show it!
+		cache[pageId].fadeIn(250);
+	} else {
+		// Show "loading" content while AJAX content loads.
+		$('#contentLoading').fadeIn(250);
+		// Create container for this url's content and store a reference to it in
+		// the cache.
+		cache[pageId] = $('<div class="content-item"/>')
+			// Append the content container to the parent container.
+			.appendTo('#contentContainer')
+			// Load external content via AJAX. Note that in order to keep this
+			// example streamlined, only the content in .infobox is shown. You'll
+			// want to change this based on your needs.
+			.load('content/' + pageId + '.html', function(){
+				// Load complete, hide "loading" screen and fade in new content.
+				$('#contentLoading').fadeOut(100);
+				$(this).fadeIn(250);
+			})
+			.hide();
+	}
+}
+
+
 $(document).ready(function() {
 	
 	initMenu();
@@ -191,20 +192,17 @@ $(document).ready(function() {
 	// Bind an event to window.onhashchange that, when the history state changes,
 	// gets the url from the hash and displays either our cached content or fetches
 	// new content to be displayed.
-	$(window).bind( 'hashchange', function(e) {
-	
-		// Get the hash (fragment) as a string, with any leading # removed.
-		var pageId = window.location.hash.replace('#', '');
+	// Get the hash (fragment) as a string, with leading # removed.
+	var pageId = window.location.hash.replace('#', '');
+	$(window).bind('hashchange', function(e) {
 		loadContent(pageId);
-		
-		// Remove .content-current class from any previously "current" link(s).
-		$( 'a.content-current' ).removeClass( 'content-current' );
-	  
 	})
 	
 	// Since the event is only triggered when the hash changes, we need to trigger
-	// the event now, to handle the hash the page may have loaded with.
-	// $(window).trigger( 'hashchange' );
+	// the event on page load, to handle the hash the page may have loaded with.
+	if (pageId) {
+		$(window).trigger('hashchange');
+	}
 	
 	/* ========================================================== */
 	/* == end hashChange plugin ================================= */
