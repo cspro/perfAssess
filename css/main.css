@@ -838,6 +838,38 @@ table {
 }
 
 @font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-Regular-webfont.eot");
+  src: url("../fonts/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Regular-webfont.woff") format("woff"), url("../fonts/OpenSans-Regular-webfont.ttf") format("truetype"), url("../fonts/OpenSans-Regular-webfont.svg#OpenSansRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-Italic-webfont.eot");
+  src: url("../fonts/OpenSans-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Italic-webfont.woff") format("woff"), url("../fonts/OpenSans-Italic-webfont.ttf") format("truetype"), url("../fonts/OpenSans-Italic-webfont.svg#OpenSansItalic") format("svg");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-Bold-webfont.eot");
+  src: url("../fonts/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Bold-webfont.woff") format("woff"), url("../fonts/OpenSans-Bold-webfont.ttf") format("truetype"), url("../fonts/OpenSans-Bold-webfont.svg#OpenSansBold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-BoldItalic-webfont.eot");
+  src: url("../fonts/OpenSans-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-BoldItalic-webfont.woff") format("woff"), url("../fonts/OpenSans-BoldItalic-webfont.ttf") format("truetype"), url("../fonts/OpenSans-BoldItalic-webfont.svg#OpenSansBoldItalic") format("svg");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon.eot");
   src: url("../fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("../fonts/icomoon.woff") format("woff"), url("../fonts/icomoon.ttf") format("truetype"), url("../fonts/icomoon.svg#icomoon") format("svg");
@@ -946,34 +978,34 @@ you can use the generic selector below, but it's slower:
   content: "\28";
 }
 
-/* line 9, ../sass/main.scss */
+/* line 10, ../sass/main.scss */
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', serif;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 19, ../sass/main.scss */
+/* line 20, ../sass/main.scss */
 a {
   text-decoration: none;
   color: #047fa9;
 }
-/* line 22, ../sass/main.scss */
+/* line 23, ../sass/main.scss */
 a:hover {
   color: #05a4db;
 }
-/* line 25, ../sass/main.scss */
+/* line 26, ../sass/main.scss */
 a:active {
   outline: none;
 }
 
-/* line 30, ../sass/main.scss */
+/* line 31, ../sass/main.scss */
 .wrapper {
   overflow: hidden;
   font-size: 13px;
 }
-/* line 35, ../sass/main.scss */
+/* line 36, ../sass/main.scss */
 .wrapper header {
   position: fixed;
   top: 0;
@@ -986,7 +1018,7 @@ a:active {
   background-position: left center, right center;
   background-repeat: no-repeat, no-repeat;
 }
-/* line 47, ../sass/main.scss */
+/* line 48, ../sass/main.scss */
 .wrapper nav {
   position: fixed;
   top: 45px;
@@ -994,18 +1026,18 @@ a:active {
   z-index: 90;
   display: block;
 }
-/* line 54, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 .wrapper nav #menuWrapper {
   position: relative;
   float: right;
   width: 205px;
 }
-/* line 58, ../sass/main.scss */
+/* line 59, ../sass/main.scss */
 .wrapper nav #menuWrapper * {
   padding: 0;
   margin: 0;
 }
-/* line 62, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 .wrapper nav #menuWrapper #menuButton {
   display: block;
   position: fixed;
@@ -1019,7 +1051,7 @@ a:active {
   color: #555555;
   text-transform: uppercase;
   background-color: #b9b9b9;
-  box-shadow: 0 0 8px #ccc;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   -webkit-transition: all 0.25s ease-in-out;
@@ -1027,12 +1059,12 @@ a:active {
   transition: all 0.25s ease-in-out;
   -webkit-backface-visibility: hidden;
 }
-/* line 80, ../sass/main.scss */
-.wrapper nav #menuWrapper #menuButton:hover {
+/* line 81, ../sass/main.scss */
+.no-touch .wrapper nav #menuWrapper #menuButton:hover {
   background-color: #999999;
   color: #e0e0e0;
 }
-/* line 84, ../sass/main.scss */
+/* line 85, ../sass/main.scss */
 .wrapper nav #menuWrapper #menuButton.open {
   box-shadow: none;
   border-bottom-left-radius: 0px;
@@ -1041,7 +1073,7 @@ a:active {
   -moz-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
-/* line 90, ../sass/main.scss */
+/* line 91, ../sass/main.scss */
 .wrapper nav #menuWrapper ul {
   display: block;
   position: fixed;
@@ -1070,7 +1102,7 @@ a:active {
   transition: all 0.25s ease-in-out;
   -webkit-backface-visibility: hidden;
 }
-/* line 110, ../sass/main.scss */
+/* line 111, ../sass/main.scss */
 .wrapper nav #menuWrapper ul.closed {
   -webkit-transform: translateY(-300px);
   -moz-transform: translateY(-300px);
@@ -1078,11 +1110,11 @@ a:active {
   -o-transform: translateY(-300px);
   transform: translateY(-300px);
 }
-/* line 114, ../sass/main.scss */
+/* line 115, ../sass/main.scss */
 .wrapper nav #menuWrapper ul li {
   list-style: none;
 }
-/* line 116, ../sass/main.scss */
+/* line 117, ../sass/main.scss */
 .wrapper nav #menuWrapper ul li a {
   -webkit-transition: all 0.15s ease-in-out;
   -moz-transition: all 0.15s ease-in-out;
@@ -1091,7 +1123,7 @@ a:active {
   color: #222222;
   padding: 4px 4px 4px 15px;
 }
-/* line 121, ../sass/main.scss */
+/* line 122, ../sass/main.scss */
 .wrapper nav #menuWrapper ul li a:hover {
   cursor: pointer;
   color: white;
@@ -1100,53 +1132,59 @@ a:active {
   transition: all 0.25s ease-in-out;
   background-color: #047fa9;
 }
-/* line 127, ../sass/main.scss */
+/* line 128, ../sass/main.scss */
 .wrapper nav #menuWrapper ul li a.currentPage {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
   padding: 2px 6px 2px 9px;
   margin: 2px 0;
 }
-/* line 135, ../sass/main.scss */
+/* line 136, ../sass/main.scss */
 .wrapper nav #menuWrapper ul li a.currentPage:before {
   content: "\203A \00a0";
 }
-/* line 139, ../sass/main.scss */
+/* line 140, ../sass/main.scss */
 .wrapper nav #menuWrapper ul li a.subhead {
   color: #222222;
   text-transform: uppercase;
   background-color: rgba(63, 63, 63, 0.2);
   margin: 4px 0;
 }
-/* line 144, ../sass/main.scss */
+/* line 145, ../sass/main.scss */
 .wrapper nav #menuWrapper ul li a.subhead:hover {
   color: #e0e0e0;
   background-color: #035a77;
 }
-/* line 149, ../sass/main.scss */
+/* line 150, ../sass/main.scss */
 .wrapper nav #menuWrapper ul li a.currentPage.subhead {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
 }
-/* line 166, ../sass/main.scss */
-.wrapper #contentContainer {
+/* line 167, ../sass/main.scss */
+.wrapper #contentContainer, .wrapper #contentLoading {
   position: fixed;
   top: 45px;
   bottom: 45px;
-  left: 15px;
+  left: 0;
   right: 0;
   overflow-x: none;
   overflow-y: auto;
 }
-/* line 180, ../sass/main.scss */
+/* line 177, ../sass/main.scss */
+.wrapper #contentLoading {
+  text-align: center;
+  line-height: 100%;
+  color: #ccc;
+}
+/* line 187, ../sass/main.scss */
 .wrapper article {
   margin-top: 45px;
   background-color: #eee;
 }
-/* line 186, ../sass/main.scss */
+/* line 193, ../sass/main.scss */
 .wrapper aside {
   margin-top: 45px;
   background-color: #eee;
 }
-/* line 192, ../sass/main.scss */
+/* line 203, ../sass/main.scss */
 .wrapper footer {
   position: fixed;
   bottom: 0;
@@ -1156,14 +1194,14 @@ a:active {
   height: 45px;
   line-height: 45px;
 }
-/* line 201, ../sass/main.scss */
+/* line 212, ../sass/main.scss */
 .wrapper footer .bottomNav {
   display: block;
   position: fixed;
   z-index: 100;
   font-size: 30px;
 }
-/* line 206, ../sass/main.scss */
+/* line 217, ../sass/main.scss */
 .wrapper footer .bottomNav a {
   display: inline-block;
   width: 30px;
@@ -1175,8 +1213,8 @@ a:active {
   -moz-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
 }
-/* line 214, ../sass/main.scss */
-.wrapper footer .bottomNav a:not([class*="disabled"]):hover {
+/* line 225, ../sass/main.scss */
+.wrapper footer .bottomNav a:not([class*="disabled"]):not([class*="no-hover"]):hover {
   color: #05a4db;
   cursor: pointer;
   text-shadow: 1px 3px rgba(0, 0, 0, 0.5);
@@ -1186,8 +1224,8 @@ a:active {
   -o-transform: translateY(-1px);
   transform: translateY(-1px);
 }
-/* line 220, ../sass/main.scss */
-.wrapper footer .bottomNav a:not([class*="disabled"]):active {
+/* line 231, ../sass/main.scss */
+.wrapper footer .bottomNav a:not([class*="disabled"]):not([class*="no-hover"]):active {
   color: #047fa9;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
   -webkit-transform: translateY(0px);
@@ -1196,42 +1234,41 @@ a:active {
   -o-transform: translateY(0px);
   transform: translateY(0px);
 }
-/* line 225, ../sass/main.scss */
+/* line 236, ../sass/main.scss */
 .wrapper footer .bottomNav a.disabled {
   color: #686868;
 }
-/* line 230, ../sass/main.scss */
+/* line 241, ../sass/main.scss */
 .wrapper footer #pageNav {
   width: 90px;
   margin-left: -45px;
   bottom: 0;
   left: 50%;
 }
-/* line 236, ../sass/main.scss */
+/* line 247, ../sass/main.scss */
 .wrapper footer #socialNav {
   font-size: 20px;
   bottom: 0;
   right: 15px;
 }
-/* line 240, ../sass/main.scss */
+/* line 251, ../sass/main.scss */
 .wrapper footer #socialNav a {
   color: #8e8e8e;
   width: 20px;
   margin-left: 4px;
 }
-/* line 244, ../sass/main.scss */
-.wrapper footer #socialNav a:hover {
+/* line 255, ../sass/main.scss */
+.wrapper footer #socialNav a:not([class*="no-hover"]):hover {
   cursor: pointer;
   color: #e7e7e7;
 }
-/* line 250, ../sass/main.scss */
+/* line 261, ../sass/main.scss */
 .wrapper footer #copyright {
   color: #8e8e8e;
   font-size: 0.8em;
   letter-spacing: 0.05em;
 }
-/* line 257, ../sass/main.scss */
+/* line 268, ../sass/main.scss */
 .wrapper .disabled {
   cursor: default !important;
-  pointer-events: none;
 }

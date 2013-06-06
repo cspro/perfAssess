@@ -9,17 +9,22 @@
         <title>Performance Assessment</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+        
+        <!-- Allow app to be full-screen on iOS when added to user's home page -->
+        <meta name="apple-mobile-web-app-capable" content="yes" /> 
+		<meta name="apple-touch-fullscreen" content="yes" />
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script> -->
         <!-- <script src="js/vendor/modernizr-2.6.2.min.js"></script> -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> -->
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
         <!-- <script src="js/plugins.js"></script> -->
+        <script src="js/vendor/jquery-hashchange.js"></script>
         <script src="js/main.js"></script>
         
         <!-- Google WebFonts -->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+        <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'> -->
 
         
         <link rel="stylesheet" href="css/main.css">
@@ -35,22 +40,22 @@
 					<div id="menuWrapper">
 						<a id="menuButton" href="#">Menu</a>
 						<ul id="menuList" class="closed">
-							<li><a role="button" tabindex="01" datasrc="00intro" class="menulink subhead">About</a></li>
-							<li><a role="button" tabindex="02" datasrc="01home" class="menulink">Performance Assessment</a></li>
-							<li><a role="button" tabindex="03" datasrc="02intro" class="menulink">Center for NGLA</a></li>
-							<li><a role="button" tabindex="04" datasrc="03intro" class="menulink">Resources</a></li>
-							<li><a role="button" tabindex="05" datasrc="04intro" class="menulink subhead">Our Approaches</a></li>
-							<li><a role="button" tabindex="06" datasrc="05intro" class="menulink">Constructed Response &amp; TEI</a></li>
-							<li><a role="button" tabindex="07" datasrc="06intro" class="menulink">Essays</a></li>
-							<li><a role="button" tabindex="08" datasrc="07intro" class="menulink">Performance Tasks</a></li>
-							<li><a role="button" tabindex="09" datasrc="08intro" class="menulink">Demonstrations</a></li>
-							<li><a role="button" tabindex="10" datasrc="09intro" class="menulink">Projects</a></li>
-							<li><a role="button" tabindex="11" datasrc="10intro" class="menulink">Portfolios</a></li>
-							<li><a role="button" tabindex="12" datasrc="11intro" class="menulink">Online Games &amp; Simulations</a></li>
-						</ul>
+							<li><a href="#00intro"     role="button" class="menulink subhead">About</a></li>
+							<li><a href="#01home"      role="button" class="menulink">Performance Assessment</a></li>
+							<li><a href="#SCRTEI_home" role="button" class="menulink">Constructed Response &amp; TEI</a></li>
+							<!-- <li><a href="#00intro"     role="button" class="menulink">Center for NGLA</a></li>
+							<li><a href="#00intro"     role="button" class="menulink">Resources</a></li>
+							<li><a href="#00intro"     role="button" class="menulink subhead">Our Approaches</a></li>
+							<li><a href="#00intro"     role="button" class="menulink">Essays</a></li>
+							<li><a href="#00intro"     role="button" class="menulink">Performance Tasks</a></li>
+							<li><a href="#00intro"     role="button" class="menulink">Demonstrations</a></li>
+							<li><a href="#00intro"     role="button" class="menulink">Projects</a></li>
+							<li><a href="#00intro"     role="button" class="menulink">Portfolios</a></li>
+							<li><a href="#00intro"     role="button" class="menulink">Online Games &amp; Simulations</a></li> -->						</ul>
 					</div>
 				</nav>
 				
+				<div id="contentLoading">LOADING...</div>
 				<div id="contentContainer"></div>
 								
 				<footer role="contentinfo">

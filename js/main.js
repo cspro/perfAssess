@@ -1,21 +1,32 @@
-/*=================================================*/
+/*===================age==============================*/
 /*== Application ==================================*/
 /*=================================================*/
 
 var pageIds = null; // Array of string ids, which are also HTML filenames
 var currPageNum = 0; // Index of current pageId in array
 var menuLinks = null;
+// Keep a mapping of url-to-container for caching purposes.
+var cache = {
+	// If url is '' (no fragment), display this div's content.
+	'': $('.content-default')
+};
+
 
 /*=================================================*/
 /*== Navigation Menu ==============================*/
 /*=================================================*/
 
+function getPageIdFromJElem(jelem) {
+	var pageId = jelem.attr('href').replace('#', '');
+	return pageId;
+}
+
 function initMenu() {
 	pageIds = [];
 	menuLinks = $('.menulink');
 	menuLinks.each(function(index, elem) {
-		jelem = $(elem);
-		var pageId = jelem.attr('datasrc');
+		var jelem = $(elem);
+		var pageId = getPageIdFromJElem(jelem);
 		pageIds.push(pageId);
 		jelem.click(pageId, onNavClick);
 	});
@@ -29,6 +40,7 @@ function onMenuButtonClick(e) {
 	e.stopPropagation(); // Prevent html-level click handler
 	$('#menuList').toggleClass('closed');
 	$('#menuButton').toggleClass('open');
+	return false;
 }
 
 function closeMenu() {
@@ -38,12 +50,13 @@ function closeMenu() {
 
 function onNavClick(e) {
 	loadContent(e.data);
+	return false;
 }
 
 function setMenuState(currPageId) {
 	menuLinks.each(function(index, elem) {
-		jelem = $(elem);
-		var pageId = jelem.attr('datasrc');
+		var jelem = $(elem);
+		var pageId = getPageIdFromJElem(jelem);
 		if (pageId != currPageId) {
 			jelem.removeClass('currentPage');
 		} else {
@@ -52,13 +65,58 @@ function setMenuState(currPageId) {
 	});
 }
 
+function showContent(pageId) {
+	// Add .content-current class to "current" nav link(s), only if url isn't empty.
+	pageId && $( 'a[href="#' + pageId + '"]' ).addClass( 'content-current' );
+	
+	if ( cache[ pageId ] ) {
+		// Since the element is already in the cache, it doesn't need to be
+		// created, so instead of creating it again, let's just show it!
+		cache[ pageId ].fadeIn(250);
+		
+	} else {
+		// Show "loading" content while AJAX content loads.
+		$( '#contentLoading' ).fadeIn(250);
+		
+		// Create container for this url's content and store a reference to it in
+		// the cache.
+		cache[ pageId ] = $( '<div class="content-item"/>' )
+			
+			// Append the content container to the parent container.
+			.appendTo( '#contentContainer' )
+			
+			// Load external content via AJAX. Note that in order to keep this
+			// example streamlined, only the content in .infobox is shown. You'll
+			// want to change this based on your needs.
+			.load( 'content/' + pageId + '.html', function(){
+				// Content loaded, hide "loading" content.
+				$( '#contentLoading' ).fadeOut(100);
+				$(this).fadeIn(250);
+			})
+			.hide();
+	}
+
+}
+
 function loadContent(pageId) {
+
+	closeMenu();
+	
 	var cont = $("#contentContainer");
-	cont.load("content/" + pageId + ".html");
+	var contWidth = cont.width();
+	var visChildren = cont.children( ':visible' );
+	if (visChildren.length == 0) {
+		// first page loaded
+		showContent(pageId);
+	} else {
+		visChildren.fadeOut(250, function() {
+			showContent(pageId);
+		});
+	}
+	
 	currPageNum = pageIds.indexOf(pageId);
 	setMenuState(pageId);
 	setPageNavState(currPageNum);
-	closeMenu();
 }
 
 /*=================================================*/
@@ -79,40 +137,22 @@ function loadPageNum(pageNum) {
 }
 
 function initPageNav() {
-	$("#prevPageButton").click(onPrevPageButtonClick);
-	$("#homePageButton").click(onHomePageButtonClick);
-	$("#nextPageButton").click(onNextPageButtonClick);
+	// Pass encapsulated actions to each button as data, so that click handler can be abstracted
+	var prevAction = function() {if (currPageNum > 0) {loadPageNum(currPageNum-1);}}
+	$("#prevPageButton").click({action: prevAction}, onPageNavButtonClick);
+	var homeAction = function() {loadPageNum(0);}
+	$("#homePageButton").click({action: homeAction}, onPageNavButtonClick);
+	var nextAction = function() {if (currPageNum < pageIds.length-1) {loadPageNum(currPageNum+1);}}
+	$("#nextPageButton").click({action: nextAction}, onPageNavButtonClick);
 }
 
-// FIXME: refactor to encapsulate, remove duplication
-function onPrevPageButtonClick(e) {
-	if ($("#prevPageButton").hasClass('disabled')) {
+function onPageNavButtonClick(e) {
+	if ($(e.target).hasClass('disabled')) {
 		e.stopPropagation();
-		return false;
+	} else {
+		e.data.action.apply();
 	}
-	if (currPageNum > 0) {
-		loadPageNum(currPageNum-1);
-	}
-	return false;
-}
-
-function onHomePageButtonClick(e) {
-	if ($("#homePageButton").hasClass('disabled')) {
-		e.stopPropagation();
-		return false;
-	}
-	loadPageNum(0);
-	return false;
-}
-
-function onNextPageButtonClick(e) {
-	if ($("#nextPageButton").hasClass('disabled')) {
-		e.stopPropagation();
-		return false;
-	}
-	if (currPageNum < pageIds.length-1) {
-		loadPageNum(currPageNum+1);
-	}
+	// $(e.target).blur();
 	return false;
 }
 
@@ -137,7 +177,39 @@ function setPageNavState(pageNum) {
 /*=================================================*/
 
 $(document).ready(function() {
+	
 	initMenu();
 	initPageNav();
+	
+	// Add no-touch class to document to allow :hover states for non-iOS devices
+	if (("ontouchstart" in document.documentElement)) {
+		// document.documentElement.className += " no-touch";
+		$('.bottomNav a').addClass('no-hover');
+	}
+	
+	// hashChange plugin binding
+	// Bind an event to window.onhashchange that, when the history state changes,
+	// gets the url from the hash and displays either our cached content or fetches
+	// new content to be displayed.
+	$(window).bind( 'hashchange', function(e) {
+	
+		// Get the hash (fragment) as a string, with any leading # removed.
+		var pageId = window.location.hash.replace('#', '');
+		loadContent(pageId);
+		
+		// Remove .content-current class from any previously "current" link(s).
+		$( 'a.content-current' ).removeClass( 'content-current' );
+	  
+	})
+	
+	// Since the event is only triggered when the hash changes, we need to trigger
+	// the event now, to handle the hash the page may have loaded with.
+	// $(window).trigger( 'hashchange' );
+	
+	/* ========================================================== */
+	/* == end hashChange plugin ================================= */
+	/* ========================================================== */
+
+	
 	loadPageNum(0);
 });

@@ -3,12 +3,13 @@
 @import "normalize";
 @import "variables";
 @import "colors";
+@import "opensans";
 @import "iconfont";
 // @import "../neat/neat";
 
 * {
   // Imported in main doc via Google webfonts
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', serif;
   // taken from Neat ------------
   -webkit-box-sizing: border-box; 
   -moz-box-sizing: border-box;
@@ -73,11 +74,11 @@ a {
         text-transform: uppercase;
         // font-weight: bold;
         background-color: $menuButtonBgColor;
-        box-shadow: 0 0 8px #ccc;
+        box-shadow: 0 0 8px rgba(0,0,0,0.3);
         @include border-bottom-radius(8px);
         @include transition (all 0.25s ease-in-out);
         -webkit-backface-visibility: hidden; // fix for mysterious flicker on transitions
-        &:hover {
+        .no-touch &:hover {
           background-color: $menuButtonBgHoverColor;
           color: $menuButtonTextHoverColor;
         }
@@ -163,14 +164,20 @@ a {
   // == Content =====================
   // ================================
   
-  #contentContainer {
+  #contentContainer, #contentLoading {
     position: fixed;
     top: $topBarHeight;
     bottom: $bottomBarHeight;
-    left: $edgePadding;
+    left: 0;
     right: 0;
     overflow-x: none;
     overflow-y: auto;
+  }
+  
+  #contentLoading {
+    text-align: center;
+    line-height: 100%;
+    color: #ccc;
   }
   
   section {
@@ -188,6 +195,10 @@ a {
     // @include span-columns(4);
     background-color: #eee;
   }
+  
+  // ================================
+  // == Footer ======================
+  // ================================
   
   footer {
     // @include row();
@@ -211,13 +222,13 @@ a {
         color: $bottomNavColor;
         margin: 0;
         @include transition (all 0.15s ease-in-out);
-        &:not([class*="disabled"]):hover {
+        &:not([class*="disabled"]):not([class*="no-hover"]):hover {
           color: $bottomNavHoverColor;
           cursor: pointer;
           text-shadow: 1px 3px rgba(0,0,0,0.5);
           @include transform(translateY(-1px));
         }
-        &:not([class*="disabled"]):active {
+        &:not([class*="disabled"]):not([class*="no-hover"]):active {
           color: darken($bottomNavHoverColor, 10%);
           text-shadow: 1px 1px rgba(0,0,0,0.5);
           @include transform(translateY(0px));
@@ -241,7 +252,7 @@ a {
         color: $bottomBarTextColor;
         width: 20px;
         margin-left: 4px;
-        &:hover {
+        &:not([class*="no-hover"]):hover {
           cursor: pointer;
           color: $bottomNavColor;
         }
@@ -256,8 +267,6 @@ a {
   
   .disabled {
     cursor: default !important;
-    // pointer-events doesn't work in IE or Opera, but works for everything else to prevent mouse behaviors
-    pointer-events: none;
   }
   
 }
