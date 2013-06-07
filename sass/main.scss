@@ -78,7 +78,7 @@ a {
         @include border-bottom-radius(8px);
         @include transition (all 0.25s ease-in-out);
         -webkit-backface-visibility: hidden; // fix for mysterious flicker on transitions
-        .no-touch &:hover {
+        &:hover {
           background-color: $menuButtonBgHoverColor;
           color: $menuButtonTextHoverColor;
         }
@@ -152,6 +152,14 @@ a {
               // border-top: 1px solid $menuBorderColor;
               // border-bottom: 1px solid darken($menuBorderColor, 20%);
             }
+          }
+          span.subhead {
+            display: block;
+            color: $menuSubheadTextColor;
+            text-transform: uppercase;
+            background-color: $menuSubheadBgColor;
+            padding: 4px 4px 4px $edgePadding;
+            margin: 4px 0;
           }
         }
       }

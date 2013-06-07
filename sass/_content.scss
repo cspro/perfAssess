@@ -1,34 +1,23 @@
 $contentPadding: $edgePadding * 3;
-$maxWidthLarge: 960px;
+$maxWidthLarge: 1200px;
 $minWidthLarge: 960px;
 
 #contentContainer {
     
   .contentItem {
     
-    .pageHeader {
-      padding: 20px 480px 20px 0;
-      min-height: 200px;
-    }
-    
     section {
       //FIXME: Change on media breakpoint
       display: block;
-      padding: $contentPadding;
       min-width: $minWidthLarge;
-      max-width: $maxWidthLarge;
-      margin: 0 auto;
-    }
-    
-    .divider {
-      background: url('../content/images/content-divider.png') no-repeat top center;
-      height: 40px;
-      overflow: hidden;
-      width: 100%;
+      margin: 0;
     }
     
     article {
       // @include span-columns(8);
+      padding: 0 $contentPadding;
+      max-width: $maxWidthLarge;
+      margin: 0 auto;
       * {
         max-width: $maxWidthLarge;
       }
@@ -38,8 +27,11 @@ $minWidthLarge: 960px;
           margin: 0;
         }
       }
+      &:first-child {
+        padding-top: $contentPadding;
+      }
       &:last-child {
-        margin-bottom: $contentPadding;
+        padding-bottom: $contentPadding;
       }
       @include clearfix;
     }
@@ -56,6 +48,47 @@ $minWidthLarge: 960px;
       background-color: #E9E9E9;
     }
     
+    hr {
+      display: block;
+      border: 0;
+      background: url('../content/images/content-divider.png') no-repeat top center;
+      height: 40px;
+      overflow: hidden;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+    
+    .imageHeader {
+      padding: 20px 480px $contentPadding $contentPadding;
+      min-height: 200px;
+    }
+    
+    .pageHeader {
+      display: block;
+      width: 100%;
+      height: 162px;
+      max-height: 162px;
+      overflow: hidden;
+      background: $pageHeaderBgColor url('../content/images/page_header_bg.png') no-repeat top left;
+      article {
+        padding: 0 $contentPadding;
+      }
+      .chevrons {
+        display: block;
+        width: 200px;
+        height: 35px;
+        margin-top: 6px;
+        margin-left: -$contentPadding;
+        &.a1{background: url('../content/images/chevrons_1-7.png') no-repeat top left;}
+        &.a2{background: url('../content/images/chevrons_2-7.png') no-repeat top left;}
+        &.a3{background: url('../content/images/chevrons_3-7.png') no-repeat top left;}
+        &.a4{background: url('../content/images/chevrons_4-7.png') no-repeat top left;}
+        &.a5{background: url('../content/images/chevrons_5-7.png') no-repeat top left;}
+        &.a6{background: url('../content/images/chevrons_6-7.png') no-repeat top left;}
+        &.a7{background: url('../content/images/chevrons_7-7.png') no-repeat top left;}
+      }
+    }
+    
     .brainsharkWrapper {
       width: 300px;
       height: 250px;
@@ -64,16 +97,20 @@ $minWidthLarge: 960px;
       margin-left: $contentPadding;
     }
     
+    .spaceBelow {
+        margin-bottom: 2em;
+    }
+    
     // page-specific
         
     #intro {
-      .pageHeader {
+      .imageHeader {
         background: url('../content/images/banner_intro.png') no-repeat bottom right;
       }
       aside {
         width: 35%;
         float: right;
-        margin-left: $contentPadding * 2;
+        margin-left: $contentPadding * 1.5;
       }
     }
   }

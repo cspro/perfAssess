@@ -11,7 +11,7 @@ $menuBorderColor: #b9b9b9;
 
 $menuButtonBgColor: $menuBorderColor;
 $menuButtonBgHoverColor: #999999;
-$menuButtonTextColor: #555555;
+$menuButtonTextColor: #333333;
 $menuButtonTextHoverColor: #e0e0e0;
 
 $menuItemTextColor: #222222;
@@ -20,10 +20,11 @@ $menuItemBgHoverColor: #047fa9;
 
 $menuSubheadBgColor: rgba(63,63,63,0.2);
 $menuSubheadBgHoverColor: darken($menuItemBgHoverColor, 10%);
-$menuSubheadTextColor: #222222;
+$menuSubheadTextColor: #666666;
 $menuSubheadTextHoverColor: #e0e0e0;
 
 $bottomNavColor: #e7e7e7;
 $bottomNavHoverColor: lighten($primaryLinkColor, 10%);
 
 $headlineAccentColor: #006da4;
+$pageHeaderBgColor: #a5d3e5;
