@@ -64,12 +64,12 @@ a {
         display: block;
         position: fixed;
         top: $topBarHeight;
-        right: $edgePadding - 2;
+        right: $menuRightPos;
         z-index: 80;
         width: $menuWidth;
         height: $menuButtonHeight;
         line-height: 30px;
-        padding-left: $edgePadding;
+        padding-left: $menuItemLeftPadding;
         color: $menuButtonTextColor;
         text-transform: uppercase;
         // font-weight: bold;
@@ -114,11 +114,14 @@ a {
         // display: none;
         li {
           list-style: none;
+          a, span {
+            display: block;
+            padding: 4px 4px 4px $menuItemLeftPadding;
+          }
           a {
             @include transition (all 0.15s ease-in-out);
-            display: block;
             color: $menuItemTextColor;
-            padding: 4px 4px 4px $edgePadding;
+            padding: 4px 4px 4px $menuItemLeftPadding;
             &:hover {
               cursor: pointer;
               color: $menuItemTextHoverColor;
@@ -131,7 +134,7 @@ a {
               // border-top: 1px solid lighten($menuBorderColor, 20%);
               // border-bottom: 1px solid lighten($menuBorderColor, 5%);
               box-shadow: 0 0 6px rgba(0,0,0,0.2);
-              padding: 2px 6px 2px $edgePadding - 6px;
+              padding: 2px 6px 2px $menuItemLeftPadding - 6px;
               margin: 2px 0;
               &:before {
                 content: "\203A \00a0";
@@ -154,11 +157,9 @@ a {
             }
           }
           span.subhead {
-            display: block;
             color: $menuSubheadTextColor;
             text-transform: uppercase;
             background-color: $menuSubheadBgColor;
-            padding: 4px 4px 4px $edgePadding;
             margin: 4px 0;
           }
         }

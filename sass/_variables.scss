@@ -1,9 +1,14 @@
 $max-width: 100%;
-$edgePadding: 15px;
+$edgePadding: 22px;
 
 $topBarHeight: 45px;
 $bottomBarHeight: 45px;
 
 $menuWidth: 205px;
 $menuButtonHeight: 30px;
-$menuRightPos: 13px;
+$menuRightPos: $edgePadding - 6;
+$menuItemLeftPadding: $menuRightPos;
+
+$contentPadding: 45px;
+$maxWidthLarge: 1100px;
+$minWidthLarge: 960px;
