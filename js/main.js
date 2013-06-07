@@ -132,7 +132,6 @@ function loadContent(pageId) {
 	closeMenu();
 	
 	var cont = $("#contentContainer");
-	var contWidth = cont.width();
 	var visChildren = cont.children(':visible');
 	if (visChildren.length == 0) {
 		// first page loaded
@@ -146,11 +145,12 @@ function loadContent(pageId) {
 	currPageNum = pageIds.indexOf(pageId);
 	setMenuState(pageId);
 	setPageNavState(currPageNum);
+	
+	// Set hash for deep-linking and refresh
+	window.location.hash = pageId;
 }
 
 function showContent(pageId) {
-	// Add .content-current class to "current" nav link(s), only if url isn't empty.
-	pageId && $('a[href="#' + pageId + '"]').addClass('content-current');
 	
 	if ( cache[pageId] ) {
 		// Since the element is already in the cache, it doesn't need to be
@@ -188,26 +188,12 @@ $(document).ready(function() {
 		$('.bottomNav a').addClass('no-hover');
 	}
 	
-	// hashChange plugin binding
-	// Bind an event to window.onhashchange that, when the history state changes,
-	// gets the url from the hash and displays either our cached content or fetches
-	// new content to be displayed.
 	// Get the hash (fragment) as a string, with leading # removed.
-	var pageId = window.location.hash.replace('#', '');
-	$(window).bind('hashchange', function(e) {
-		loadContent(pageId);
-	})
-	
-	// Since the event is only triggered when the hash changes, we need to trigger
-	// the event on page load, to handle the hash the page may have loaded with.
-	if (pageId) {
-		$(window).trigger('hashchange');
+	var hashPageId = window.location.hash.replace('#', '');
+	if (hashPageId) {
+		loadContent(hashPageId);
+	} else {
+		loadPageNum(0);
 	}
 	
-	/* ========================================================== */
-	/* == end hashChange plugin ================================= */
-	/* ========================================================== */
-
-	
-	loadPageNum(0);
 });
