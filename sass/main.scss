@@ -161,7 +161,7 @@ a {
   
   
   // ================================
-  // == Content =====================
+  // == Content Wrapper =============
   // ================================
   
   #contentContainer, #contentLoading {
@@ -178,22 +178,6 @@ a {
     text-align: center;
     line-height: 100%;
     color: #ccc;
-  }
-  
-  section {
-    // @include row();
-  }
-  
-  article {
-    margin-top: $topBarHeight;
-    // @include span-columns(8);
-    background-color: #eee;
-  }
-  
-  aside {
-    margin-top: $topBarHeight;
-    // @include span-columns(4);
-    background-color: #eee;
   }
   
   // ================================
@@ -271,4 +255,5 @@ a {
   
 }
 
+@import "content";
 

@@ -161,7 +161,7 @@ function showContent(pageId) {
 		$('#contentLoading').fadeIn(250);
 		// Create container for this url's content and store a reference to it in
 		// the cache.
-		cache[pageId] = $('<div class="content-item"/>')
+		cache[pageId] = $('<div class="contentItem"/>')
 			// Append the content container to the parent container.
 			.appendTo('#contentContainer')
 			// Load external content via AJAX. Note that in order to keep this
