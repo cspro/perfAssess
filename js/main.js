@@ -121,13 +121,71 @@ function setPageNavState(pageNum) {
 }
 
 /*=================================================*/
+/*== Floating Subnav menu =========================*/
+/*=================================================*/
+
+/*
+ * Called on content page load 
+ */
+function floatingMenuHook(e) {
+	if ($(e.target).hasClass('selected')) {
+		e.stopPropagation();
+	} else {
+		var sectionId = $(this).attr('href').replace('#', '');
+		showContentSection(sectionId, true);
+	}
+	return false;
+}
+
+function showContentSection(sectionId, fade) {
+	var section = $("#" + sectionId);
+	var allSections = $('#contentContainer section');
+	if (fade) {
+		allSections.each(function(index, elem) {
+			var jelem = $(elem);
+			if (jelem.is(':visible')) {
+				setFloatingMenuState(sectionId);
+				jelem.fadeOut(250, function() {
+					section.fadeIn(250, function() {
+						setSubSectionHash(sectionId);
+					});
+				});
+			}
+		});
+	} else {
+		// Loading from URL hash
+		allSections.each(function(index, elem) {
+			$(elem).hide();
+		});
+		section.show();
+		setFloatingMenuState(sectionId);
+	}
+	setSubSectionHash(sectionId);
+}
+
+function setSubSectionHash(sectionId) {
+	var hash = window.location.hash.replace('#', '');
+	var pageId = hash.indexOf('_') > 0 ? hash.substr(0, hash.indexOf('_')) : hash;
+	window.location.hash = pageId + '_' + sectionId;
+}
+
+function setFloatingMenuState(sectionId) {
+	var sectionTabs = $('#contentContainer .floatingMenu a');
+	sectionTabs.each(function(index, elem) {
+		var jelem = $(elem);
+		var tabId = jelem.attr('href').replace('#', '');
+		jelem.toggleClass('selected', (tabId == sectionId));
+	});
+}
+
+/*=================================================*/
 /*== Document =====================================*/
 /*=================================================*/
 
 /*
  * Primary page load method; other methods should call this
  */
-function loadContent(pageId) {
+function loadContent(pageId, sectionId) {
 
 	closeMenu();
 	
@@ -135,10 +193,10 @@ function loadContent(pageId) {
 	var visChildren = cont.children(':visible');
 	if (visChildren.length == 0) {
 		// first page loaded
-		showContent(pageId);
+		showContent(pageId, sectionId);
 	} else {
 		visChildren.fadeOut(250, function() {
-			showContent(pageId);
+			showContent(pageId, sectionId);
 		});
 	}
 	
@@ -147,14 +205,17 @@ function loadContent(pageId) {
 	setPageNavState(currPageNum);
 	
 	// Set hash for deep-linking and refresh
-	window.location.hash = pageId;
+	window.location.hash = sectionId ? pageId + "_" + sectionId : pageId;
 }
 
-function showContent(pageId) {
+function showContent(pageId, sectionId) {
 	
 	if ( cache[pageId] ) {
 		// Since the element is already in the cache, it doesn't need to be
 		// created, so instead of creating it again, let's just show it!
+		if (sectionId && sectionId.length > 0) {
+			showContentSection(sectionId, false);
+		}
 		cache[pageId].fadeIn(250);
 	} else {
 		// Show "loading" content while AJAX content loads.
@@ -170,12 +231,14 @@ function showContent(pageId) {
 			.load('content/' + pageId + '.html', function(){
 				// Load complete, hide "loading" screen and fade in new content.
 				$('#contentLoading').fadeOut(100);
+				if (sectionId && sectionId.length > 0) {
+					showContentSection(sectionId, false);
+				}
 				$(this).fadeIn(250);
 			})
 			.hide();
 	}
 }
-
 
 $(document).ready(function() {
 	
@@ -189,9 +252,11 @@ $(document).ready(function() {
 	}
 	
 	// Get the hash (fragment) as a string, with leading # removed.
-	var hashPageId = window.location.hash.replace('#', '');
-	if (hashPageId) {
-		loadContent(hashPageId);
+	var hash = window.location.hash.replace('#', '');
+	var pageId = hash.indexOf('_') > 0 ? hash.substr(0, hash.indexOf('_')) : hash;
+	var sectionId = hash.indexOf('_') > 0 ? hash.substr(hash.indexOf('_'), hash.length).replace('_', '') : '';
+	if (hash) {
+		loadContent(pageId, sectionId);
 	} else {
 		loadPageNum(0);
 	}

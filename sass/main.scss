@@ -33,7 +33,7 @@ a {
   overflow: hidden;
   font-size: 13px;
   
-  header {
+  > header {
     position: fixed;
     top: 0;
     width: 100%;
@@ -45,7 +45,7 @@ a {
     background-repeat: no-repeat, no-repeat;
   }
 
-  nav {
+  > nav {
     position: fixed;
     top: $topBarHeight;
     width: $max-width;
@@ -185,7 +185,8 @@ a {
   
   #contentLoading {
     text-align: center;
-    line-height: 100%;
+    font-size: 30px;
+    line-height: 300px;
     color: #ccc;
   }
   
@@ -193,7 +194,7 @@ a {
   // == Footer ======================
   // ================================
   
-  footer {
+  > footer {
     // @include row();
     position: fixed;
     bottom: 0;
