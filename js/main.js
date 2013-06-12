@@ -127,19 +127,32 @@ function setPageNavState(pageNum) {
 /*
  * Called on content page load 
  */
+function contentPageLoadHook() {
+	var allSections = $('.approachPage section');
+}
+
 function floatingMenuHook(e) {
 	if ($(e.target).hasClass('selected')) {
 		e.stopPropagation();
 	} else {
+		var pageId = getPageIdFromHash();
 		var sectionId = $(this).attr('href').replace('#', '');
-		showContentSection(sectionId, true);
+		showContentSection(pageId, sectionId, true);
 	}
 	return false;
 }
 
-function showContentSection(sectionId, fade) {
-	var section = $("#" + sectionId);
-	var allSections = $('#contentContainer section');
+function showContentSection(pageId, sectionId, fade) {
+	var section = null;
+	var allSections = $('.' + pageId + ' section');
+	 // = page.children('section');
+	if (!sectionId) {
+		// Get first section child of this page
+		section = allSections.first();
+		sectionId = section.attr('id');
+	} else {
+		section = $('.' + pageId + ' #' + sectionId);
+	}
 	if (fade) {
 		allSections.each(function(index, elem) {
 			var jelem = $(elem);
@@ -158,13 +171,16 @@ function showContentSection(sectionId, fade) {
 			$(elem).hide();
 		});
 		section.show();
-		setFloatingMenuState(sectionId);
+		
 	}
-	setSubSectionHash(sectionId);
+	if (pageId != sectionId) {
+		setFloatingMenuState(sectionId);
+		setSubSectionHash(sectionId);
+	}
 }
 
 function setSubSectionHash(sectionId) {
-	var hash = window.location.hash.replace('#', '');
+	var hash = getWindowHash();
 	var pageId = hash.indexOf('_') > 0 ? hash.substr(0, hash.indexOf('_')) : hash;
 	window.location.hash = pageId + '_' + sectionId;
 }
@@ -213,16 +229,14 @@ function showContent(pageId, sectionId) {
 	if ( cache[pageId] ) {
 		// Since the element is already in the cache, it doesn't need to be
 		// created, so instead of creating it again, let's just show it!
-		if (sectionId && sectionId.length > 0) {
-			showContentSection(sectionId, false);
-		}
 		cache[pageId].fadeIn(250);
+		showContentSection(pageId, sectionId, false);
 	} else {
 		// Show "loading" content while AJAX content loads.
 		$('#contentLoading').fadeIn(250);
 		// Create container for this url's content and store a reference to it in
 		// the cache.
-		cache[pageId] = $('<div class="contentItem"/>')
+		cache[pageId] = $('<div class="contentItem ' + pageId + '"/>')
 			// Append the content container to the parent container.
 			.appendTo('#contentContainer')
 			// Load external content via AJAX. Note that in order to keep this
@@ -231,13 +245,31 @@ function showContent(pageId, sectionId) {
 			.load('content/' + pageId + '.html', function(){
 				// Load complete, hide "loading" screen and fade in new content.
 				$('#contentLoading').fadeOut(100);
-				if (sectionId && sectionId.length > 0) {
-					showContentSection(sectionId, false);
-				}
+				showContentSection(pageId, sectionId, false);
 				$(this).fadeIn(250);
 			})
 			.hide();
 	}
+}
+
+/*
+ * Get the hash (fragment) as a string, with leading # removed.
+ */ 
+function getWindowHash() {
+	var hash = window.location.hash.replace('#', '');
+	return hash;
+}
+
+function getPageIdFromHash() {
+	var hash = getWindowHash();
+	var pageId = hash.indexOf('_') > 0 ? hash.substr(0, hash.indexOf('_')) : hash;
+	return pageId;
+}
+
+function getSectionIdFromHash() {
+	var hash = getWindowHash();
+	var sectionId = hash.indexOf('_') > 0 ? hash.substr(hash.indexOf('_'), hash.length).replace('_', '') : '';
+	return sectionId;
 }
 
 $(document).ready(function() {
@@ -251,11 +283,10 @@ $(document).ready(function() {
 		$('.bottomNav a').addClass('no-hover');
 	}
 	
-	// Get the hash (fragment) as a string, with leading # removed.
-	var hash = window.location.hash.replace('#', '');
-	var pageId = hash.indexOf('_') > 0 ? hash.substr(0, hash.indexOf('_')) : hash;
-	var sectionId = hash.indexOf('_') > 0 ? hash.substr(hash.indexOf('_'), hash.length).replace('_', '') : '';
+	var hash = getWindowHash();
 	if (hash) {
+		var pageId = getPageIdFromHash();
+		var sectionId = getSectionIdFromHash();
 		loadContent(pageId, sectionId);
 	} else {
 		loadPageNum(0);

@@ -1,6 +1,8 @@
 // $('section[id*="_"]').hide();
 $('.floatingMenu a').click(this, floatingMenuHook);
 
+contentPageLoadHook();
+
 // Accordion
 var allPanels = $('.accordion > dd').hide();
 $('.accordion > dt > a').click(function() {

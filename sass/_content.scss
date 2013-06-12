@@ -195,13 +195,6 @@
         padding: 0;
         margin: 2em 0;
       }
-      &.scrtei     .chevrons {background: url('../content/images/chevrons_1-7.png') no-repeat top left !important;}
-      &.essays     .chevrons {background: url('../content/images/chevrons_2-7.png') no-repeat top left !important;}
-      &.tasks      .chevrons {background: url('../content/images/chevrons_3-7.png') no-repeat top left !important;}
-      &.demos      .chevrons {background: url('../content/images/chevrons_4-7.png') no-repeat top left !important;}
-      &.projects   .chevrons {background: url('../content/images/chevrons_5-7.png') no-repeat top left !important;}
-      &.portfolios .chevrons {background: url('../content/images/chevrons_6-7.png') no-repeat top left !important;}
-      &.games      .chevrons {background: url('../content/images/chevrons_7-7.png') no-repeat top left !important;}
     }
     
     // ================================
@@ -218,6 +211,14 @@
         margin-left: $contentPadding * 1.5;
       }
     }
+    
+    &.scrtei     .chevrons {background: url('../content/images/chevrons_1-7.png') no-repeat top left !important;}
+    &.essays     .chevrons {background: url('../content/images/chevrons_2-7.png') no-repeat top left !important;}
+    &.tasks      .chevrons {background: url('../content/images/chevrons_3-7.png') no-repeat top left !important;}
+    &.demos      .chevrons {background: url('../content/images/chevrons_4-7.png') no-repeat top left !important;}
+    &.projects   .chevrons {background: url('../content/images/chevrons_5-7.png') no-repeat top left !important;}
+    &.portfolios .chevrons {background: url('../content/images/chevrons_6-7.png') no-repeat top left !important;}
+    &.games      .chevrons {background: url('../content/images/chevrons_7-7.png') no-repeat top left !important;}
     
     
   }

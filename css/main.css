@@ -1498,145 +1498,145 @@ a:active {
   padding: 0;
   margin: 2em 0;
 }
-/* line 198, ../sass/_content.scss */
-#contentContainer .contentItem .approachPage.scrtei .chevrons {
-  background: url("../content/images/chevrons_1-7.png") no-repeat top left !important;
-}
-/* line 199, ../sass/_content.scss */
-#contentContainer .contentItem .approachPage.essays .chevrons {
-  background: url("../content/images/chevrons_2-7.png") no-repeat top left !important;
-}
-/* line 200, ../sass/_content.scss */
-#contentContainer .contentItem .approachPage.tasks .chevrons {
-  background: url("../content/images/chevrons_3-7.png") no-repeat top left !important;
-}
-/* line 201, ../sass/_content.scss */
-#contentContainer .contentItem .approachPage.demos .chevrons {
-  background: url("../content/images/chevrons_4-7.png") no-repeat top left !important;
-}
-/* line 202, ../sass/_content.scss */
-#contentContainer .contentItem .approachPage.projects .chevrons {
-  background: url("../content/images/chevrons_5-7.png") no-repeat top left !important;
-}
-/* line 203, ../sass/_content.scss */
-#contentContainer .contentItem .approachPage.portfolios .chevrons {
-  background: url("../content/images/chevrons_6-7.png") no-repeat top left !important;
-}
-/* line 204, ../sass/_content.scss */
-#contentContainer .contentItem .approachPage.games .chevrons {
-  background: url("../content/images/chevrons_7-7.png") no-repeat top left !important;
-}
-/* line 212, ../sass/_content.scss */
+/* line 205, ../sass/_content.scss */
 #contentContainer .contentItem #intro .imageHeader {
   background: url("../content/images/banner_intro.png") no-repeat bottom right;
 }
-/* line 215, ../sass/_content.scss */
+/* line 208, ../sass/_content.scss */
 #contentContainer .contentItem #intro aside {
   width: 35%;
   float: right;
   margin-left: 67.5px;
 }
-/* line 230, ../sass/_content.scss */
+/* line 215, ../sass/_content.scss */
+#contentContainer .contentItem.scrtei .chevrons {
+  background: url("../content/images/chevrons_1-7.png") no-repeat top left !important;
+}
+/* line 216, ../sass/_content.scss */
+#contentContainer .contentItem.essays .chevrons {
+  background: url("../content/images/chevrons_2-7.png") no-repeat top left !important;
+}
+/* line 217, ../sass/_content.scss */
+#contentContainer .contentItem.tasks .chevrons {
+  background: url("../content/images/chevrons_3-7.png") no-repeat top left !important;
+}
+/* line 218, ../sass/_content.scss */
+#contentContainer .contentItem.demos .chevrons {
+  background: url("../content/images/chevrons_4-7.png") no-repeat top left !important;
+}
+/* line 219, ../sass/_content.scss */
+#contentContainer .contentItem.projects .chevrons {
+  background: url("../content/images/chevrons_5-7.png") no-repeat top left !important;
+}
+/* line 220, ../sass/_content.scss */
+#contentContainer .contentItem.portfolios .chevrons {
+  background: url("../content/images/chevrons_6-7.png") no-repeat top left !important;
+}
+/* line 221, ../sass/_content.scss */
+#contentContainer .contentItem.games .chevrons {
+  background: url("../content/images/chevrons_7-7.png") no-repeat top left !important;
+}
+/* line 231, ../sass/_content.scss */
 #contentContainer p, #contentContainer li {
   margin-top: 0;
   font-size: 12px;
   line-height: 1.6em;
   color: #666;
 }
-/* line 237, ../sass/_content.scss */
+/* line 238, ../sass/_content.scss */
 #contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4, #contentContainer h5, #contentContainer h6 {
   color: #666666;
   font-weight: normal;
 }
-/* line 242, ../sass/_content.scss */
+/* line 243, ../sass/_content.scss */
 #contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4 {
   text-transform: uppercase;
   margin: 0 0 0.5em 0;
 }
-/* line 247, ../sass/_content.scss */
+/* line 248, ../sass/_content.scss */
 #contentContainer h1 {
   font-size: 30px;
   line-height: 36px;
   color: #006da4;
 }
-/* line 253, ../sass/_content.scss */
+/* line 254, ../sass/_content.scss */
 #contentContainer p + h2, #contentContainer ul + h2 {
   margin-top: 2em;
 }
-/* line 257, ../sass/_content.scss */
+/* line 258, ../sass/_content.scss */
 #contentContainer h2 {
   font-size: 20px;
   line-height: 1.2em;
 }
-/* line 262, ../sass/_content.scss */
+/* line 263, ../sass/_content.scss */
 #contentContainer h3 {
   font-size: 14px;
   line-height: 24px;
 }
-/* line 267, ../sass/_content.scss */
+/* line 268, ../sass/_content.scss */
 #contentContainer h4 {
   font-size: 12px;
   font-weight: bold;
 }
-/* line 272, ../sass/_content.scss */
+/* line 273, ../sass/_content.scss */
 #contentContainer h5 {
   font-size: 12px;
   font-weight: bold;
 }
-/* line 277, ../sass/_content.scss */
+/* line 278, ../sass/_content.scss */
 #contentContainer h6 {
   font-size: 9px;
 }
-/* line 281, ../sass/_content.scss */
+/* line 282, ../sass/_content.scss */
 #contentContainer li {
   line-height: 16px;
   font-size: 11px;
 }
-/* line 288, ../sass/_content.scss */
+/* line 289, ../sass/_content.scss */
 #contentContainer #content {
   width: 100%;
   padding: 10px 50px;
   margin: 0 auto;
   display: block;
 }
-/* line 295, ../sass/_content.scss */
+/* line 296, ../sass/_content.scss */
 #contentContainer #col_1 {
   width: 580px;
   float: left;
   margin-right: 10px;
 }
-/* line 301, ../sass/_content.scss */
+/* line 302, ../sass/_content.scss */
 #contentContainer #col_2 {
   width: 300px;
   float: left;
   margin-left: 10px;
 }
-/* line 307, ../sass/_content.scss */
+/* line 308, ../sass/_content.scss */
 #contentContainer #col_3 {
   width: 700px;
   float: left;
   margin-right: 10px;
 }
-/* line 313, ../sass/_content.scss */
+/* line 314, ../sass/_content.scss */
 #contentContainer #content h2 {
   line-height: 32px;
   font-size: 20px;
   text-transform: uppercase;
 }
-/* line 319, ../sass/_content.scss */
+/* line 320, ../sass/_content.scss */
 #contentContainer #bandbar {
   margin: 0px -380px 0px -50px;
   padding: 10px 380px 10px 50px;
   background-color: rgba(0, 153, 255, 0.15);
 }
-/* line 327, ../sass/_content.scss */
+/* line 328, ../sass/_content.scss */
 #contentContainer img.inline {
   position: relative;
   display: block;
   border: 1px solid #333;
   margin: 5px 0 10px 0;
 }
-/* line 336, ../sass/_content.scss */
+/* line 337, ../sass/_content.scss */
 #contentContainer .banner {
   clear: both;
   text-align: left;
@@ -1644,7 +1644,7 @@ a:active {
   padding: 0px;
   max-height: 200px;
 }
-/* line 344, ../sass/_content.scss */
+/* line 345, ../sass/_content.scss */
 #contentContainer .banner h1 {
   padding: 20px 20px 20px 40px;
   margin: 0px 200px 40px 0px;
