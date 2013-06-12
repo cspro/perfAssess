@@ -145,7 +145,7 @@ function showContentSection(sectionId, fade) {
 			var jelem = $(elem);
 			if (jelem.is(':visible')) {
 				setFloatingMenuState(sectionId);
-				jelem.fadeOut(250, function() {
+				jelem.fadeOut(125, function() {
 					section.fadeIn(250, function() {
 						setSubSectionHash(sectionId);
 					});
@@ -195,7 +195,7 @@ function loadContent(pageId, sectionId) {
 		// first page loaded
 		showContent(pageId, sectionId);
 	} else {
-		visChildren.fadeOut(250, function() {
+		visChildren.fadeOut(125, function() {
 			showContent(pageId, sectionId);
 		});
 	}

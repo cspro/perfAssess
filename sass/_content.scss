@@ -39,8 +39,6 @@
       display: block;
       padding: 10px;
       margin: 0px;
-      -moz-border-radius: 10px 10px 10px 10px;
-      -webkit-border-radius: 10px 10px 10px 10px;
       border-radius: 10px;
       border: 1px solid #CCCCCC;
       padding: $edgePadding;
@@ -79,13 +77,6 @@
         height: 35px;
         margin-top: 6px;
         margin-left: -$contentPadding;
-        &.a1{background: url('../content/images/chevrons_1-7.png') no-repeat top left;}
-        &.a2{background: url('../content/images/chevrons_2-7.png') no-repeat top left;}
-        &.a3{background: url('../content/images/chevrons_3-7.png') no-repeat top left;}
-        &.a4{background: url('../content/images/chevrons_4-7.png') no-repeat top left;}
-        &.a5{background: url('../content/images/chevrons_5-7.png') no-repeat top left;}
-        &.a6{background: url('../content/images/chevrons_6-7.png') no-repeat top left;}
-        &.a7{background: url('../content/images/chevrons_7-7.png') no-repeat top left;}
       }
     }
     
@@ -153,6 +144,66 @@
       }
     }
     
+    .accordion {
+       margin: 1em $contentPadding $contentPadding $contentPadding;
+       border-radius: 10px;
+       overflow: hidden;
+       box-shadow: 0 0 10px rgba(0,0,0,0.35);
+       dt {
+         margin-bottom: 1px;
+         > a {
+           padding: 0.75em;
+           display: block;
+           color: darken($accordionHeaderBgColor, 80%);
+           background-color: $accordionHeaderBgColor;
+           // border-bottom: 1px solid $accordionBorderColor; 
+           &:hover {
+             color: lighten($accordionHeaderBgColor, 80%);
+             background-color: darken($accordionHeaderBgColor, 10%);
+           }
+           
+         }
+       }
+      dd {
+        padding: 0.75em;
+        margin: 0;
+        border-top: 0; 
+        font-size: 12px;
+        //FIXME: Responsive media query
+        max-height: 200px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: darken($primaryBgColor, 5%);
+        &:last-of-type {
+          position: relative;
+          @include border-bottom-radius(10px);
+        }
+      }
+    }
+
+    .approachPage {
+      section {
+        #exemplars, #moreinfo {
+          display: none;
+        }
+        hr + article {
+          margin-top: 1em;
+        }
+      }
+      hr.subDivider {
+        height: 1px !important;
+        padding: 0;
+        margin: 2em 0;
+      }
+      &.scrtei     .chevrons {background: url('../content/images/chevrons_1-7.png') no-repeat top left !important;}
+      &.essays     .chevrons {background: url('../content/images/chevrons_2-7.png') no-repeat top left !important;}
+      &.tasks      .chevrons {background: url('../content/images/chevrons_3-7.png') no-repeat top left !important;}
+      &.demos      .chevrons {background: url('../content/images/chevrons_4-7.png') no-repeat top left !important;}
+      &.projects   .chevrons {background: url('../content/images/chevrons_5-7.png') no-repeat top left !important;}
+      &.portfolios .chevrons {background: url('../content/images/chevrons_6-7.png') no-repeat top left !important;}
+      &.games      .chevrons {background: url('../content/images/chevrons_7-7.png') no-repeat top left !important;}
+    }
+    
     // ================================
     // == Page-specific ===============
     // ================================
@@ -168,21 +219,7 @@
       }
     }
     
-    .approachPage {
-      section {
-        #exemplars, #moreinfo {
-          display: none;
-        }
-        hr + article {
-          margin-top: 1em;
-        }
-      }
-      hr.subDivider {
-        height: 1px !important;
-        padding: 0;
-        margin: 2em 0;
-      }
-    }
+    
   }
   
   
@@ -313,8 +350,8 @@
     font-weight:normal;
   }
   
-  a:link {
-    color: #333333;
-  }
+  // a:link {
+    // color: #333333;
+  // }
 
 }

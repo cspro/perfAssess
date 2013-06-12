@@ -989,11 +989,11 @@ you can use the generic selector below, but it's slower:
 /* line 20, ../sass/main.scss */
 a {
   text-decoration: none;
-  color: #047fa9;
+  color: #1b8fbd;
 }
 /* line 23, ../sass/main.scss */
 a:hover {
-  color: #05a4db;
+  color: #2abffa;
 }
 /* line 26, ../sass/main.scss */
 a:active {
@@ -1134,7 +1134,7 @@ a:active {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
-  background-color: #047fa9;
+  background-color: #1b8fbd;
 }
 /* line 131, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li a.currentPage {
@@ -1156,7 +1156,7 @@ a:active {
 /* line 148, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li a.subhead:hover {
   color: #e0e0e0;
-  background-color: #035a77;
+  background-color: #146d90;
 }
 /* line 153, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li a.currentPage.subhead {
@@ -1217,7 +1217,7 @@ a:active {
 }
 /* line 219, ../sass/main.scss */
 .wrapper > footer .bottomNav a:not([class*="disabled"]):not([class*="no-hover"]):hover {
-  color: #05a4db;
+  color: #2aade1;
   cursor: pointer;
   text-shadow: 1px 3px rgba(0, 0, 0, 0.5);
   -webkit-transform: translateY(-1px);
@@ -1228,7 +1228,7 @@ a:active {
 }
 /* line 225, ../sass/main.scss */
 .wrapper > footer .bottomNav a:not([class*="disabled"]):not([class*="no-hover"]):active {
-  color: #047fa9;
+  color: #1b8fbd;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
   -webkit-transform: translateY(0px);
   -moz-transform: translateY(0px);
@@ -1331,14 +1331,12 @@ a:active {
   display: block;
   padding: 10px;
   margin: 0px;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px;
   border: 1px solid #CCCCCC;
   padding: 22px;
   background-color: #E9E9E9;
 }
-/* line 50, ../sass/_content.scss */
+/* line 48, ../sass/_content.scss */
 #contentContainer .contentItem hr {
   display: block;
   border: 0;
@@ -1348,12 +1346,12 @@ a:active {
   width: 100%;
   margin: 0 0 1em 0;
 }
-/* line 60, ../sass/_content.scss */
+/* line 58, ../sass/_content.scss */
 #contentContainer .contentItem .imageHeader {
   padding: 20px 480px 45px 45px;
   min-height: 200px;
 }
-/* line 65, ../sass/_content.scss */
+/* line 63, ../sass/_content.scss */
 #contentContainer .contentItem .pageHeader {
   display: block;
   width: 100%;
@@ -1363,11 +1361,11 @@ a:active {
   overflow: hidden;
   background: #a5d3e5 url("../content/images/page_header_bg.png") no-repeat top left;
 }
-/* line 73, ../sass/_content.scss */
+/* line 71, ../sass/_content.scss */
 #contentContainer .contentItem .pageHeader article {
   padding: 0 45px;
 }
-/* line 76, ../sass/_content.scss */
+/* line 74, ../sass/_content.scss */
 #contentContainer .contentItem .pageHeader .chevrons {
   display: block;
   width: 200px;
@@ -1375,45 +1373,17 @@ a:active {
   margin-top: 6px;
   margin-left: -45px;
 }
-/* line 82, ../sass/_content.scss */
-#contentContainer .contentItem .pageHeader .chevrons.a1 {
-  background: url("../content/images/chevrons_1-7.png") no-repeat top left;
-}
 /* line 83, ../sass/_content.scss */
-#contentContainer .contentItem .pageHeader .chevrons.a2 {
-  background: url("../content/images/chevrons_2-7.png") no-repeat top left;
-}
-/* line 84, ../sass/_content.scss */
-#contentContainer .contentItem .pageHeader .chevrons.a3 {
-  background: url("../content/images/chevrons_3-7.png") no-repeat top left;
-}
-/* line 85, ../sass/_content.scss */
-#contentContainer .contentItem .pageHeader .chevrons.a4 {
-  background: url("../content/images/chevrons_4-7.png") no-repeat top left;
-}
-/* line 86, ../sass/_content.scss */
-#contentContainer .contentItem .pageHeader .chevrons.a5 {
-  background: url("../content/images/chevrons_5-7.png") no-repeat top left;
-}
-/* line 87, ../sass/_content.scss */
-#contentContainer .contentItem .pageHeader .chevrons.a6 {
-  background: url("../content/images/chevrons_6-7.png") no-repeat top left;
-}
-/* line 88, ../sass/_content.scss */
-#contentContainer .contentItem .pageHeader .chevrons.a7 {
-  background: url("../content/images/chevrons_7-7.png") no-repeat top left;
-}
-/* line 92, ../sass/_content.scss */
 #contentContainer .contentItem .pageBand {
   display: block;
   width: 100%;
   background-color: #e0f0f6;
 }
-/* line 96, ../sass/_content.scss */
+/* line 87, ../sass/_content.scss */
 #contentContainer .contentItem .pageBand article {
   padding: 22.5px;
 }
-/* line 101, ../sass/_content.scss */
+/* line 92, ../sass/_content.scss */
 #contentContainer .contentItem .brainsharkWrapper {
   width: 300px;
   height: 250px;
@@ -1422,11 +1392,11 @@ a:active {
   margin-left: 45px;
   margin-bottom: 1em;
 }
-/* line 110, ../sass/_content.scss */
+/* line 101, ../sass/_content.scss */
 #contentContainer .contentItem .spaceBelow {
   margin-bottom: 2em;
 }
-/* line 114, ../sass/_content.scss */
+/* line 105, ../sass/_content.scss */
 #contentContainer .contentItem .floatingMenu {
   position: fixed;
   margin: 0;
@@ -1436,7 +1406,7 @@ a:active {
   top: 45px;
   min-width: 220px;
 }
-/* line 122, ../sass/_content.scss */
+/* line 113, ../sass/_content.scss */
 #contentContainer .contentItem .floatingMenu a {
   display: inline-block;
   position: relative;
@@ -1458,147 +1428,215 @@ a:active {
   -moz-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
 }
-/* line 140, ../sass/_content.scss */
+/* line 131, ../sass/_content.scss */
 #contentContainer .contentItem .floatingMenu a:not([class*="selected"]):not([class*="no-hover"]):hover {
   background-color: #999999;
   color: #e0e0e0;
   cursor: pointer;
 }
-/* line 145, ../sass/_content.scss */
+/* line 136, ../sass/_content.scss */
 #contentContainer .contentItem .floatingMenu a:not([class*="selected"]):not([class*="no-hover"]):active {
   background-color: #cccccc;
 }
-/* line 148, ../sass/_content.scss */
+/* line 139, ../sass/_content.scss */
 #contentContainer .contentItem .floatingMenu a.selected {
   color: #444444;
   background-color: rgba(255, 255, 255, 0.5);
   cursor: default !important;
 }
-/* line 161, ../sass/_content.scss */
-#contentContainer .contentItem #intro .imageHeader {
-  background: url("../content/images/banner_intro.png") no-repeat bottom right;
+/* line 147, ../sass/_content.scss */
+#contentContainer .contentItem .accordion {
+  margin: 1em 45px 45px 45px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
 }
-/* line 164, ../sass/_content.scss */
-#contentContainer .contentItem #intro aside {
-  width: 35%;
-  float: right;
-  margin-left: 67.5px;
+/* line 152, ../sass/_content.scss */
+#contentContainer .contentItem .accordion dt {
+  margin-bottom: 1px;
 }
-/* line 173, ../sass/_content.scss */
+/* line 154, ../sass/_content.scss */
+#contentContainer .contentItem .accordion dt > a {
+  padding: 0.75em;
+  display: block;
+  color: #08171d;
+  background-color: #cde6f0;
+}
+/* line 160, ../sass/_content.scss */
+#contentContainer .contentItem .accordion dt > a:hover {
+  color: white;
+  background-color: #a5d3e5;
+}
+/* line 167, ../sass/_content.scss */
+#contentContainer .contentItem .accordion dd {
+  padding: 0.75em;
+  margin: 0;
+  border-top: 0;
+  font-size: 12px;
+  max-height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #f2f2f2;
+}
+/* line 177, ../sass/_content.scss */
+#contentContainer .contentItem .accordion dd:last-of-type {
+  position: relative;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+/* line 186, ../sass/_content.scss */
 #contentContainer .contentItem .approachPage section #exemplars, #contentContainer .contentItem .approachPage section #moreinfo {
   display: none;
 }
-/* line 176, ../sass/_content.scss */
+/* line 189, ../sass/_content.scss */
 #contentContainer .contentItem .approachPage section hr + article {
   margin-top: 1em;
 }
-/* line 180, ../sass/_content.scss */
+/* line 193, ../sass/_content.scss */
 #contentContainer .contentItem .approachPage hr.subDivider {
   height: 1px !important;
   padding: 0;
   margin: 2em 0;
 }
-/* line 193, ../sass/_content.scss */
+/* line 198, ../sass/_content.scss */
+#contentContainer .contentItem .approachPage.scrtei .chevrons {
+  background: url("../content/images/chevrons_1-7.png") no-repeat top left !important;
+}
+/* line 199, ../sass/_content.scss */
+#contentContainer .contentItem .approachPage.essays .chevrons {
+  background: url("../content/images/chevrons_2-7.png") no-repeat top left !important;
+}
+/* line 200, ../sass/_content.scss */
+#contentContainer .contentItem .approachPage.tasks .chevrons {
+  background: url("../content/images/chevrons_3-7.png") no-repeat top left !important;
+}
+/* line 201, ../sass/_content.scss */
+#contentContainer .contentItem .approachPage.demos .chevrons {
+  background: url("../content/images/chevrons_4-7.png") no-repeat top left !important;
+}
+/* line 202, ../sass/_content.scss */
+#contentContainer .contentItem .approachPage.projects .chevrons {
+  background: url("../content/images/chevrons_5-7.png") no-repeat top left !important;
+}
+/* line 203, ../sass/_content.scss */
+#contentContainer .contentItem .approachPage.portfolios .chevrons {
+  background: url("../content/images/chevrons_6-7.png") no-repeat top left !important;
+}
+/* line 204, ../sass/_content.scss */
+#contentContainer .contentItem .approachPage.games .chevrons {
+  background: url("../content/images/chevrons_7-7.png") no-repeat top left !important;
+}
+/* line 212, ../sass/_content.scss */
+#contentContainer .contentItem #intro .imageHeader {
+  background: url("../content/images/banner_intro.png") no-repeat bottom right;
+}
+/* line 215, ../sass/_content.scss */
+#contentContainer .contentItem #intro aside {
+  width: 35%;
+  float: right;
+  margin-left: 67.5px;
+}
+/* line 230, ../sass/_content.scss */
 #contentContainer p, #contentContainer li {
   margin-top: 0;
   font-size: 12px;
   line-height: 1.6em;
   color: #666;
 }
-/* line 200, ../sass/_content.scss */
+/* line 237, ../sass/_content.scss */
 #contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4, #contentContainer h5, #contentContainer h6 {
   color: #666666;
   font-weight: normal;
 }
-/* line 205, ../sass/_content.scss */
+/* line 242, ../sass/_content.scss */
 #contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4 {
   text-transform: uppercase;
   margin: 0 0 0.5em 0;
 }
-/* line 210, ../sass/_content.scss */
+/* line 247, ../sass/_content.scss */
 #contentContainer h1 {
   font-size: 30px;
   line-height: 36px;
   color: #006da4;
 }
-/* line 216, ../sass/_content.scss */
+/* line 253, ../sass/_content.scss */
 #contentContainer p + h2, #contentContainer ul + h2 {
   margin-top: 2em;
 }
-/* line 220, ../sass/_content.scss */
+/* line 257, ../sass/_content.scss */
 #contentContainer h2 {
   font-size: 20px;
   line-height: 1.2em;
 }
-/* line 225, ../sass/_content.scss */
+/* line 262, ../sass/_content.scss */
 #contentContainer h3 {
   font-size: 14px;
   line-height: 24px;
 }
-/* line 230, ../sass/_content.scss */
+/* line 267, ../sass/_content.scss */
 #contentContainer h4 {
   font-size: 12px;
   font-weight: bold;
 }
-/* line 235, ../sass/_content.scss */
+/* line 272, ../sass/_content.scss */
 #contentContainer h5 {
   font-size: 12px;
   font-weight: bold;
 }
-/* line 240, ../sass/_content.scss */
+/* line 277, ../sass/_content.scss */
 #contentContainer h6 {
   font-size: 9px;
 }
-/* line 244, ../sass/_content.scss */
+/* line 281, ../sass/_content.scss */
 #contentContainer li {
   line-height: 16px;
   font-size: 11px;
 }
-/* line 251, ../sass/_content.scss */
+/* line 288, ../sass/_content.scss */
 #contentContainer #content {
   width: 100%;
   padding: 10px 50px;
   margin: 0 auto;
   display: block;
 }
-/* line 258, ../sass/_content.scss */
+/* line 295, ../sass/_content.scss */
 #contentContainer #col_1 {
   width: 580px;
   float: left;
   margin-right: 10px;
 }
-/* line 264, ../sass/_content.scss */
+/* line 301, ../sass/_content.scss */
 #contentContainer #col_2 {
   width: 300px;
   float: left;
   margin-left: 10px;
 }
-/* line 270, ../sass/_content.scss */
+/* line 307, ../sass/_content.scss */
 #contentContainer #col_3 {
   width: 700px;
   float: left;
   margin-right: 10px;
 }
-/* line 276, ../sass/_content.scss */
+/* line 313, ../sass/_content.scss */
 #contentContainer #content h2 {
   line-height: 32px;
   font-size: 20px;
   text-transform: uppercase;
 }
-/* line 282, ../sass/_content.scss */
+/* line 319, ../sass/_content.scss */
 #contentContainer #bandbar {
   margin: 0px -380px 0px -50px;
   padding: 10px 380px 10px 50px;
   background-color: rgba(0, 153, 255, 0.15);
 }
-/* line 290, ../sass/_content.scss */
+/* line 327, ../sass/_content.scss */
 #contentContainer img.inline {
   position: relative;
   display: block;
   border: 1px solid #333;
   margin: 5px 0 10px 0;
 }
-/* line 299, ../sass/_content.scss */
+/* line 336, ../sass/_content.scss */
 #contentContainer .banner {
   clear: both;
   text-align: left;
@@ -1606,7 +1644,7 @@ a:active {
   padding: 0px;
   max-height: 200px;
 }
-/* line 307, ../sass/_content.scss */
+/* line 344, ../sass/_content.scss */
 #contentContainer .banner h1 {
   padding: 20px 20px 20px 40px;
   margin: 0px 200px 40px 0px;
@@ -1614,8 +1652,4 @@ a:active {
   font-size: 32px;
   line-height: 32px;
   font-weight: normal;
-}
-/* line 316, ../sass/_content.scss */
-#contentContainer a:link {
-  color: #333333;
 }

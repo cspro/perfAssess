@@ -1,7 +1,8 @@
 $primaryBgColor: #ffffff;
-$primaryAccentColor: #047fa9;
+$primaryAccentColor: #a5d3e5;
 $primaryTextColor: #515151;
-$primaryLinkColor: #047fa9;
+$primaryLinkColor: saturate(darken($primaryAccentColor, 35%), 20%);
+$primaryLinkHoverColor: saturate(lighten($primaryLinkColor, 15%), 20%);
 $topBarBgColor: #222222;
 $bottomBarBgColor: #3a3a3a;
 $bottomBarTextColor: #8e8e8e;
@@ -16,7 +17,7 @@ $menuButtonTextHoverColor: #e0e0e0;
 
 $menuItemTextColor: #222222;
 $menuItemTextHoverColor: #ffffff;
-$menuItemBgHoverColor: #047fa9;
+$menuItemBgHoverColor: $primaryLinkColor;
 
 $menuSubheadBgColor: rgba(63,63,63,0.2);
 $menuSubheadBgHoverColor: darken($menuItemBgHoverColor, 10%);
@@ -27,7 +28,10 @@ $bottomNavColor: #e7e7e7;
 $bottomNavHoverColor: lighten($primaryLinkColor, 10%);
 
 $headlineAccentColor: #006da4;
-$pageHeaderBgColor: #a5d3e5;
+$pageHeaderBgColor: $primaryAccentColor;
 
 $floatingMenuSelectedColor: #444444;
 $floatingMenuSelectedBgColor: rgba(255,255,255,0.50);
+
+$accordionHeaderBgColor: lighten($primaryAccentColor, 10%);
+$accordionBorderColor: $primaryBgColor;
