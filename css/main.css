@@ -978,7 +978,203 @@ you can use the generic selector below, but it's slower:
   content: "\28";
 }
 
-/* line 10, ../sass/main.scss */
+/* line 1, ../sass/_loadingAnim.scss */
+#fountainG {
+  position: relative;
+  width: 80px;
+  height: 10px;
+}
+
+/* line 6, ../sass/_loadingAnim.scss */
+.fountainG {
+  position: absolute;
+  top: 0;
+  background-color: #C7C7C7;
+  width: 10px;
+  height: 10px;
+  -moz-animation-name: bounce_fountainG;
+  -moz-animation-duration: 0.9s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: linear;
+  -moz-transform: scale(0.3);
+  -moz-border-radius: 7px;
+  -webkit-animation-name: bounce_fountainG;
+  -webkit-animation-duration: 0.9s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: linear;
+  -webkit-transform: scale(0.3);
+  -webkit-border-radius: 7px;
+  -ms-animation-name: bounce_fountainG;
+  -ms-animation-duration: 0.9s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-direction: linear;
+  -ms-transform: scale(0.3);
+  -ms-border-radius: 7px;
+  -o-animation-name: bounce_fountainG;
+  -o-animation-duration: 0.9s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-direction: linear;
+  -o-transform: scale(0.3);
+  -o-border-radius: 7px;
+  animation-name: bounce_fountainG;
+  animation-duration: 0.9s;
+  animation-iteration-count: infinite;
+  animation-direction: linear;
+  transform: scale(0.3);
+  border-radius: 7px;
+}
+
+/* line 43, ../sass/_loadingAnim.scss */
+#fountainG_1 {
+  left: 0;
+  -moz-animation-delay: 0.36s;
+  -webkit-animation-delay: 0.36s;
+  -ms-animation-delay: 0.36s;
+  -o-animation-delay: 0.36s;
+  animation-delay: 0.36s;
+}
+
+/* line 51, ../sass/_loadingAnim.scss */
+#fountainG_2 {
+  left: 10px;
+  -moz-animation-delay: 0.45s;
+  -webkit-animation-delay: 0.45s;
+  -ms-animation-delay: 0.45s;
+  -o-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+}
+
+/* line 59, ../sass/_loadingAnim.scss */
+#fountainG_3 {
+  left: 20px;
+  -moz-animation-delay: 0.54s;
+  -webkit-animation-delay: 0.54s;
+  -ms-animation-delay: 0.54s;
+  -o-animation-delay: 0.54s;
+  animation-delay: 0.54s;
+}
+
+/* line 67, ../sass/_loadingAnim.scss */
+#fountainG_4 {
+  left: 30px;
+  -moz-animation-delay: 0.63s;
+  -webkit-animation-delay: 0.63s;
+  -ms-animation-delay: 0.63s;
+  -o-animation-delay: 0.63s;
+  animation-delay: 0.63s;
+}
+
+/* line 75, ../sass/_loadingAnim.scss */
+#fountainG_5 {
+  left: 40px;
+  -moz-animation-delay: 0.72s;
+  -webkit-animation-delay: 0.72s;
+  -ms-animation-delay: 0.72s;
+  -o-animation-delay: 0.72s;
+  animation-delay: 0.72s;
+}
+
+/* line 83, ../sass/_loadingAnim.scss */
+#fountainG_6 {
+  left: 50px;
+  -moz-animation-delay: 0.81s;
+  -webkit-animation-delay: 0.81s;
+  -ms-animation-delay: 0.81s;
+  -o-animation-delay: 0.81s;
+  animation-delay: 0.81s;
+}
+
+/* line 91, ../sass/_loadingAnim.scss */
+#fountainG_7 {
+  left: 60px;
+  -moz-animation-delay: 0.9s;
+  -webkit-animation-delay: 0.9s;
+  -ms-animation-delay: 0.9s;
+  -o-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+
+/* line 99, ../sass/_loadingAnim.scss */
+#fountainG_8 {
+  left: 70px;
+  -moz-animation-delay: 0.99s;
+  -webkit-animation-delay: 0.99s;
+  -ms-animation-delay: 0.99s;
+  -o-animation-delay: 0.99s;
+  animation-delay: 0.99s;
+}
+
+@-moz-keyframes bounce_fountainG {
+  /* line 108, ../sass/_loadingAnim.scss */
+  0% {
+    -moz-transform: scale(1);
+    background-color: #C7C7C7;
+  }
+
+  /* line 112, ../sass/_loadingAnim.scss */
+  100% {
+    -moz-transform: scale(0.3);
+    background-color: #FFFFFF;
+  }
+}
+
+@-webkit-keyframes bounce_fountainG {
+  /* line 118, ../sass/_loadingAnim.scss */
+  0% {
+    -webkit-transform: scale(1);
+    background-color: #C7C7C7;
+  }
+
+  /* line 122, ../sass/_loadingAnim.scss */
+  100% {
+    -webkit-transform: scale(0.3);
+    background-color: #FFFFFF;
+  }
+}
+
+@-ms-keyframes bounce_fountainG {
+  /* line 128, ../sass/_loadingAnim.scss */
+  0% {
+    -ms-transform: scale(1);
+    background-color: #C7C7C7;
+  }
+
+  /* line 132, ../sass/_loadingAnim.scss */
+  100% {
+    -ms-transform: scale(0.3);
+    background-color: #FFFFFF;
+  }
+}
+
+@-o-keyframes bounce_fountainG {
+  /* line 138, ../sass/_loadingAnim.scss */
+  0% {
+    -o-transform: scale(1);
+    background-color: #C7C7C7;
+  }
+
+  /* line 142, ../sass/_loadingAnim.scss */
+  100% {
+    -o-transform: scale(0.3);
+    background-color: #FFFFFF;
+  }
+}
+
+@keyframes bounce_fountainG {
+  /* line 148, ../sass/_loadingAnim.scss */
+  0% {
+    transform: scale(1);
+    background-color: #C7C7C7;
+  }
+
+  /* line 152, ../sass/_loadingAnim.scss */
+  100% {
+    transform: scale(0.3);
+    background-color: #FFFFFF;
+  }
+}
+
+/* line 11, ../sass/main.scss */
 * {
   font-family: 'Open Sans', serif;
   -webkit-box-sizing: border-box;
@@ -986,26 +1182,26 @@ you can use the generic selector below, but it's slower:
   box-sizing: border-box;
 }
 
-/* line 20, ../sass/main.scss */
+/* line 21, ../sass/main.scss */
 a {
   text-decoration: none;
   color: #1b8fbd;
 }
-/* line 23, ../sass/main.scss */
+/* line 24, ../sass/main.scss */
 a:hover {
   color: #2abffa;
 }
-/* line 26, ../sass/main.scss */
+/* line 27, ../sass/main.scss */
 a:active {
   outline: none;
 }
 
-/* line 31, ../sass/main.scss */
+/* line 32, ../sass/main.scss */
 .wrapper {
   overflow: hidden;
   font-size: 13px;
 }
-/* line 36, ../sass/main.scss */
+/* line 37, ../sass/main.scss */
 .wrapper > header {
   position: fixed;
   top: 0;
@@ -1018,7 +1214,7 @@ a:active {
   background-position: left center, right center;
   background-repeat: no-repeat, no-repeat;
 }
-/* line 48, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 .wrapper > nav {
   position: fixed;
   top: 45px;
@@ -1026,18 +1222,18 @@ a:active {
   z-index: 90;
   display: block;
 }
-/* line 55, ../sass/main.scss */
+/* line 56, ../sass/main.scss */
 .wrapper > nav #menuWrapper {
   position: relative;
   float: right;
   width: 205px;
 }
-/* line 59, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 .wrapper > nav #menuWrapper * {
   padding: 0;
   margin: 0;
 }
-/* line 63, ../sass/main.scss */
+/* line 64, ../sass/main.scss */
 .wrapper > nav #menuWrapper #menuButton {
   display: block;
   position: fixed;
@@ -1059,12 +1255,12 @@ a:active {
   transition: all 0.25s ease-in-out;
   -webkit-backface-visibility: hidden;
 }
-/* line 81, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 .wrapper > nav #menuWrapper #menuButton:hover {
   background-color: #999999;
   color: #e0e0e0;
 }
-/* line 85, ../sass/main.scss */
+/* line 86, ../sass/main.scss */
 .wrapper > nav #menuWrapper #menuButton.open {
   box-shadow: none;
   border-bottom-left-radius: 0px;
@@ -1073,7 +1269,7 @@ a:active {
   -moz-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
-/* line 91, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul {
   display: block;
   position: fixed;
@@ -1102,7 +1298,7 @@ a:active {
   transition: all 0.25s ease-in-out;
   -webkit-backface-visibility: hidden;
 }
-/* line 111, ../sass/main.scss */
+/* line 112, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul.closed {
   -webkit-transform: translateY(-300px);
   -moz-transform: translateY(-300px);
@@ -1110,16 +1306,16 @@ a:active {
   -o-transform: translateY(-300px);
   transform: translateY(-300px);
 }
-/* line 115, ../sass/main.scss */
+/* line 116, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li {
   list-style: none;
 }
-/* line 117, ../sass/main.scss */
+/* line 118, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li a, .wrapper > nav #menuWrapper ul li span {
   display: block;
   padding: 4px 4px 4px 16px;
 }
-/* line 121, ../sass/main.scss */
+/* line 122, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li a {
   -webkit-transition: all 0.15s ease-in-out;
   -moz-transition: all 0.15s ease-in-out;
@@ -1127,7 +1323,7 @@ a:active {
   color: #222222;
   padding: 4px 4px 4px 16px;
 }
-/* line 125, ../sass/main.scss */
+/* line 126, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li a:hover {
   cursor: pointer;
   color: white;
@@ -1136,41 +1332,42 @@ a:active {
   transition: all 0.25s ease-in-out;
   background-color: #1b8fbd;
 }
-/* line 131, ../sass/main.scss */
+/* line 132, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li a.currentPage {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
   padding: 2px 6px 2px 10px;
   margin: 2px 0;
 }
-/* line 139, ../sass/main.scss */
+/* line 136, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li a.currentPage:before {
   content: "\203A \00a0";
 }
-/* line 143, ../sass/main.scss */
+/* line 140, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li a.subhead {
   color: #666666;
   text-transform: uppercase;
   background-color: rgba(63, 63, 63, 0.2);
   margin: 4px 0;
 }
-/* line 148, ../sass/main.scss */
+/* line 145, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li a.subhead:hover {
   color: #e0e0e0;
   background-color: #146d90;
 }
-/* line 153, ../sass/main.scss */
+/* line 150, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li a.currentPage.subhead {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
 }
-/* line 159, ../sass/main.scss */
+/* line 156, ../sass/main.scss */
 .wrapper > nav #menuWrapper ul li span.subhead {
   color: #666666;
   text-transform: uppercase;
   background-color: rgba(63, 63, 63, 0.2);
   margin: 4px 0;
 }
-/* line 176, ../sass/main.scss */
-.wrapper #contentContainer, .wrapper #contentLoading {
+/* line 171, ../sass/main.scss */
+.wrapper #contentContainer {
+  display: block;
   position: fixed;
   top: 45px;
   bottom: 45px;
@@ -1179,12 +1376,16 @@ a:active {
   overflow-x: none;
   overflow-y: auto;
 }
-/* line 186, ../sass/main.scss */
+/* line 182, ../sass/main.scss */
 .wrapper #contentLoading {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  margin-left: -50px;
   text-align: center;
-  font-size: 30px;
-  line-height: 300px;
-  color: #ccc;
+  z-index: 1000;
 }
 /* line 197, ../sass/main.scss */
 .wrapper > footer {
@@ -1249,28 +1450,29 @@ a:active {
 }
 /* line 241, ../sass/main.scss */
 .wrapper > footer #socialNav {
+  display: none;
   font-size: 20px;
   bottom: 0;
   right: 22px;
 }
-/* line 245, ../sass/main.scss */
+/* line 246, ../sass/main.scss */
 .wrapper > footer #socialNav a {
   color: #8e8e8e;
   width: 20px;
   margin-left: 4px;
 }
-/* line 249, ../sass/main.scss */
+/* line 250, ../sass/main.scss */
 .wrapper > footer #socialNav a:not([class*="no-hover"]):hover {
   cursor: pointer;
   color: #e7e7e7;
 }
-/* line 255, ../sass/main.scss */
+/* line 256, ../sass/main.scss */
 .wrapper > footer #copyright {
   color: #8e8e8e;
   font-size: 0.8em;
   letter-spacing: 0.05em;
 }
-/* line 262, ../sass/main.scss */
+/* line 263, ../sass/main.scss */
 .wrapper .disabled {
   cursor: default !important;
 }
@@ -1536,107 +1738,111 @@ a:active {
 #contentContainer .contentItem.games .chevrons {
   background: url("../content/images/chevrons_7-7.png") no-repeat top left !important;
 }
-/* line 231, ../sass/_content.scss */
+/* line 224, ../sass/_content.scss */
+#contentContainer .contentItem section#exemplars, #contentContainer .contentItem section#moreinfo {
+  display: none;
+}
+/* line 235, ../sass/_content.scss */
 #contentContainer p, #contentContainer li {
   margin-top: 0;
   font-size: 12px;
   line-height: 1.6em;
   color: #666;
 }
-/* line 238, ../sass/_content.scss */
+/* line 242, ../sass/_content.scss */
 #contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4, #contentContainer h5, #contentContainer h6 {
   color: #666666;
   font-weight: normal;
 }
-/* line 243, ../sass/_content.scss */
+/* line 247, ../sass/_content.scss */
 #contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4 {
   text-transform: uppercase;
   margin: 0 0 0.5em 0;
 }
-/* line 248, ../sass/_content.scss */
+/* line 252, ../sass/_content.scss */
 #contentContainer h1 {
   font-size: 30px;
   line-height: 36px;
   color: #006da4;
 }
-/* line 254, ../sass/_content.scss */
+/* line 258, ../sass/_content.scss */
 #contentContainer p + h2, #contentContainer ul + h2 {
   margin-top: 2em;
 }
-/* line 258, ../sass/_content.scss */
+/* line 262, ../sass/_content.scss */
 #contentContainer h2 {
   font-size: 20px;
   line-height: 1.2em;
 }
-/* line 263, ../sass/_content.scss */
+/* line 267, ../sass/_content.scss */
 #contentContainer h3 {
   font-size: 14px;
   line-height: 24px;
 }
-/* line 268, ../sass/_content.scss */
+/* line 272, ../sass/_content.scss */
 #contentContainer h4 {
   font-size: 12px;
   font-weight: bold;
 }
-/* line 273, ../sass/_content.scss */
+/* line 277, ../sass/_content.scss */
 #contentContainer h5 {
   font-size: 12px;
   font-weight: bold;
 }
-/* line 278, ../sass/_content.scss */
+/* line 282, ../sass/_content.scss */
 #contentContainer h6 {
   font-size: 9px;
 }
-/* line 282, ../sass/_content.scss */
+/* line 286, ../sass/_content.scss */
 #contentContainer li {
   line-height: 16px;
   font-size: 11px;
 }
-/* line 289, ../sass/_content.scss */
+/* line 293, ../sass/_content.scss */
 #contentContainer #content {
   width: 100%;
   padding: 10px 50px;
   margin: 0 auto;
   display: block;
 }
-/* line 296, ../sass/_content.scss */
+/* line 300, ../sass/_content.scss */
 #contentContainer #col_1 {
   width: 580px;
   float: left;
   margin-right: 10px;
 }
-/* line 302, ../sass/_content.scss */
+/* line 306, ../sass/_content.scss */
 #contentContainer #col_2 {
   width: 300px;
   float: left;
   margin-left: 10px;
 }
-/* line 308, ../sass/_content.scss */
+/* line 312, ../sass/_content.scss */
 #contentContainer #col_3 {
   width: 700px;
   float: left;
   margin-right: 10px;
 }
-/* line 314, ../sass/_content.scss */
+/* line 318, ../sass/_content.scss */
 #contentContainer #content h2 {
   line-height: 32px;
   font-size: 20px;
   text-transform: uppercase;
 }
-/* line 320, ../sass/_content.scss */
+/* line 324, ../sass/_content.scss */
 #contentContainer #bandbar {
   margin: 0px -380px 0px -50px;
   padding: 10px 380px 10px 50px;
   background-color: rgba(0, 153, 255, 0.15);
 }
-/* line 328, ../sass/_content.scss */
+/* line 332, ../sass/_content.scss */
 #contentContainer img.inline {
   position: relative;
   display: block;
   border: 1px solid #333;
   margin: 5px 0 10px 0;
 }
-/* line 337, ../sass/_content.scss */
+/* line 341, ../sass/_content.scss */
 #contentContainer .banner {
   clear: both;
   text-align: left;
@@ -1644,7 +1850,7 @@ a:active {
   padding: 0px;
   max-height: 200px;
 }
-/* line 345, ../sass/_content.scss */
+/* line 349, ../sass/_content.scss */
 #contentContainer .banner h1 {
   padding: 20px 20px 20px 40px;
   margin: 0px 200px 40px 0px;
@@ -1652,4 +1858,20 @@ a:active {
   font-size: 32px;
   line-height: 32px;
   font-weight: normal;
+}
+
+/* line 271, ../sass/main.scss */
+#log {
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: auto;
+  background-color: rgba(255, 255, 255, 0.95);
+  font-family: monospace;
+  font-size: 9px;
 }

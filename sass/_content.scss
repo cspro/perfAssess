@@ -220,6 +220,10 @@
     &.portfolios .chevrons {background: url('../content/images/chevrons_6-7.png') no-repeat top left !important;}
     &.games      .chevrons {background: url('../content/images/chevrons_7-7.png') no-repeat top left !important;}
     
+    // Initially hide exemplars and more info sections
+    section#exemplars, section#moreinfo {
+      display: none;
+    }
     
   }
   

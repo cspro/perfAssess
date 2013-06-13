@@ -5,6 +5,7 @@
 @import "colors";
 @import "opensans";
 @import "iconfont";
+@import "loadingAnim";
 // @import "../neat/neat";
 
 * {
@@ -129,10 +130,6 @@ a {
               background-color: $menuItemBgHoverColor;
             }
             &.currentPage {
-              // font-style: italic;
-              // background-color: desaturate(lighten($menuItemBgHoverColor, 50%), 50%);
-              // border-top: 1px solid lighten($menuBorderColor, 20%);
-              // border-bottom: 1px solid lighten($menuBorderColor, 5%);
               box-shadow: 0 0 6px rgba(0,0,0,0.2);
               padding: 2px 6px 2px $menuItemLeftPadding - 6px;
               margin: 2px 0;
@@ -167,13 +164,12 @@ a {
     }
   }
   
-  
-  
   // ================================
   // == Content Wrapper =============
   // ================================
   
-  #contentContainer, #contentLoading {
+  #contentContainer {
+    display: block;
     position: fixed;
     top: $topBarHeight;
     bottom: $bottomBarHeight;
@@ -184,10 +180,14 @@ a {
   }
   
   #contentLoading {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    margin-left: -50px;
     text-align: center;
-    font-size: 30px;
-    line-height: 300px;
-    color: #ccc;
+    z-index: 1000;
   }
   
   // ================================
@@ -239,6 +239,7 @@ a {
       left: 50%;
     }
     #socialNav {
+      display: none;
       font-size: 20px;
       bottom: 0;
       right: $edgePadding;
@@ -266,4 +267,19 @@ a {
 }
 
 @import "content";
+
+#log {
+  display: block;
+  position: fixed; 
+  z-index: 1000; 
+  top: 0; 
+  left: 0; 
+  width: 500px; 
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: auto;
+  background-color: rgba(255,255,255,0.95);
+  font-family: monospace;
+  font-size: 9px;
+}
 

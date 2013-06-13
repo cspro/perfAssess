@@ -1,4 +1,4 @@
-/*===================age==============================*/
+/*=================================================*/
 /*== Application ==================================*/
 /*=================================================*/
 
@@ -10,7 +10,9 @@ var cache = {
 	// If url is '' (no fragment), display this div's content.
 	'': $('.content-default')
 };
-
+var isInternalNav = false; // When navigating, is it from the app/user (true), or from browser next/back (false)
+var hashPrefix = '?page='; 
+var debugHistory = false;
 
 /*=================================================*/
 /*== Navigation Menu ==============================*/
@@ -49,7 +51,8 @@ function closeMenu() {
 }
 
 function onNavClick(e) {
-	loadContent(e.data);
+	var pageId = e.data;
+	changeHistoryState(pageId);
 	return false;
 }
 
@@ -65,8 +68,6 @@ function setMenuState(currPageId) {
 	});
 }
 
-
-
 /*=================================================*/
 /*== Footer Page Nav ==============================*/
 /*=================================================*/
@@ -78,7 +79,7 @@ function loadPageNum(pageNum) {
 		} else {
 			pageId = pageIds[0];
 		}
-		loadContent(pageId);
+		changeHistoryState(pageId);
 	} else {
 		throw new Error("Pages not loaded.");
 	}
@@ -100,7 +101,6 @@ function onPageNavButtonClick(e) {
 	} else {
 		e.data.action.apply();
 	}
-	// $(e.target).blur();
 	return false;
 }
 
@@ -124,11 +124,25 @@ function setPageNavState(pageNum) {
 /*== Floating Subnav menu =========================*/
 /*=================================================*/
 
-/*
- * Called on content page load 
- */
 function contentPageLoadHook() {
-	var allSections = $('.approachPage section');
+	initAccordion();
+}
+
+function initAccordion() {
+	var allPanels = $('.accordion > dd').hide();
+	$('.accordion > dt > a').click(function() {
+		var that = $(this);
+		var target = that.parent().next();
+	
+		if (target.hasClass('active')) {
+			// close the current panel
+			target.removeClass('active').slideUp(250);
+		} else {
+			allPanels.removeClass('active').slideUp(250);
+			target.addClass('active').slideDown(250);
+		}
+		return false;
+	});
 }
 
 function floatingMenuHook(e) {
@@ -137,52 +151,10 @@ function floatingMenuHook(e) {
 	} else {
 		var pageId = getPageIdFromHash();
 		var sectionId = $(this).attr('href').replace('#', '');
-		showContentSection(pageId, sectionId, true);
+		changeHistoryState(pageId, sectionId);
+		// showContentSection(pageId, sectionId, true, true);
 	}
 	return false;
-}
-
-function showContentSection(pageId, sectionId, fade) {
-	var section = null;
-	var allSections = $('.' + pageId + ' section');
-	 // = page.children('section');
-	if (!sectionId) {
-		// Get first section child of this page
-		section = allSections.first();
-		sectionId = section.attr('id');
-	} else {
-		section = $('.' + pageId + ' #' + sectionId);
-	}
-	if (fade) {
-		allSections.each(function(index, elem) {
-			var jelem = $(elem);
-			if (jelem.is(':visible')) {
-				setFloatingMenuState(sectionId);
-				jelem.fadeOut(125, function() {
-					section.fadeIn(250, function() {
-						setSubSectionHash(sectionId);
-					});
-				});
-			}
-		});
-	} else {
-		// Loading from URL hash
-		allSections.each(function(index, elem) {
-			$(elem).hide();
-		});
-		section.show();
-		
-	}
-	if (pageId != sectionId) {
-		setFloatingMenuState(sectionId);
-		setSubSectionHash(sectionId);
-	}
-}
-
-function setSubSectionHash(sectionId) {
-	var hash = getWindowHash();
-	var pageId = hash.indexOf('_') > 0 ? hash.substr(0, hash.indexOf('_')) : hash;
-	window.location.hash = pageId + '_' + sectionId;
 }
 
 function setFloatingMenuState(sectionId) {
@@ -195,18 +167,14 @@ function setFloatingMenuState(sectionId) {
 }
 
 /*=================================================*/
-/*== Document =====================================*/
+/*== Content Load & Display =======================*/
 /*=================================================*/
 
-/*
- * Primary page load method; other methods should call this
- */
 function loadContent(pageId, sectionId) {
 
 	closeMenu();
 	
-	var cont = $("#contentContainer");
-	var visChildren = cont.children(':visible');
+	var visChildren = $("#contentContainer").children(':visible');
 	if (visChildren.length == 0) {
 		// first page loaded
 		showContent(pageId, sectionId);
@@ -220,8 +188,6 @@ function loadContent(pageId, sectionId) {
 	setMenuState(pageId);
 	setPageNavState(currPageNum);
 	
-	// Set hash for deep-linking and refresh
-	window.location.hash = sectionId ? pageId + "_" + sectionId : pageId;
 }
 
 function showContent(pageId, sectionId) {
@@ -252,11 +218,90 @@ function showContent(pageId, sectionId) {
 	}
 }
 
-/*
- * Get the hash (fragment) as a string, with leading # removed.
- */ 
+function showContentSection(pageId, sectionId, fade) {
+	
+	var section = null;
+	var allSections = $('.' + pageId + ' section');
+	 // = page.children('section');
+	if (!sectionId) {
+		// Get first section child of this page
+		section = allSections.first();
+		sectionId = section.attr('id');
+	} else {
+		section = $('.' + pageId + ' #' + sectionId);
+	}
+	if (fade) {
+		allSections.each(function(index, elem) {
+			var jelem = $(elem);
+			if (jelem.is(':visible')) {
+				setFloatingMenuState(sectionId);
+				jelem.fadeOut(125, function() {
+					section.fadeIn(250, function() {
+						
+					});
+				});
+			}
+		});
+	} else {
+		// Loading from URL hash
+		allSections.each(function(index, elem) {
+			$(elem).hide();
+		});
+		section.show();
+	}
+	if (pageId != sectionId) {
+	    // Page has a specific subsection (with an underscore)
+		setFloatingMenuState(sectionId);
+	}
+}
+
+/*=================================================*/
+/*== History ======================================*/
+/*=================================================*/
+
+function initHistory() {
+	
+	if (document.location.hostname == "localhost" && debugHistory) {
+		History.options.debug = true;
+		$('body').append('<textarea id="log"></textarea>');
+	} 
+	
+	// Log Initial State
+	var	State = History.getState();
+	History.debug('initHistory::', ' > data: ' + State.data, ' > title: ' + State.title, ' > url: ' + State.url);
+	
+	// Bind to State Change
+	History.Adapter.bind(window,'statechange', onHistoryStateChange);
+}
+
+function changeHistoryState(pageId, sectionId, replaceState) {
+	var newHash = "?page=" + (sectionId ? pageId + "_" + sectionId : pageId);
+	History.debug((replaceState?'replace':'push') + 'HistoryState:: pageId: ' + pageId + '; sectionId: ' + sectionId + '; newHash: ' + newHash);
+	var title = "Performance Assessment: " + ucwords(pageId + (sectionId ? ': '+sectionId : ''));
+	if (replaceState) {
+		History.replaceState({page: pageId, section: sectionId}, title, newHash);
+	} else {
+		History.pushState({page: pageId, section: sectionId}, title, newHash);
+	}
+	var State = History.getState(); // Note: We are using History.getState() instead of event.state
+	History.debug(' ↳ New '+ (replaceState ? 'replaced' : 'pushed') +' state: ', '     url: ' + State.url);
+}
+
+function onHistoryStateChange(e) {
+	var State = History.getState(); // Note: We are using History.getState() instead of event.state
+	History.debug('onHistoryStateChange::', '     url: ' + State.url);
+	var pageId = State.data.page;
+	var sectionId = State.data.section;
+	loadContent(pageId, sectionId);
+}
+
+/*=================================================*/
+/*== Utility ======================================*/
+/*=================================================*/
+
 function getWindowHash() {
-	var hash = window.location.hash.replace('#', '');
+	var hash = window.location.search;
+	hash = hash.replace(hashPrefix, '');
 	return hash;
 }
 
@@ -272,10 +317,17 @@ function getSectionIdFromHash() {
 	return sectionId;
 }
 
+function ucwords (str) {
+    return (str + '').replace(/^([a-z])|\s+([a-z])/g, function ($1) {
+        return $1.toUpperCase();
+    });
+}
+
 $(document).ready(function() {
 	
 	initMenu();
 	initPageNav();
+	initHistory();
 	
 	// Add no-touch class to document to allow :hover states for non-iOS devices
 	if (("ontouchstart" in document.documentElement)) {
@@ -287,7 +339,9 @@ $(document).ready(function() {
 	if (hash) {
 		var pageId = getPageIdFromHash();
 		var sectionId = getSectionIdFromHash();
-		loadContent(pageId, sectionId);
+		changeHistoryState(pageId, sectionId, true);
+		// Must manually trigger event on initial load
+		History.Adapter.trigger(window, 'statechange');
 	} else {
 		loadPageNum(0);
 	}
