@@ -90,6 +90,7 @@
     }
     
     .brainsharkWrapper {
+      display: block;
       width: 450px;
       height: 375px;
       overflow: hidden;
@@ -178,7 +179,6 @@
         border-top: 0; 
         font-size: 12px;
         //FIXME: Responsive media query
-        max-height: 200px;
         overflow-x: hidden;
         overflow-y: auto;
         background-color: darken($primaryBgColor, 5%);

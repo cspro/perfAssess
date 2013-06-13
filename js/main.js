@@ -5,13 +5,12 @@
 var pageIds = null; // Array of string ids, which are also HTML filenames
 var currPageNum = 0; // Index of current pageId in array
 var menuLinks = null;
-// Keep a mapping of url-to-container for caching purposes.
 var cache = {
 	// If url is '' (no fragment), display this div's content.
-	'': $('.content-default')
+	'' : $('.content-default')
 };
-var isInternalNav = false; // When navigating, is it from the app/user (true), or from browser next/back (false)
-var hashPrefix = '?page='; 
+var hashPrefix = '?page=';
+var isBrainsharkPlaying = false;  
 var debugHistory = false;
 
 /*=================================================*/
@@ -121,31 +120,59 @@ function setPageNavState(pageNum) {
 }
 
 /*=================================================*/
-/*== Floating Subnav menu =========================*/
+/*== Content Page Controls ========================*/
 /*=================================================*/
 
-function contentPageLoadHook() {
-	initAccordion();
+function onContentPageLoad(pageId) {
+	initFloatingMenu();
+	initAccordion(pageId);
+	initBrainshark();
 }
 
-function initAccordion() {
-	var allPanels = $('.accordion > dd').hide();
-	$('.accordion > dt > a').click(function() {
-		var that = $(this);
-		var target = that.parent().next();
-	
-		if (target.hasClass('active')) {
-			// close the current panel
-			target.removeClass('active').slideUp(250);
-		} else {
-			allPanels.removeClass('active').slideUp(250);
-			target.addClass('active').slideDown(250);
-		}
-		return false;
+function onContentPageHide(pageId) {
+}
+
+function initAccordion(pageId) {
+	var allPanels = $('.' + pageId + ' .accordion > dd').hide();
+	$('.' + pageId + ' .accordion')
+		.off('click', '> dt > a', onAccordionClick)
+		.on('click', '> dt > a', onAccordionClick);
+}
+
+function onAccordionClick(e) {
+	var that = $(this);
+	var target = that.parent().next();
+	var accordion = target.parent();
+
+	if (target.hasClass('active')) {
+		// close the current panel
+		target.removeClass('active').slideUp(250);
+	} else {
+		var dds = accordion.children('dd').removeClass('active').slideUp(250);
+		target.addClass('active').slideDown(250);
+	}
+	return false;
+}
+
+function initBrainshark() {
+	$('.brainsharkWrapper iframe').click(function() {
+		alert('direct click');
 	});
 }
 
-function floatingMenuHook(e) {
+function onBrainsharkClick(e) {
+	alert('Brainshark clicked.');
+}
+
+/*=================================================*/
+/*== Floating Menu ===============================*/
+/*=================================================*/
+
+function initFloatingMenu() {
+	$('.floatingMenu a').click(this, onFloatingMenuItemClick);
+}
+
+function onFloatingMenuItemClick(e) {
 	if ($(e.target).hasClass('selected')) {
 		e.stopPropagation();
 	} else {
@@ -237,7 +264,7 @@ function showContentSection(pageId, sectionId, fade) {
 				setFloatingMenuState(sectionId);
 				jelem.fadeOut(125, function() {
 					section.fadeIn(250, function() {
-						
+						onContentPageLoad(pageId);
 					});
 				});
 			}
@@ -248,6 +275,7 @@ function showContentSection(pageId, sectionId, fade) {
 			$(elem).hide();
 		});
 		section.show();
+		onContentPageLoad(pageId);
 	}
 	if (pageId != sectionId) {
 	    // Page has a specific subsection (with an underscore)
