@@ -40,9 +40,9 @@
       padding: 10px;
       margin: 0px;
       border-radius: 10px;
-      border: 1px solid #CCCCCC;
+      border: 1px solid $sidebarBorderColor;
       padding: $edgePadding;
-      background-color: #E9E9E9;
+      background-color: $sidebarBgColor;
     }
     
     hr {
@@ -90,12 +90,20 @@
     }
     
     .brainsharkWrapper {
-      width: 300px;
-      height: 250px;
+      width: 450px;
+      height: 375px;
       overflow: hidden;
       float: right;
       margin-left: $contentPadding;
       margin-bottom: 1em;
+      border: 1px solid $sidebarBorderColor;
+      background: $sidebarBgColor;
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        overflow: hidden;
+      }
     }
     
     .spaceBelow {
