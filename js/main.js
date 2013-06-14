@@ -13,6 +13,22 @@ var hashPrefix = '?page=';
 var isBrainsharkPlaying = false;  
 var debugHistory = false;
 
+//TODO: Move this out to config file, load in using require.js
+brainsharkURLs = {
+	'home'       : 'http://www.brainshark.com/pearsonschool/vu?pi=zHoz162vWtzBy4Rz0',
+	'what'       : 'http://www.brainshark.com/pearsonschool/vu?pi=zHoz162vWtzBy4Rz0',
+	'scrtei'     : 'http://www.brainshark.com/pearsonschool/vu?pi=zHMz3tdeNzBy4Rz0&intk=367046328',
+	'essays'     : 'http://www.brainshark.com/pearsonschool/vu?pi=zGDzd3VV5zBy4Rz0&intk=276408450',
+	'tasks'      : 'http://www.brainshark.com/pearsonschool/vu?pi=zFJzBQeIzBy4Rz0&intk=214276015',
+	'demos'      : 'http://www.brainshark.com/pearsonschool/vu?pi=zHSzDRRkqzBy4Rz0&intk=923989530',
+	'projects'   : 'http://www.brainshark.com/pearsonschool/vu?pi=zI5zwqEnOzBy4Rz0&intk=145361535',
+	'portfolios' : 'http://www.brainshark.com/pearsonschool/vu?pi=zI5zwqEnOzBy4Rz0&intk=145361535',
+	'games'      : 'http://www.brainshark.com/pearsonschool/vu?pi=zI4zLplZgzBy4Rz0&intk=432524160',
+	'default'    : 'http://www.brainshark.com/pearsonschool/vu?pi=zHoz162vWtzBy4Rz0'
+};
+
+brainsharkURLSuffix = '&dm=5&pause=1&nrs=1';
+
 /*=================================================*/
 /*== Navigation Menu ==============================*/
 /*=================================================*/
@@ -168,6 +184,12 @@ function initBrainshark(pageId) {
 		if (bsElement.storedHTML) {
 			bsWrapper.html(bsElement.storedHTML);
 			bsElement.storedHTML = null;
+		} else {
+			// initial load; get Brainshark id from map and write iFrame
+			var url = brainsharkURLs[pageId] ? brainsharkURLs[pageId] : brainsharkURLs['default'];
+			var src = url + brainsharkURLSuffix;
+			var iframe = '<iframe src="' + src + '"></iframe>';
+			bsWrapper.html(iframe);
 		}
 	}
 }
