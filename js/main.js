@@ -126,10 +126,16 @@ function setPageNavState(pageNum) {
 function onContentPageLoad(pageId) {
 	initFloatingMenu();
 	initAccordion(pageId);
-	initBrainshark();
+	initBrainshark(pageId);
 }
 
-function onContentPageHide(pageId) {
+function onContentPageHide(page) {
+	var bsWrapper = page.find('div.brainsharkWrapper');
+	if (bsWrapper && bsWrapper.length > 0) {
+		var bsElement = bsWrapper.get(0);
+		bsElement.storedHTML = bsWrapper.html();
+		bsWrapper.html('<p>This Brainshark has been hidden.</p>');
+	}
 }
 
 function initAccordion(pageId) {
@@ -154,14 +160,16 @@ function onAccordionClick(e) {
 	return false;
 }
 
-function initBrainshark() {
-	$('.brainsharkWrapper iframe').click(function() {
-		alert('direct click');
-	});
-}
-
-function onBrainsharkClick(e) {
-	alert('Brainshark clicked.');
+function initBrainshark(pageId) {
+	var page = $('.'+pageId);
+	var bsWrapper = page.find('div.brainsharkWrapper');
+	if (bsWrapper && bsWrapper.length > 0) {
+		var bsElement = bsWrapper.get(0);
+		if (bsElement.storedHTML) {
+			bsWrapper.html(bsElement.storedHTML);
+			bsElement.storedHTML = null;
+		}
+	}
 }
 
 /*=================================================*/
@@ -207,6 +215,8 @@ function loadContent(pageId, sectionId) {
 		showContent(pageId, sectionId);
 	} else {
 		visChildren.fadeOut(125, function() {
+			var prevPage = $(visChildren);
+			onContentPageHide(prevPage);
 			showContent(pageId, sectionId);
 		});
 	}
