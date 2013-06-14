@@ -9,19 +9,18 @@ var cache = {
 	// If url is '' (no fragment), display this div's content.
 	'' : $('.content-default')
 };
-var hashPrefix = '?page=';
 var isBrainsharkPlaying = false;  
-var debugHistory = false;
 
 //TODO: Move this out to config file, load in using require.js
+var hashPrefix = '?page=';
+var debugHistory = false;
 brainsharkURLs = {
-	'home'       : 'http://www.brainshark.com/pearsonschool/vu?pi=zHoz162vWtzBy4Rz0',
-	'what'       : 'http://www.brainshark.com/pearsonschool/vu?pi=zHoz162vWtzBy4Rz0',
+	'home'       : 'http://www.brainshark.com/pearsonschool/vu?pi=zGOze1mO1zBy4Rz0',
 	'scrtei'     : 'http://www.brainshark.com/pearsonschool/vu?pi=zHMz3tdeNzBy4Rz0&intk=367046328',
 	'essays'     : 'http://www.brainshark.com/pearsonschool/vu?pi=zGDzd3VV5zBy4Rz0&intk=276408450',
 	'tasks'      : 'http://www.brainshark.com/pearsonschool/vu?pi=zFJzBQeIzBy4Rz0&intk=214276015',
 	'demos'      : 'http://www.brainshark.com/pearsonschool/vu?pi=zHSzDRRkqzBy4Rz0&intk=923989530',
-	'projects'   : 'http://www.brainshark.com/pearsonschool/vu?pi=zI5zwqEnOzBy4Rz0&intk=145361535',
+	'projects'   : 'http://www.brainshark.com/pearsonschool/vu?pi=zHoz162vWtzBy4Rz0',
 	'portfolios' : 'http://www.brainshark.com/pearsonschool/vu?pi=zI5zwqEnOzBy4Rz0&intk=145361535',
 	'games'      : 'http://www.brainshark.com/pearsonschool/vu?pi=zI4zLplZgzBy4Rz0&intk=432524160',
 	'default'    : 'http://www.brainshark.com/pearsonschool/vu?pi=zHoz162vWtzBy4Rz0'
@@ -206,7 +205,7 @@ function onFloatingMenuItemClick(e) {
 	if ($(e.target).hasClass('selected')) {
 		e.stopPropagation();
 	} else {
-		var pageId = getPageIdFromHash();
+		var pageId = getPageIdFromHistory();
 		var sectionId = $(this).attr('href').replace('#', '');
 		changeHistoryState(pageId, sectionId);
 		// showContentSection(pageId, sectionId, true, true);
@@ -326,16 +325,18 @@ function initHistory() {
 		$('body').append('<textarea id="log"></textarea>');
 	} 
 	
-	// Log Initial State
-	var	State = History.getState();
-	History.debug('initHistory::', ' > data: ' + State.data, ' > title: ' + State.title, ' > url: ' + State.url);
+	History.options.disableSuid = true;
 	
-	// Bind to State Change
+	// Log Initial state
+	var	state = History.getState();
+	History.debug('initHistory::', ' > data: ' + state.data, ' > title: ' + state.title, ' > url: ' + state.url);
+	
+	// Bind to state Change
 	History.Adapter.bind(window,'statechange', onHistoryStateChange);
 }
 
 function changeHistoryState(pageId, sectionId, replaceState) {
-	var newHash = "?page=" + (sectionId ? pageId + "_" + sectionId : pageId);
+	var newHash = hashPrefix + (sectionId ? pageId + "_" + sectionId : pageId);
 	History.debug((replaceState?'replace':'push') + 'HistoryState:: pageId: ' + pageId + '; sectionId: ' + sectionId + '; newHash: ' + newHash);
 	var title = "Performance Assessment: " + ucwords(pageId + (sectionId ? ': '+sectionId : ''));
 	if (replaceState) {
@@ -343,15 +344,15 @@ function changeHistoryState(pageId, sectionId, replaceState) {
 	} else {
 		History.pushState({page: pageId, section: sectionId}, title, newHash);
 	}
-	var State = History.getState(); // Note: We are using History.getState() instead of event.state
-	History.debug(' ↳ New '+ (replaceState ? 'replaced' : 'pushed') +' state: ', '     url: ' + State.url);
+	var state = History.getState(); // Note: We are using History.getState() instead of event.state
+	History.debug(' ↳ New '+ (replaceState ? 'replaced' : 'pushed') +' state: ', '     url: ' + state.url);
 }
 
 function onHistoryStateChange(e) {
-	var State = History.getState(); // Note: We are using History.getState() instead of event.state
-	History.debug('onHistoryStateChange::', '     url: ' + State.url);
-	var pageId = State.data.page;
-	var sectionId = State.data.section;
+	var state = History.getState(); // Note: We are using History.getState() instead of event.state
+	History.debug('onHistoryStateChange::', '     url: ' + state.url);
+	var pageId = state.data.page;
+	var sectionId = state.data.section;
 	loadContent(pageId, sectionId);
 }
 
@@ -369,6 +370,11 @@ function getPageIdFromHash() {
 	var hash = getWindowHash();
 	var pageId = hash.indexOf('_') > 0 ? hash.substr(0, hash.indexOf('_')) : hash;
 	return pageId;
+}
+
+function getPageIdFromHistory() {
+	var state = History.getState();
+	return state.data.page;
 }
 
 function getSectionIdFromHash() {

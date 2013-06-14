@@ -220,6 +220,14 @@
       }
     }
     
+    #what {
+      aside {
+        width: 35%;
+        float: right;
+        margin-left: $contentPadding * 1.5;
+      }
+    }
+    
     &.scrtei     .chevrons {background: url('../content/images/chevrons_1-7.png') no-repeat top left !important;}
     &.essays     .chevrons {background: url('../content/images/chevrons_2-7.png') no-repeat top left !important;}
     &.tasks      .chevrons {background: url('../content/images/chevrons_3-7.png') no-repeat top left !important;}

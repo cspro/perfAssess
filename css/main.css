@@ -1719,139 +1719,145 @@ a:active {
   float: right;
   margin-left: 67.5px;
 }
-/* line 223, ../sass/_content.scss */
+/* line 224, ../sass/_content.scss */
+#contentContainer .contentItem #what aside {
+  width: 35%;
+  float: right;
+  margin-left: 67.5px;
+}
+/* line 231, ../sass/_content.scss */
 #contentContainer .contentItem.scrtei .chevrons {
   background: url("../content/images/chevrons_1-7.png") no-repeat top left !important;
 }
-/* line 224, ../sass/_content.scss */
+/* line 232, ../sass/_content.scss */
 #contentContainer .contentItem.essays .chevrons {
   background: url("../content/images/chevrons_2-7.png") no-repeat top left !important;
 }
-/* line 225, ../sass/_content.scss */
+/* line 233, ../sass/_content.scss */
 #contentContainer .contentItem.tasks .chevrons {
   background: url("../content/images/chevrons_3-7.png") no-repeat top left !important;
 }
-/* line 226, ../sass/_content.scss */
+/* line 234, ../sass/_content.scss */
 #contentContainer .contentItem.demos .chevrons {
   background: url("../content/images/chevrons_4-7.png") no-repeat top left !important;
 }
-/* line 227, ../sass/_content.scss */
+/* line 235, ../sass/_content.scss */
 #contentContainer .contentItem.projects .chevrons {
   background: url("../content/images/chevrons_5-7.png") no-repeat top left !important;
 }
-/* line 228, ../sass/_content.scss */
+/* line 236, ../sass/_content.scss */
 #contentContainer .contentItem.portfolios .chevrons {
   background: url("../content/images/chevrons_6-7.png") no-repeat top left !important;
 }
-/* line 229, ../sass/_content.scss */
+/* line 237, ../sass/_content.scss */
 #contentContainer .contentItem.games .chevrons {
   background: url("../content/images/chevrons_7-7.png") no-repeat top left !important;
 }
-/* line 232, ../sass/_content.scss */
+/* line 240, ../sass/_content.scss */
 #contentContainer .contentItem section#exemplars, #contentContainer .contentItem section#moreinfo {
   display: none;
 }
-/* line 243, ../sass/_content.scss */
+/* line 251, ../sass/_content.scss */
 #contentContainer p, #contentContainer li {
   margin-top: 0;
   font-size: 12px;
   line-height: 1.6em;
   color: #666;
 }
-/* line 250, ../sass/_content.scss */
+/* line 258, ../sass/_content.scss */
 #contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4, #contentContainer h5, #contentContainer h6 {
   color: #666666;
   font-weight: normal;
 }
-/* line 255, ../sass/_content.scss */
+/* line 263, ../sass/_content.scss */
 #contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4 {
   text-transform: uppercase;
   margin: 0 0 0.5em 0;
 }
-/* line 260, ../sass/_content.scss */
+/* line 268, ../sass/_content.scss */
 #contentContainer h1 {
   font-size: 30px;
   line-height: 36px;
   color: #006da4;
 }
-/* line 266, ../sass/_content.scss */
+/* line 274, ../sass/_content.scss */
 #contentContainer p + h2, #contentContainer ul + h2 {
   margin-top: 2em;
 }
-/* line 270, ../sass/_content.scss */
+/* line 278, ../sass/_content.scss */
 #contentContainer h2 {
   font-size: 20px;
   line-height: 1.2em;
 }
-/* line 275, ../sass/_content.scss */
+/* line 283, ../sass/_content.scss */
 #contentContainer h3 {
   font-size: 14px;
   line-height: 24px;
 }
-/* line 280, ../sass/_content.scss */
+/* line 288, ../sass/_content.scss */
 #contentContainer h4 {
   font-size: 12px;
   font-weight: bold;
 }
-/* line 285, ../sass/_content.scss */
+/* line 293, ../sass/_content.scss */
 #contentContainer h5 {
   font-size: 12px;
   font-weight: bold;
 }
-/* line 290, ../sass/_content.scss */
+/* line 298, ../sass/_content.scss */
 #contentContainer h6 {
   font-size: 9px;
 }
-/* line 294, ../sass/_content.scss */
+/* line 302, ../sass/_content.scss */
 #contentContainer li {
   line-height: 16px;
   font-size: 11px;
 }
-/* line 301, ../sass/_content.scss */
+/* line 309, ../sass/_content.scss */
 #contentContainer #content {
   width: 100%;
   padding: 10px 50px;
   margin: 0 auto;
   display: block;
 }
-/* line 308, ../sass/_content.scss */
+/* line 316, ../sass/_content.scss */
 #contentContainer #col_1 {
   width: 580px;
   float: left;
   margin-right: 10px;
 }
-/* line 314, ../sass/_content.scss */
+/* line 322, ../sass/_content.scss */
 #contentContainer #col_2 {
   width: 300px;
   float: left;
   margin-left: 10px;
 }
-/* line 320, ../sass/_content.scss */
+/* line 328, ../sass/_content.scss */
 #contentContainer #col_3 {
   width: 700px;
   float: left;
   margin-right: 10px;
 }
-/* line 326, ../sass/_content.scss */
+/* line 334, ../sass/_content.scss */
 #contentContainer #content h2 {
   line-height: 32px;
   font-size: 20px;
   text-transform: uppercase;
 }
-/* line 332, ../sass/_content.scss */
+/* line 340, ../sass/_content.scss */
 #contentContainer #bandbar {
   margin: 0px -380px 0px -50px;
   padding: 10px 380px 10px 50px;
   background-color: rgba(0, 153, 255, 0.15);
 }
-/* line 340, ../sass/_content.scss */
+/* line 348, ../sass/_content.scss */
 #contentContainer img.inline {
   position: relative;
   display: block;
   border: 1px solid #333;
   margin: 5px 0 10px 0;
 }
-/* line 349, ../sass/_content.scss */
+/* line 357, ../sass/_content.scss */
 #contentContainer .banner {
   clear: both;
   text-align: left;
@@ -1859,7 +1865,7 @@ a:active {
   padding: 0px;
   max-height: 200px;
 }
-/* line 357, ../sass/_content.scss */
+/* line 365, ../sass/_content.scss */
 #contentContainer .banner h1 {
   padding: 20px 20px 20px 40px;
   margin: 0px 200px 40px 0px;
