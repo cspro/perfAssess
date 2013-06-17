@@ -15,7 +15,7 @@ var isBrainsharkPlaying = false;
 var hashPrefix = '?page=';
 var debugHistory = false;
 brainsharkURLs = {
-	'home'       : 'http://www.brainshark.com/pearsonschool/vu?pi=zGOze1mO1zBy4Rz0',
+	'intro'      : 'http://www.brainshark.com/pearsonschool/vu?pi=zGOze1mO1zBy4Rz0',
 	'scrtei'     : 'http://www.brainshark.com/pearsonschool/vu?pi=zHMz3tdeNzBy4Rz0&intk=367046328',
 	'essays'     : 'http://www.brainshark.com/pearsonschool/vu?pi=zGDzd3VV5zBy4Rz0&intk=276408450',
 	'tasks'      : 'http://www.brainshark.com/pearsonschool/vu?pi=zFJzBQeIzBy4Rz0&intk=214276015',
