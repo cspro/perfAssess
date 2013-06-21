@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<project name="Compress, Concatenate, and FTP CSS and JS" default="initialize">
+	<target name="get_properties">
+		<property file="ant.properties" />
+		<echo>Properties imported.</echo>
+	</target>
+	<target name="concat_js" depends="get_properties">
+		<concat destfile="${assets_dir}/main.min.js">
+			<filelist id="files" dir="${js_dir}">
+				<file name="vendor/jquery-1.10.1.min.js"/>
+				<file name="vendor/jquery.history.js"/>
+				<file name="main.js"/>
+			</filelist>
+		</concat>
+	</target>
+	<target name="compress_js" depends="concat_js">
+		
+	</target>
+</project>

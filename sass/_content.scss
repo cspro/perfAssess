@@ -188,6 +188,9 @@
           position: relative;
           @include border-bottom-radius(10px);
         }
+        h5 {
+          margin-top: 1.5em;
+        }
         h5:first-of-type {
           margin-top: 0.5em;
         }
@@ -279,7 +282,7 @@
   
   p, li {
     margin-top: 0;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.6em;
     color: #666;
   }
@@ -289,7 +292,7 @@
     font-weight: normal;
   }
   
-  h1, h2, h3, h4 {
+  h1, h2, h3, h4, h5 {
     margin: 0 0 0.5em 0;
   }
   
@@ -328,7 +331,5 @@
   h6 {
     font-size: 0.9em;
   }
-  
-  
 
 }

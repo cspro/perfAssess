@@ -1693,55 +1693,59 @@ a:active {
   border-bottom-right-radius: 10px;
 }
 /* line 191, ../sass/_content.scss */
+#contentContainer .contentItem .accordion dd h5 {
+  margin-top: 1.5em;
+}
+/* line 194, ../sass/_content.scss */
 #contentContainer .contentItem .accordion dd h5:first-of-type {
   margin-top: 0.5em;
 }
-/* line 194, ../sass/_content.scss */
+/* line 197, ../sass/_content.scss */
 #contentContainer .contentItem .accordion dd ul {
   margin-bottom: 1em;
 }
-/* line 202, ../sass/_content.scss */
+/* line 205, ../sass/_content.scss */
 #contentContainer .contentItem .approachPage section #exemplars, #contentContainer .contentItem .approachPage section #moreinfo {
   display: none;
 }
-/* line 205, ../sass/_content.scss */
+/* line 208, ../sass/_content.scss */
 #contentContainer .contentItem .approachPage section hr + article {
   margin-top: 1em;
 }
-/* line 209, ../sass/_content.scss */
+/* line 212, ../sass/_content.scss */
 #contentContainer .contentItem .approachPage hr.subDivider {
   height: 1px !important;
   padding: 0;
   margin: 2em 0;
 }
-/* line 221, ../sass/_content.scss */
+/* line 224, ../sass/_content.scss */
 #contentContainer .contentItem.home h2, #contentContainer .contentItem.home h3 {
   text-transform: uppercase;
 }
-/* line 224, ../sass/_content.scss */
+/* line 227, ../sass/_content.scss */
 #contentContainer .contentItem.home .imageHeader {
   background: url("../content/images/banner_intro.png") no-repeat bottom right;
   padding: 20px 480px 45px 45px;
 }
-/* line 228, ../sass/_content.scss */
+/* line 231, ../sass/_content.scss */
 #contentContainer .contentItem.home aside {
   width: 35%;
   float: right;
   margin-left: 67.5px;
 }
-/* line 236, ../sass/_content.scss */
+/* line 239, ../sass/_content.scss */
 #contentContainer .contentItem.intro .imageHeader {
   background: url("../content/images/banner_frameworks.png") no-repeat center center;
 }
-/* line 239, ../sass/_content.scss */
+/* line 242, ../sass/_content.scss */
 #contentContainer .contentItem.intro h2, #contentContainer .contentItem.intro h3 {
   text-transform: uppercase;
 }
-/* line 245, ../sass/_content.scss */
+/* line 248, ../sass/_content.scss */
 #contentContainer .contentItem.what h2 {
   text-transform: uppercase;
 }
-/* line 248, ../sass/_content.scss */
+/* line 251, ../sass/_content.scss */
 #contentContainer .contentItem.what .imageContent {
   display: block;
   float: right;
@@ -1752,87 +1756,87 @@ a:active {
   box-shadow: 0px 8px 24px rgba(50, 50, 50, 0.5);
   background: transparent url("../content/images/img_what.png") no-repeat top left;
 }
-/* line 260, ../sass/_content.scss */
+/* line 263, ../sass/_content.scss */
 #contentContainer .contentItem.scrtei .chevrons {
   background: url("../content/images/chevrons_1-7.png") no-repeat top left !important;
 }
-/* line 261, ../sass/_content.scss */
+/* line 264, ../sass/_content.scss */
 #contentContainer .contentItem.essays .chevrons {
   background: url("../content/images/chevrons_2-7.png") no-repeat top left !important;
 }
-/* line 262, ../sass/_content.scss */
+/* line 265, ../sass/_content.scss */
 #contentContainer .contentItem.tasks .chevrons {
   background: url("../content/images/chevrons_3-7.png") no-repeat top left !important;
 }
-/* line 263, ../sass/_content.scss */
+/* line 266, ../sass/_content.scss */
 #contentContainer .contentItem.demos .chevrons {
   background: url("../content/images/chevrons_4-7.png") no-repeat top left !important;
 }
-/* line 264, ../sass/_content.scss */
+/* line 267, ../sass/_content.scss */
 #contentContainer .contentItem.projects .chevrons {
   background: url("../content/images/chevrons_5-7.png") no-repeat top left !important;
 }
-/* line 265, ../sass/_content.scss */
+/* line 268, ../sass/_content.scss */
 #contentContainer .contentItem.portfolios .chevrons {
   background: url("../content/images/chevrons_6-7.png") no-repeat top left !important;
 }
-/* line 266, ../sass/_content.scss */
+/* line 269, ../sass/_content.scss */
 #contentContainer .contentItem.games .chevrons {
   background: url("../content/images/chevrons_7-7.png") no-repeat top left !important;
 }
-/* line 269, ../sass/_content.scss */
+/* line 272, ../sass/_content.scss */
 #contentContainer .contentItem section#exemplars, #contentContainer .contentItem section#moreinfo {
   display: none;
 }
-/* line 280, ../sass/_content.scss */
+/* line 283, ../sass/_content.scss */
 #contentContainer p, #contentContainer li {
   margin-top: 0;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.6em;
   color: #666;
 }
-/* line 287, ../sass/_content.scss */
+/* line 290, ../sass/_content.scss */
 #contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4, #contentContainer h5, #contentContainer h6 {
   color: #666666;
   font-weight: normal;
 }
-/* line 292, ../sass/_content.scss */
-#contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4 {
+/* line 295, ../sass/_content.scss */
+#contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4, #contentContainer h5 {
   margin: 0 0 0.5em 0;
 }
-/* line 296, ../sass/_content.scss */
+/* line 299, ../sass/_content.scss */
 #contentContainer h1 {
   text-transform: uppercase;
   font-size: 2.25em;
   line-height: 1em;
   color: #006da4;
 }
-/* line 303, ../sass/_content.scss */
+/* line 306, ../sass/_content.scss */
 #contentContainer p + h2, #contentContainer ul + h2 {
   margin-top: 2em;
 }
-/* line 307, ../sass/_content.scss */
+/* line 310, ../sass/_content.scss */
 #contentContainer h2 {
   text-transform: uppercase;
   font-size: 1.35em;
   line-height: 1.5em;
 }
-/* line 313, ../sass/_content.scss */
+/* line 316, ../sass/_content.scss */
 #contentContainer h3 {
   font-size: 1.15em;
   line-height: 24px;
 }
-/* line 318, ../sass/_content.scss */
+/* line 321, ../sass/_content.scss */
 #contentContainer h4 {
   font-size: 1em;
   font-weight: bold;
 }
-/* line 323, ../sass/_content.scss */
+/* line 326, ../sass/_content.scss */
 #contentContainer h5 {
   font-size: 1em;
   font-weight: bold;
 }
-/* line 328, ../sass/_content.scss */
+/* line 331, ../sass/_content.scss */
 #contentContainer h6 {
   font-size: 0.9em;
 }

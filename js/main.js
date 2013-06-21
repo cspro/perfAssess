@@ -86,19 +86,6 @@ function setMenuState(currPageId) {
 /*== Footer Page Nav ==============================*/
 /*=================================================*/
 
-function loadPageNum(pageNum) {
-	if (pageIds) {
-		if (pageIds.length >= pageNum) {
-			var pageId = pageIds[pageNum];
-		} else {
-			pageId = pageIds[0];
-		}
-		changeHistoryState(pageId);
-	} else {
-		throw new Error("Pages not loaded.");
-	}
-}
-
 function initPageNav() {
 	// Pass encapsulated actions to each button as data, so that click handler can be abstracted
 	var prevAction = function() {if (currPageNum > 0) {loadPageNum(currPageNum-1);}}
@@ -142,6 +129,7 @@ function onContentPageLoad(pageId) {
 	initFloatingMenu();
 	initAccordion(pageId);
 	initBrainshark(pageId);
+	initPageLinks(pageId);
 }
 
 function onContentPageHide(page) {
@@ -193,6 +181,17 @@ function initBrainshark(pageId) {
 	}
 }
 
+function initPageLinks(pageId) {
+	// Find links within this page content that start with "#"
+	var pageLinks = $('.' + pageId + " section a[href^='#']");
+	pageLinks.each(function(index, elem) {
+		var jelem = $(elem);
+		var pageId = getPageIdFromJElem(jelem);
+		jelem.click(pageId, onNavClick);
+	});
+}
+
+
 /*=================================================*/
 /*== Floating Menu ===============================*/
 /*=================================================*/
@@ -227,7 +226,7 @@ function setFloatingMenuState(sectionId) {
 /*=================================================*/
 
 function loadContent(pageId, sectionId) {
-
+	
 	closeMenu();
 	
 	var visChildren = $("#contentContainer").children(':visible');
@@ -314,6 +313,19 @@ function showContentSection(pageId, sectionId, fade) {
 	}
 }
 
+function loadPageNum(pageNum, replaceState) {
+	if (pageIds) {
+		if (pageIds.length >= pageNum) {
+			var pageId = pageIds[pageNum];
+		} else {
+			pageId = pageIds[0];
+		}
+		changeHistoryState(pageId, null, replaceState);
+	} else {
+		throw new Error("Pages not loaded.");
+	}
+}
+
 /*=================================================*/
 /*== History ======================================*/
 /*=================================================*/
@@ -336,6 +348,11 @@ function initHistory() {
 }
 
 function changeHistoryState(pageId, sectionId, replaceState) {
+	// verify pageId, default to first page
+	if (!pageId || (pageIds.indexOf(pageId) < 0)) {
+		pageId = pageIds[0];
+	}
+	
 	var newHash = hashPrefix + (sectionId ? pageId + "_" + sectionId : pageId);
 	History.debug((replaceState?'replace':'push') + 'HistoryState:: pageId: ' + pageId + '; sectionId: ' + sectionId + '; newHash: ' + newHash);
 	var title = "Performance Assessment: " + ucwords(pageId + (sectionId ? ': '+sectionId : ''));
@@ -383,6 +400,11 @@ function getSectionIdFromHash() {
 	return sectionId;
 }
 
+function getSectionIdFromHistory() {
+	var state = History.getState();
+	return state.data.section;
+}
+
 function ucwords (str) {
     return (str + '').replace(/^([a-z])|\s+([a-z])/g, function ($1) {
         return $1.toUpperCase();
@@ -409,7 +431,7 @@ $(document).ready(function() {
 		// Must manually trigger event on initial load
 		History.Adapter.trigger(window, 'statechange');
 	} else {
-		loadPageNum(0);
+		loadPageNum(0, true);
 	}
 	
 });
