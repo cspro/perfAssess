@@ -14,7 +14,7 @@ var isBrainsharkPlaying = false;
 //TODO: Move this out to config file, load in using require.js
 var hashPrefix = '?page=';
 var debugHistory = false;
-brainsharkURLs = {
+var brainsharkURLs = {
 	'intro'      : 'http://www.brainshark.com/pearsonschool/vu?pi=zGOze1mO1zBy4Rz0',
 	'scrtei'     : 'http://www.brainshark.com/pearsonschool/vu?pi=zHMz3tdeNzBy4Rz0&intk=367046328',
 	'essays'     : 'http://www.brainshark.com/pearsonschool/vu?pi=zGDzd3VV5zBy4Rz0&intk=276408450',
@@ -26,7 +26,7 @@ brainsharkURLs = {
 	'default'    : 'http://www.brainshark.com/pearsonschool/vu?pi=zHoz162vWtzBy4Rz0'
 };
 
-brainsharkURLSuffix = '&dm=5&pause=1&nrs=1';
+var brainsharkURLSuffix = '&dm=5&pause=1&nrs=1';
 
 /*=================================================*/
 /*== Navigation Menu ==============================*/

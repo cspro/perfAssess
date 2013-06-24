@@ -5,7 +5,7 @@
 		<echo>Properties imported.</echo>
 	</target>
 	<target name="concat_js" depends="get_properties">
-		<concat destfile="${assets_dir}/main.min.js">
+		<concat destfile="${assets_dir}/combined.js">
 			<filelist id="files" dir="${js_dir}">
 				<file name="vendor/jquery-1.10.1.min.js"/>
 				<file name="vendor/jquery.history.js"/>
@@ -13,7 +13,22 @@
 			</filelist>
 		</concat>
 	</target>
+	<target name="jcompress">
+	</target>
 	<target name="compress_js" depends="concat_js">
-		
+		<java jar="/Tools/closure/compiler.jar" fork="true">
+			<arg value="--compilation_level" /> 
+			<arg value="WHITESPACE_ONLY" />
+			<arg value="--externs" />
+			<arg value="${js_dir}/vendor/externs/jquery-1.9.1.externs.js" />
+			<!-- Replace single dash with double
+			<arg value="-externs" />
+			<arg value="${js_dir}/vendor/externs/history.externs.js" /> 
+			-->
+			<arg value="--js"/>
+			<arg value="${assets_dir}/combined.js" />
+			<arg value="--js_output_file" />
+			<arg value="${assets_dir}/main.min.js" />
+		</java>
 	</target>
 </project>
