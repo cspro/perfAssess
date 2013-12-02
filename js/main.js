@@ -28,6 +28,21 @@ var brainsharkURLs = {
 
 var brainsharkURLSuffix = '&dm=5&pause=1&nrs=1';
 
+var pageData = [
+	{'type' : 'main', 'id' : 'home',      'display' : 'Home'},
+	{'type' : 'header', 'display' : 'About'},
+	{'type' : 'main', 'id' : 'intro',     'display' : 'Intro', },
+	{'type' : 'main', 'id' : 'what',      'display' : 'Performance Assessment'},
+	{'type' : 'header', 'display' : 'Our Approaches'},
+	{'type' : 'main', 'id' : 'scrtei',    'display' : 'Constructed Response &amp; TEI'},
+	{'type' : 'main', 'id' : 'essays',    'display' : 'Essays'},
+	{'type' : 'main', 'id' : 'tasks',     'display' : 'Performance Tasks'},
+	{'type' : 'main', 'id' : 'demos',     'display' : 'Demonstrations'},
+	{'type' : 'main', 'id' : 'projects',  'display' : 'Projects'},
+	{'type' : 'main', 'id' : 'portfolios','display' : 'Portfolios'},
+	{'type' : 'main', 'id' : 'games',     'display' : 'Online Games and Simulations'},
+];
+
 /*=================================================*/
 /*== Navigation Menu ==============================*/
 /*=================================================*/
@@ -39,6 +54,17 @@ function getPageIdFromJElem(jelem) {
 
 function initMenu() {
 	pageIds = [];
+	var menuList = $('#menuList');
+	for (var i=0; i < pageData.length; i++) {
+		var page = pageData[i];
+		if (page.type == "main") {
+			pageIds.push(page.id);
+			var link = menuList.append('<li><a href="#' + page.id + '" role="button" class="menulink">' + page.display + '</a></li>'); 
+		} else if (page.type == 'header') {
+			menuList.append('<li><span class="subhead">' + page.display + '</span></li>'); 
+		}
+	}
+	
 	menuLinks = $('.menulink');
 	menuLinks.each(function(index, elem) {
 		var jelem = $(elem);
@@ -88,11 +114,11 @@ function setMenuState(currPageId) {
 
 function initPageNav() {
 	// Pass encapsulated actions to each button as data, so that click handler can be abstracted
-	var prevAction = function() {if (currPageNum > 0) {loadPageNum(currPageNum-1);}}
+	var prevAction = function() {if (currPageNum > 0) {loadPageNum(currPageNum-1);}};
 	$("#prevPageButton").click({action: prevAction}, onPageNavButtonClick);
-	var homeAction = function() {loadPageNum(0);}
+	var homeAction = function() {loadPageNum(0);};
 	$("#homePageButton").click({action: homeAction}, onPageNavButtonClick);
-	var nextAction = function() {if (currPageNum < pageIds.length-1) {loadPageNum(currPageNum+1);}}
+	var nextAction = function() {if (currPageNum < pageIds.length-1) {loadPageNum(currPageNum+1);}};
 	$("#nextPageButton").click({action: nextAction}, onPageNavButtonClick);
 }
 
@@ -107,15 +133,15 @@ function onPageNavButtonClick(e) {
 
 function setPageNavState(pageNum) {
 	if (pageNum < 1) {
-		$("#prevPageButton").addClass("disabled")
+		$("#prevPageButton").addClass("disabled");
 		$("#homePageButton").addClass("disabled");
 		$("#nextPageButton").removeClass("disabled");
 	} else if (pageNum >= pageIds.length-1) {
-		$("#prevPageButton").removeClass("disabled")
+		$("#prevPageButton").removeClass("disabled");
 		$("#homePageButton").removeClass("disabled");
 		$("#nextPageButton").addClass("disabled");
 	} else {
-		$("#prevPageButton").removeClass("disabled")
+		$("#prevPageButton").removeClass("disabled");
 		$("#homePageButton").removeClass("disabled");
 		$("#nextPageButton").removeClass("disabled");
 	}
