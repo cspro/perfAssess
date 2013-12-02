@@ -3,6 +3,7 @@
 /*=================================================*/
 
 var pageIds = null; // Array of string ids, which are also HTML filenames
+var pages = null; // Map of page metadata
 var currPageNum = 0; // Index of current pageId in array
 var menuLinks = null;
 var cache = {
@@ -54,12 +55,14 @@ function getPageIdFromJElem(jelem) {
 
 function initMenu() {
 	pageIds = [];
+	pages = [];
 	var menuList = $('#menuList');
 	for (var i=0; i < pageData.length; i++) {
 		var page = pageData[i];
 		if (page.type == "main") {
 			pageIds.push(page.id);
-			var link = menuList.append('<li><a href="#' + page.id + '" role="button" class="menulink">' + page.display + '</a></li>'); 
+			var link = menuList.append('<li><a href="#' + page.id + '" role="button" class="menulink">' + page.display + '</a></li>');
+			pages.push({'pageData':page, 'linkEl':link}); 
 		} else if (page.type == 'header') {
 			menuList.append('<li><span class="subhead">' + page.display + '</span></li>'); 
 		}
@@ -69,7 +72,6 @@ function initMenu() {
 	menuLinks.each(function(index, elem) {
 		var jelem = $(elem);
 		var pageId = getPageIdFromJElem(jelem);
-		pageIds.push(pageId);
 		jelem.click(pageId, onNavClick);
 	});
 	$('html').click(function() {
@@ -133,17 +135,18 @@ function onPageNavButtonClick(e) {
 
 function setPageNavState(pageNum) {
 	if (pageNum < 1) {
-		$("#prevPageButton").addClass("disabled");
+		$("#prevPageButton").addClass("disabled").find('.pageButtonText').html('');
 		$("#homePageButton").addClass("disabled");
-		$("#nextPageButton").removeClass("disabled");
+		$("#nextPageButton").removeClass("disabled").find('.pageButtonText').html(pages[pageNum+1].pageData.display);
 	} else if (pageNum >= pageIds.length-1) {
-		$("#prevPageButton").removeClass("disabled");
+		$("#prevPageButton").removeClass("disabled").find('.pageButtonText').html(pages[pageNum-1].pageData.display);
 		$("#homePageButton").removeClass("disabled");
-		$("#nextPageButton").addClass("disabled");
+		$("#nextPageButton").addClass("disabled").find('.pageButtonText').html('');
 	} else {
-		$("#prevPageButton").removeClass("disabled");
+		var prev = $("#prevPageButton")[0]; 
+		$("#prevPageButton").removeClass("disabled").find('.pageButtonText').html(pages[pageNum-1].pageData.display);
 		$("#homePageButton").removeClass("disabled");
-		$("#nextPageButton").removeClass("disabled");
+		$("#nextPageButton").removeClass("disabled").find('.pageButtonText').html(pages[pageNum+1].pageData.display);
 	}
 }
 

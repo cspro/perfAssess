@@ -1407,7 +1407,7 @@ a:active {
 /* line 211, ../sass/main.scss */
 .wrapper > footer .bottomNav a {
   display: inline-block;
-  width: 30px;
+  width: auto;
   border-radius: 6px;
   text-align: center;
   color: #e7e7e7;
@@ -1417,6 +1417,19 @@ a:active {
   transition: all 0.15s ease-in-out;
 }
 /* line 219, ../sass/main.scss */
+.wrapper > footer .bottomNav a .pageButtonIcon {
+  width: 30px;
+  font-size: 30px;
+}
+/* line 223, ../sass/main.scss */
+.wrapper > footer .bottomNav a .pageButtonText {
+  width: 300px;
+  font-size: 12px;
+  line-height: 30px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+/* line 230, ../sass/main.scss */
 .wrapper > footer .bottomNav a:not([class*="disabled"]):not([class*="no-hover"]):hover {
   color: #2aade1;
   cursor: pointer;
@@ -1427,7 +1440,7 @@ a:active {
   -o-transform: translateY(-1px);
   transform: translateY(-1px);
 }
-/* line 225, ../sass/main.scss */
+/* line 236, ../sass/main.scss */
 .wrapper > footer .bottomNav a:not([class*="disabled"]):not([class*="no-hover"]):active {
   color: #1b8fbd;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
@@ -1437,42 +1450,42 @@ a:active {
   -o-transform: translateY(0px);
   transform: translateY(0px);
 }
-/* line 230, ../sass/main.scss */
+/* line 241, ../sass/main.scss */
 .wrapper > footer .bottomNav a.disabled {
   color: #686868;
 }
-/* line 235, ../sass/main.scss */
+/* line 246, ../sass/main.scss */
 .wrapper > footer #pageNav {
-  width: 90px;
-  margin-left: -45px;
+  width: auto;
+  margin-left: -250px;
   bottom: 0;
   left: 50%;
 }
-/* line 241, ../sass/main.scss */
+/* line 252, ../sass/main.scss */
 .wrapper > footer #socialNav {
   display: none;
   font-size: 20px;
   bottom: 0;
   right: 22px;
 }
-/* line 246, ../sass/main.scss */
+/* line 257, ../sass/main.scss */
 .wrapper > footer #socialNav a {
   color: #8e8e8e;
   width: 20px;
   margin-left: 4px;
 }
-/* line 250, ../sass/main.scss */
+/* line 261, ../sass/main.scss */
 .wrapper > footer #socialNav a:not([class*="no-hover"]):hover {
   cursor: pointer;
   color: #e7e7e7;
 }
-/* line 256, ../sass/main.scss */
+/* line 267, ../sass/main.scss */
 .wrapper > footer #copyright {
   color: #8e8e8e;
   font-size: 0.8em;
   letter-spacing: 0.05em;
 }
-/* line 263, ../sass/main.scss */
+/* line 274, ../sass/main.scss */
 .wrapper .disabled {
   cursor: default !important;
 }
@@ -1841,7 +1854,7 @@ a:active {
   font-size: 0.9em;
 }
 
-/* line 271, ../sass/main.scss */
+/* line 282, ../sass/main.scss */
 #log {
   display: block;
   position: fixed;

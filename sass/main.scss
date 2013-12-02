@@ -210,12 +210,23 @@ a {
       font-size: 30px;
       a {
         display: inline-block;
-        width: 30px;
+        width: auto;
         border-radius: 6px;
         text-align: center;
         color: $bottomNavColor;
         margin: 0;
         @include transition (all 0.15s ease-in-out);
+        .pageButtonIcon {
+          width: 30px;
+          font-size: 30px;
+        }
+        .pageButtonText {
+          width: 300px;
+          font-size: 12px;
+          line-height: 30px;
+          vertical-align: middle;
+          text-transform: uppercase;
+        }
         &:not([class*="disabled"]):not([class*="no-hover"]):hover {
           color: $bottomNavHoverColor;
           cursor: pointer;
@@ -233,8 +244,8 @@ a {
       }
     }
     #pageNav {
-      width: 90px;
-      margin-left: -45px;
+      width: auto;
+      margin-left: -250px;
       bottom: 0;
       left: 50%;
     }
