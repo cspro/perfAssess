@@ -221,9 +221,9 @@ a {
           font-size: 30px;
         }
         .pageButtonText {
-          width: 300px;
           font-size: 12px;
-          line-height: 30px;
+          line-height: 12px;
+          padding: 3px;
           vertical-align: middle;
           text-transform: uppercase;
         }
@@ -245,9 +245,33 @@ a {
     }
     #pageNav {
       width: auto;
-      margin-left: -250px;
+      display: table;
+      margin-left: -273px;
+      height: 30px;
+      border-collapse: collapse;
       bottom: 0;
       left: 50%;
+      .tr {
+        display: table-row;
+      }
+      .td {
+        display: table-cell;
+        vertical-align: middle;
+        height: 30px;
+        overflow: hidden;
+        &.prev {
+          width: 250px;
+          text-align: right;
+        }
+        &.home {
+          width: 46px;
+          text-align: center;
+        }
+        &.next {
+          width: 250px;
+          text-align: left;
+        }
+      }
     }
     #socialNav {
       display: none;

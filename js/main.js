@@ -135,15 +135,14 @@ function onPageNavButtonClick(e) {
 
 function setPageNavState(pageNum) {
 	if (pageNum < 1) {
-		$("#prevPageButton").addClass("disabled").find('.pageButtonText').html('');
+		$("#prevPageButton").addClass("disabled").find('.pageButtonText').html('&nbsp;');
 		$("#homePageButton").addClass("disabled");
 		$("#nextPageButton").removeClass("disabled").find('.pageButtonText').html(pages[pageNum+1].pageData.display);
 	} else if (pageNum >= pageIds.length-1) {
 		$("#prevPageButton").removeClass("disabled").find('.pageButtonText').html(pages[pageNum-1].pageData.display);
 		$("#homePageButton").removeClass("disabled");
-		$("#nextPageButton").addClass("disabled").find('.pageButtonText').html('');
+		$("#nextPageButton").addClass("disabled").find('.pageButtonText').html('&nbsp;');
 	} else {
-		var prev = $("#prevPageButton")[0]; 
 		$("#prevPageButton").removeClass("disabled").find('.pageButtonText').html(pages[pageNum-1].pageData.display);
 		$("#homePageButton").removeClass("disabled");
 		$("#nextPageButton").removeClass("disabled").find('.pageButtonText').html(pages[pageNum+1].pageData.display);

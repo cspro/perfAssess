@@ -1423,9 +1423,9 @@ a:active {
 }
 /* line 223, ../sass/main.scss */
 .wrapper > footer .bottomNav a .pageButtonText {
-  width: 300px;
   font-size: 12px;
-  line-height: 30px;
+  line-height: 12px;
+  padding: 3px;
   vertical-align: middle;
   text-transform: uppercase;
 }
@@ -1457,35 +1457,64 @@ a:active {
 /* line 246, ../sass/main.scss */
 .wrapper > footer #pageNav {
   width: auto;
-  margin-left: -250px;
+  display: table;
+  margin-left: -273px;
+  height: 30px;
+  border-collapse: collapse;
   bottom: 0;
   left: 50%;
 }
-/* line 252, ../sass/main.scss */
+/* line 254, ../sass/main.scss */
+.wrapper > footer #pageNav .tr {
+  display: table-row;
+}
+/* line 257, ../sass/main.scss */
+.wrapper > footer #pageNav .td {
+  display: table-cell;
+  vertical-align: middle;
+  height: 30px;
+  overflow: hidden;
+}
+/* line 262, ../sass/main.scss */
+.wrapper > footer #pageNav .td.prev {
+  width: 250px;
+  text-align: right;
+}
+/* line 266, ../sass/main.scss */
+.wrapper > footer #pageNav .td.home {
+  width: 46px;
+  text-align: center;
+}
+/* line 270, ../sass/main.scss */
+.wrapper > footer #pageNav .td.next {
+  width: 250px;
+  text-align: left;
+}
+/* line 276, ../sass/main.scss */
 .wrapper > footer #socialNav {
   display: none;
   font-size: 20px;
   bottom: 0;
   right: 22px;
 }
-/* line 257, ../sass/main.scss */
+/* line 281, ../sass/main.scss */
 .wrapper > footer #socialNav a {
   color: #8e8e8e;
   width: 20px;
   margin-left: 4px;
 }
-/* line 261, ../sass/main.scss */
+/* line 285, ../sass/main.scss */
 .wrapper > footer #socialNav a:not([class*="no-hover"]):hover {
   cursor: pointer;
   color: #e7e7e7;
 }
-/* line 267, ../sass/main.scss */
+/* line 291, ../sass/main.scss */
 .wrapper > footer #copyright {
   color: #8e8e8e;
   font-size: 0.8em;
   letter-spacing: 0.05em;
 }
-/* line 274, ../sass/main.scss */
+/* line 298, ../sass/main.scss */
 .wrapper .disabled {
   cursor: default !important;
 }
@@ -1854,7 +1883,7 @@ a:active {
   font-size: 0.9em;
 }
 
-/* line 282, ../sass/main.scss */
+/* line 306, ../sass/main.scss */
 #log {
   display: block;
   position: fixed;
