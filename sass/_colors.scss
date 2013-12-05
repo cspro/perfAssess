@@ -6,14 +6,18 @@ $primaryLinkHoverColor: saturate(lighten($primaryLinkColor, 15%), 20%);
 $topBarBgColor: #222222;
 $bottomBarBgColor: #3a3a3a;
 $bottomBarTextColor: #8e8e8e;
+$buttonColor: #0E6DA4;
+$buttonHoverColor: #0689B7;
+$buttonTextColor: desaturate(lighten($buttonHoverColor, 35%), 30%);
+$buttonTextHoverColor: lighten($buttonHoverColor, 55%);
 
 $menuBgColor: rgba(255,255,255,0.95);
-$menuBorderColor: #b9b9b9;
+$menuBorderColor: $buttonColor;
 
-$menuButtonBgColor: $menuBorderColor;
-$menuButtonBgHoverColor: #999999;
-$menuButtonTextColor: #333333;
-$menuButtonTextHoverColor: #e0e0e0;
+$menuButtonBgColor: $buttonColor;
+$menuButtonBgHoverColor: $buttonHoverColor;
+$menuButtonTextColor: $buttonTextColor;
+$menuButtonTextHoverColor: $buttonTextHoverColor;
 
 $menuItemTextColor: #222222;
 $menuItemTextHoverColor: #ffffff;

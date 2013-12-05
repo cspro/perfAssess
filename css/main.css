@@ -1225,7 +1225,7 @@ a:active {
 /* line 56, ../sass/main.scss */
 .wrapper > nav #menuWrapper {
   position: relative;
-  float: right;
+  float: left;
   width: 205px;
 }
 /* line 60, ../sass/main.scss */
@@ -1238,15 +1238,15 @@ a:active {
   display: block;
   position: fixed;
   top: 45px;
-  right: 16px;
+  left: 16px;
   z-index: 80;
   width: 205px;
   height: 30px;
   line-height: 30px;
   padding-left: 16px;
-  color: #333333;
+  color: #8acee5;
   text-transform: uppercase;
-  background-color: #b9b9b9;
+  background-color: #0e6da4;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -1257,8 +1257,8 @@ a:active {
 }
 /* line 82, ../sass/main.scss */
 .wrapper > nav #menuWrapper #menuButton:hover {
-  background-color: #999999;
-  color: #e0e0e0;
+  background-color: #0689b7;
+  color: #d8f4fe;
 }
 /* line 86, ../sass/main.scss */
 .wrapper > nav #menuWrapper #menuButton.open {
@@ -1274,7 +1274,7 @@ a:active {
   display: block;
   position: fixed;
   top: 45px;
-  right: 16px;
+  left: 16px;
   max-height: 300px;
   z-index: 70;
   width: 205px;
@@ -1285,7 +1285,7 @@ a:active {
   border-bottom-right-radius: 8px;
   font-size: 0.9em;
   padding: 30px 0 8px 0;
-  border: 1px solid #b9b9b9;
+  border: 1px solid #0e6da4;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   line-height: 1.1em;
   -webkit-transform: translateY(0);
@@ -1604,27 +1604,28 @@ a:active {
 }
 /* line 72, ../sass/_content.scss */
 #contentContainer .contentItem .pageHeader article h1 {
-  padding-top: 0.25em;
+  padding-top: 45px;
 }
 /* line 76, ../sass/_content.scss */
 #contentContainer .contentItem .pageHeader .chevrons {
   display: block;
+  position: absolute;
+  right: 0;
   width: 200px;
   height: 35px;
   margin-top: 6px;
-  margin-left: -45px;
 }
-/* line 85, ../sass/_content.scss */
+/* line 86, ../sass/_content.scss */
 #contentContainer .contentItem .pageBand {
   display: block;
   width: 100%;
   background-color: #e0f0f6;
 }
-/* line 89, ../sass/_content.scss */
+/* line 90, ../sass/_content.scss */
 #contentContainer .contentItem .pageBand article {
   padding: 22.5px;
 }
-/* line 94, ../sass/_content.scss */
+/* line 95, ../sass/_content.scss */
 #contentContainer .contentItem .brainsharkWrapper {
   display: block;
   width: 450px;
@@ -1636,28 +1637,29 @@ a:active {
   border: 1px solid #c2c6c8;
   background: #eaecec;
 }
-/* line 104, ../sass/_content.scss */
+/* line 105, ../sass/_content.scss */
 #contentContainer .contentItem .brainsharkWrapper iframe {
   width: 100%;
   height: 100%;
   border: none;
   overflow: hidden;
 }
-/* line 112, ../sass/_content.scss */
+/* line 113, ../sass/_content.scss */
 #contentContainer .contentItem .spaceBelow {
   margin-bottom: 2em;
 }
-/* line 116, ../sass/_content.scss */
+/* line 117, ../sass/_content.scss */
 #contentContainer .contentItem .floatingMenu {
   position: fixed;
   margin: 0;
   padding: 0;
   z-index: 5;
-  right: 233px;
+  left: 205px;
   top: 45px;
-  min-width: 220px;
+  width: 240px;
+  margin-left: 22%;
 }
-/* line 124, ../sass/_content.scss */
+/* line 126, ../sass/_content.scss */
 #contentContainer .contentItem .floatingMenu a {
   display: inline-block;
   position: relative;
@@ -1669,8 +1671,8 @@ a:active {
   padding: 0 8px;
   font-size: 12px;
   text-align: center;
-  color: #333333;
-  background-color: #b9b9b9;
+  color: #8acee5;
+  background-color: #0e6da4;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -1679,46 +1681,46 @@ a:active {
   -moz-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
 }
-/* line 142, ../sass/_content.scss */
+/* line 144, ../sass/_content.scss */
 #contentContainer .contentItem .floatingMenu a:not([class*="selected"]):not([class*="no-hover"]):hover {
-  background-color: #999999;
-  color: #e0e0e0;
+  background-color: #0689b7;
+  color: #d8f4fe;
   cursor: pointer;
 }
-/* line 147, ../sass/_content.scss */
+/* line 149, ../sass/_content.scss */
 #contentContainer .contentItem .floatingMenu a:not([class*="selected"]):not([class*="no-hover"]):active {
-  background-color: #cccccc;
+  background-color: #2bc3f8;
 }
-/* line 150, ../sass/_content.scss */
+/* line 152, ../sass/_content.scss */
 #contentContainer .contentItem .floatingMenu a.selected {
   color: #444444;
   background-color: rgba(255, 255, 255, 0.5);
   cursor: default !important;
 }
-/* line 158, ../sass/_content.scss */
+/* line 160, ../sass/_content.scss */
 #contentContainer .contentItem .accordion {
   margin: 1em 45px 45px 45px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
 }
-/* line 163, ../sass/_content.scss */
+/* line 165, ../sass/_content.scss */
 #contentContainer .contentItem .accordion dt {
   margin-bottom: 1px;
 }
-/* line 165, ../sass/_content.scss */
+/* line 167, ../sass/_content.scss */
 #contentContainer .contentItem .accordion dt > a {
   padding: 0.75em;
   display: block;
   color: #08171d;
   background-color: #cde6f0;
 }
-/* line 171, ../sass/_content.scss */
+/* line 173, ../sass/_content.scss */
 #contentContainer .contentItem .accordion dt > a:hover {
   color: white;
   background-color: #a5d3e5;
 }
-/* line 178, ../sass/_content.scss */
+/* line 180, ../sass/_content.scss */
 #contentContainer .contentItem .accordion dd {
   padding: 0.75em;
   margin: 0;
@@ -1728,66 +1730,104 @@ a:active {
   overflow-y: auto;
   background-color: #f2f2f2;
 }
-/* line 187, ../sass/_content.scss */
+/* line 189, ../sass/_content.scss */
 #contentContainer .contentItem .accordion dd:last-of-type {
   position: relative;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-/* line 191, ../sass/_content.scss */
+/* line 193, ../sass/_content.scss */
 #contentContainer .contentItem .accordion dd h5 {
   margin-top: 1.5em;
 }
-/* line 194, ../sass/_content.scss */
+/* line 196, ../sass/_content.scss */
 #contentContainer .contentItem .accordion dd h5:first-of-type {
   margin-top: 0.5em;
 }
-/* line 197, ../sass/_content.scss */
+/* line 199, ../sass/_content.scss */
 #contentContainer .contentItem .accordion dd ul {
   margin-bottom: 1em;
 }
-/* line 205, ../sass/_content.scss */
+/* line 207, ../sass/_content.scss */
 #contentContainer .contentItem .approachPage section #exemplars, #contentContainer .contentItem .approachPage section #moreinfo {
   display: none;
 }
-/* line 208, ../sass/_content.scss */
+/* line 210, ../sass/_content.scss */
 #contentContainer .contentItem .approachPage section hr + article {
   margin-top: 1em;
 }
-/* line 212, ../sass/_content.scss */
-#contentContainer .contentItem .approachPage hr.subDivider {
+/* line 216, ../sass/_content.scss */
+#contentContainer .contentItem hr.subDivider {
   height: 1px !important;
   padding: 0;
   margin: 2em 0;
 }
-/* line 224, ../sass/_content.scss */
+/* line 222, ../sass/_content.scss */
+#contentContainer .contentItem .pageButton {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  margin-top: 1em;
+  background-color: #0e6da4;
+  color: #8acee5;
+  border-radius: 10px;
+  margin-right: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+/* line 233, ../sass/_content.scss */
+#contentContainer .contentItem .pageButton:hover {
+  background-color: #0689b7;
+  color: #d8f4fe;
+}
+/* line 237, ../sass/_content.scss */
+#contentContainer .contentItem .pageButton:active {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+/* line 242, ../sass/_content.scss */
+#contentContainer .contentItem .pageButtons {
+  width: 100%;
+  max-width: 500px;
+  padding-top: 1em;
+}
+/* line 246, ../sass/_content.scss */
+#contentContainer .contentItem .pageButtons .pageButton {
+  width: 48%;
+}
+/* line 250, ../sass/_content.scss */
+#contentContainer .contentItem article .pageButtons {
+  padding-top: 0em;
+}
+/* line 260, ../sass/_content.scss */
 #contentContainer .contentItem.home h2, #contentContainer .contentItem.home h3 {
   text-transform: uppercase;
 }
-/* line 227, ../sass/_content.scss */
+/* line 263, ../sass/_content.scss */
 #contentContainer .contentItem.home .imageHeader {
   background: url("../content/images/banner_intro.png") no-repeat bottom right;
   padding: 20px 480px 45px 45px;
 }
-/* line 231, ../sass/_content.scss */
+/* line 267, ../sass/_content.scss */
 #contentContainer .contentItem.home aside {
   width: 35%;
   float: right;
   margin-left: 67.5px;
 }
-/* line 239, ../sass/_content.scss */
+/* line 275, ../sass/_content.scss */
 #contentContainer .contentItem.intro .imageHeader {
   background: url("../content/images/banner_frameworks.png") no-repeat center center;
 }
-/* line 242, ../sass/_content.scss */
+/* line 278, ../sass/_content.scss */
 #contentContainer .contentItem.intro h2, #contentContainer .contentItem.intro h3 {
   text-transform: uppercase;
 }
-/* line 248, ../sass/_content.scss */
+/* line 284, ../sass/_content.scss */
 #contentContainer .contentItem.what h2 {
   text-transform: uppercase;
 }
-/* line 251, ../sass/_content.scss */
+/* line 287, ../sass/_content.scss */
 #contentContainer .contentItem.what .imageContent {
   display: block;
   float: right;
@@ -1798,87 +1838,87 @@ a:active {
   box-shadow: 0px 8px 24px rgba(50, 50, 50, 0.5);
   background: transparent url("../content/images/img_what.png") no-repeat top left;
 }
-/* line 263, ../sass/_content.scss */
+/* line 299, ../sass/_content.scss */
 #contentContainer .contentItem.scrtei .chevrons {
   background: url("../content/images/chevrons_1-7.png") no-repeat top left !important;
 }
-/* line 264, ../sass/_content.scss */
+/* line 300, ../sass/_content.scss */
 #contentContainer .contentItem.essays .chevrons {
   background: url("../content/images/chevrons_2-7.png") no-repeat top left !important;
 }
-/* line 265, ../sass/_content.scss */
+/* line 301, ../sass/_content.scss */
 #contentContainer .contentItem.tasks .chevrons {
   background: url("../content/images/chevrons_3-7.png") no-repeat top left !important;
 }
-/* line 266, ../sass/_content.scss */
+/* line 302, ../sass/_content.scss */
 #contentContainer .contentItem.demos .chevrons {
   background: url("../content/images/chevrons_4-7.png") no-repeat top left !important;
 }
-/* line 267, ../sass/_content.scss */
+/* line 303, ../sass/_content.scss */
 #contentContainer .contentItem.projects .chevrons {
   background: url("../content/images/chevrons_5-7.png") no-repeat top left !important;
 }
-/* line 268, ../sass/_content.scss */
+/* line 304, ../sass/_content.scss */
 #contentContainer .contentItem.portfolios .chevrons {
   background: url("../content/images/chevrons_6-7.png") no-repeat top left !important;
 }
-/* line 269, ../sass/_content.scss */
+/* line 305, ../sass/_content.scss */
 #contentContainer .contentItem.games .chevrons {
   background: url("../content/images/chevrons_7-7.png") no-repeat top left !important;
 }
-/* line 272, ../sass/_content.scss */
+/* line 308, ../sass/_content.scss */
 #contentContainer .contentItem section#exemplars, #contentContainer .contentItem section#moreinfo {
   display: none;
 }
-/* line 283, ../sass/_content.scss */
+/* line 319, ../sass/_content.scss */
 #contentContainer p, #contentContainer li {
   margin-top: 0;
   font-size: 13px;
   line-height: 1.6em;
   color: #666;
 }
-/* line 290, ../sass/_content.scss */
+/* line 326, ../sass/_content.scss */
 #contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4, #contentContainer h5, #contentContainer h6 {
   color: #666666;
   font-weight: normal;
 }
-/* line 295, ../sass/_content.scss */
+/* line 331, ../sass/_content.scss */
 #contentContainer h1, #contentContainer h2, #contentContainer h3, #contentContainer h4, #contentContainer h5 {
   margin: 0 0 0.5em 0;
 }
-/* line 299, ../sass/_content.scss */
+/* line 335, ../sass/_content.scss */
 #contentContainer h1 {
   text-transform: uppercase;
   font-size: 2.25em;
   line-height: 1em;
   color: #006da4;
 }
-/* line 306, ../sass/_content.scss */
+/* line 342, ../sass/_content.scss */
 #contentContainer p + h2, #contentContainer ul + h2 {
   margin-top: 2em;
 }
-/* line 310, ../sass/_content.scss */
+/* line 346, ../sass/_content.scss */
 #contentContainer h2 {
   text-transform: uppercase;
   font-size: 1.35em;
   line-height: 1.5em;
 }
-/* line 316, ../sass/_content.scss */
+/* line 352, ../sass/_content.scss */
 #contentContainer h3 {
   font-size: 1.15em;
   line-height: 24px;
 }
-/* line 321, ../sass/_content.scss */
+/* line 357, ../sass/_content.scss */
 #contentContainer h4 {
   font-size: 1em;
   font-weight: bold;
 }
-/* line 326, ../sass/_content.scss */
+/* line 362, ../sass/_content.scss */
 #contentContainer h5 {
   font-size: 1em;
   font-weight: bold;
 }
-/* line 331, ../sass/_content.scss */
+/* line 367, ../sass/_content.scss */
 #contentContainer h6 {
   font-size: 0.9em;
 }

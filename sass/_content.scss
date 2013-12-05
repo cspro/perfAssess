@@ -70,15 +70,16 @@
       article {
         padding: 0 $contentPadding;
         h1 {
-          padding-top: 0.25em;
+          padding-top: 45px;
         }
       }
       .chevrons {
         display: block;
+        position: absolute;
+        right: 0;
         width: 200px;
         height: 35px;
         margin-top: 6px;
-        margin-left: -$contentPadding;
       }
     }
     
@@ -118,9 +119,10 @@
       margin: 0;
       padding: 0;
       z-index: 5;
-      right: $menuWidth + $menuRightPos + 12px;
+      left: $menuWidth;
       top: $topBarHeight;
-      min-width: 220px;
+      width: 240px;
+      margin-left: 22%;
       a {
         display: inline-block;
         position: relative;
@@ -209,12 +211,46 @@
           margin-top: 1em;
         }
       }
-      hr.subDivider {
-        height: 1px !important;
-        padding: 0;
-        margin: 2em 0;
+    }
+    
+    hr.subDivider {
+      height: 1px !important;
+      padding: 0;
+      margin: 2em 0;
+    }
+    
+    .pageButton {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      margin-top: 1em;
+      background-color: $buttonColor;
+      color: $buttonTextColor;
+      border-radius: 10px;
+      margin-right: 5px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      text-transform: uppercase;
+      @include transition (all 0.25s ease-in-out);
+      &:hover {
+        background-color: $buttonHoverColor;
+        color: $buttonTextHoverColor;
+      }
+      &:active {
+        box-shadow: 0 1px 4px rgba(0,0,0,0.3);
       }
     }
+    
+    .pageButtons {
+      width: 100%;
+      max-width: 500px;
+      padding-top: 1em;
+      .pageButton {
+        width: 48%;
+      }
+    }
+    article .pageButtons {
+      padding-top: 0em;
+    }
+    
     
     // ================================
     // == Page-specific ===============

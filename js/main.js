@@ -49,8 +49,13 @@ var pageData = [
 /*=================================================*/
 
 function getPageIdFromJElem(jelem) {
-	var pageId = jelem.attr('href').replace('#', '');
-	return pageId;
+	var hash = jelem.attr('href').replace('#', '');
+	return getPageIdFromHash(hash);
+}
+
+function getSectionIdFromJElem(jelem) {
+	var hash = jelem.attr('href').replace('#', '');
+	return getSectionIdFromHash(hash);
 }
 
 function initMenu() {
@@ -72,7 +77,7 @@ function initMenu() {
 	menuLinks.each(function(index, elem) {
 		var jelem = $(elem);
 		var pageId = getPageIdFromJElem(jelem);
-		jelem.click(pageId, onNavClick);
+		jelem.click({'pageId':pageId}, onNavClick);
 	});
 	$('html').click(function() {
 		closeMenu(); // Clicking anywhere outside the menu closes the menu
@@ -93,8 +98,12 @@ function closeMenu() {
 }
 
 function onNavClick(e) {
-	var pageId = e.data;
-	changeHistoryState(pageId);
+	var pageId = e.data.pageId ? e.data.pageId : getPageIdFromHistory();
+	if (e.data.sectionId != undefined) {
+		changeHistoryState(pageId, e.data.sectionId);
+	} else {
+		changeHistoryState(pageId);
+	}
 	return false;
 }
 
@@ -215,7 +224,8 @@ function initPageLinks(pageId) {
 	pageLinks.each(function(index, elem) {
 		var jelem = $(elem);
 		var pageId = getPageIdFromJElem(jelem);
-		jelem.click(pageId, onNavClick);
+		var sectionId = getSectionIdFromJElem(jelem);
+		jelem.click({'pageId':pageId, 'sectionId':sectionId}, onNavClick);
 	});
 }
 
@@ -411,9 +421,9 @@ function getWindowHash() {
 	return hash;
 }
 
-function getPageIdFromHash() {
-	var hash = getWindowHash();
-	var pageId = hash.indexOf('_') > 0 ? hash.substr(0, hash.indexOf('_')) : hash;
+function getPageIdFromHash(hash) {
+	var hash = hash ? hash : getWindowHash();
+	var pageId = hash.indexOf('_') >= 0 ? hash.substr(0, hash.indexOf('_')) : hash;
 	return pageId;
 }
 
@@ -422,9 +432,9 @@ function getPageIdFromHistory() {
 	return state.data.page;
 }
 
-function getSectionIdFromHash() {
-	var hash = getWindowHash();
-	var sectionId = hash.indexOf('_') > 0 ? hash.substr(hash.indexOf('_'), hash.length).replace('_', '') : '';
+function getSectionIdFromHash(hash) {
+	var hash = hash ? hash : getWindowHash();
+	var sectionId = hash.indexOf('_') >= 0 ? hash.substr(hash.indexOf('_'), hash.length).replace('_', '') : '';
 	return sectionId;
 }
 

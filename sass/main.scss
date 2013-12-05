@@ -55,7 +55,7 @@ a {
     
     #menuWrapper {
       position: relative;
-      float: right;
+      float: left;
       width: $menuWidth;
       * {
         padding: 0;
@@ -65,7 +65,7 @@ a {
         display: block;
         position: fixed;
         top: $topBarHeight;
-        right: $menuRightPos;
+        left: $menuPos;
         z-index: 80;
         width: $menuWidth;
         height: $menuButtonHeight;
@@ -93,7 +93,7 @@ a {
         display: block;
         position: fixed;
         top: $topBarHeight;
-        right: $menuRightPos;
+        left: $menuPos;
         max-height: 300px;
         z-index: 70;
         width: $menuWidth;
